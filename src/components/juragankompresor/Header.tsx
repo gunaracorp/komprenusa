@@ -115,7 +115,7 @@ export function Header() {
               className="shrink-0"
               aria-label="Juragan Kompresor — kembali ke beranda"
             >
-              <BrandLogo size={44} />
+              <BrandLogo size={44} uid="hdr" />
             </button>
 
             {/* Desktop Nav */}
@@ -240,7 +240,7 @@ export function Header() {
                   <SheetContent side="right" aria-describedby={undefined} className="w-72 p-0">
                     <SheetTitle className="sr-only">{t('header.menuTitle')}</SheetTitle>
                     <div className="p-4 border-b border-teal-800 bg-teal-900 text-white">
-                      <BrandLogo dark size={40} />
+                      <BrandLogo dark size={40} uid="mnu" />
                     </div>
                     <nav className="p-2">
                       {navItems.map((item, i) => (

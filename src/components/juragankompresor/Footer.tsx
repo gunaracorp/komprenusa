@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { useT, type Entry } from '@/lib/i18n';
 import { useLangStore } from '@/stores/lang-store';
 import { BrandLogo } from './BrandLogo';
-import { APP_VERSION_TAG, APP_RELEASE_DATE } from '@/version';
+import { APP_VERSION_TAG, APP_VERSION_CODENAME, APP_RELEASE_DATE } from '@/version';
 
 const quickLinks = [
   { labelKey: 'nav.home', href: '#beranda' },
@@ -145,7 +145,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-1">
-            <BrandLogo dark size={40} className="mb-4" />
+            <BrandLogo dark size={40} className="mb-4" uid="ftr" />
             <p className="text-sm text-gray-400 leading-relaxed mb-4">
               {t('footer.desc')}
             </p>
@@ -355,10 +355,12 @@ export function Footer() {
             <p className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
               <span>© {new Date().getFullYear()} PT Juragan Kompresor. {t('footer.rights')}</span>
               <span
-                className="inline-flex items-center rounded-full border border-gray-700 bg-gray-800/70 px-2 py-0.5 font-mono text-[10px] tracking-wide text-amber-400/90 hover:text-amber-300 hover:border-amber-500/50 transition-colors cursor-help"
-                title={`Versi aplikasi ${APP_VERSION_TAG} — dirilis ${APP_RELEASE_DATE}. Riwayat lengkap: CHANGELOG.md`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-800/70 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-amber-400/90 hover:text-amber-300 hover:border-amber-500/50 transition-colors cursor-help"
+                title={`Versi aplikasi ${APP_VERSION_TAG} · codename ${APP_VERSION_CODENAME} — dirilis ${APP_RELEASE_DATE}. Riwayat lengkap: CHANGELOG.md`}
               >
-                {APP_VERSION_TAG}
+                <span>{APP_VERSION_TAG}</span>
+                <span className="text-gray-600" aria-hidden="true">·</span>
+                <span className="text-teal-300/90">{APP_VERSION_CODENAME}</span>
               </span>
             </p>
             <div className="flex items-center gap-4">

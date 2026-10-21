@@ -36,6 +36,26 @@ const VERSION_PATH = resolve(ROOT, 'VERSION');
 const VERSION_TS_PATH = resolve(ROOT, 'src/version.ts');
 const TIMEZONE = 'Asia/Bangkok';
 
+/**
+ * Pool codename (kebijakan di docs/VERSIONING.md § 9):
+ * - MINOR  : tema "Dingin & Tenaga" — urut sesuai nomor minor, siklus bila habis.
+ * - MAJOR  : tema "Era Nusantara" — nama era baru tiap major.
+ * - PATCH  : mewarisi codename minor-nya (gaya Ubuntu point release).
+ * Override manual: --name "Aurora"
+ */
+const MINOR_POOL = [
+  'Nexus', 'Aurora', 'Blizzard', 'Cryo', 'Glacier', 'Kelvin',
+  'Polar', 'Subzero', 'Tundra', 'Permafrost', 'Avalanche', 'Arctic',
+  'Snowcap', 'Zephyr', 'Iceberg', 'Frostline', 'Cirrus', 'Boreal',
+  'Isobar', 'Absolute', 'Crystal', 'Hailstorm', 'Winteria', 'Frostbyte',
+];
+const MAJOR_POOL = ['Genesis', 'Garuda', 'Nusantara', 'Majapahit', 'Sriwijaya', 'Bhinneka'];
+
+function codenameFor(major, minor, level) {
+  if (level === 'major') return MAJOR_POOL[(major - 1) % MAJOR_POOL.length];
+  return MINOR_POOL[(minor - 3 + MINOR_POOL.length * 100) % MINOR_POOL.length];
+}
+
 // ---------- util ----------
 const log = (msg) => console.log(`\x1b[36m▸\x1b[0m ${msg}`);
 const ok = (msg) => console.log(`\x1b[32m✔\x1b[0m ${msg}`);
@@ -76,17 +96,26 @@ const args = process.argv.slice(2);
 const level = args.find((a) => ['patch', 'minor', 'major'].includes(a));
 const noGit = args.includes('--no-git');
 const forceYes = args.includes('--yes');
+const nameFlagIdx = args.findIndex((a) => a === '--name' || a.startsWith('--name='));
+let nameArg = null;
+if (nameFlagIdx !== -1) {
+  nameArg = args[nameFlagIdx].includes('=')
+    ? args[nameFlagIdx].split('=')[1]
+    : args[nameFlagIdx + 1];
+  nameArg = (nameArg || '').trim() || null;
+}
 
 if (!level) {
   console.error(`
 📦 Juragan Kompresor — Release CLI (SemVer 2.0.0)
 
 Pemakaian:
-  node scripts/release.mjs <patch|minor|major> [--no-git] [--yes]
+  node scripts/release.mjs <patch|minor|major> [--name "Aurora"] [--no-git] [--yes]
 
-  patch → perbaikan bug / penyempurnaan     (v1.2.0 → v1.2.1)
-  minor → fitur baru yang kompatibel        (v1.2.0 → v1.3.0)
-  major → perubahan besar / breaking        (v1.2.0 → v2.0.0)
+  patch → perbaikan bug / penyempurnaan     (v1.2.0 → v1.2.1, mewarisi codename)
+  minor → fitur baru yang kompatibel        (v1.2.0 → v1.3.0, codename otomatis)
+  major → perubahan besar / breaking        (v1.2.0 → v2.0.0, era baru)
+  --name → paksa codename khusus
 `);
   process.exit(1);
 }
@@ -97,6 +126,24 @@ const pkg = JSON.parse(readFileSync(PKG_PATH, 'utf8'));
 const current = pkg.version;
 const next = bump(current, level);
 if (current === next) fail('Versi tidak berubah — tidak ada yang perlu dirilis.');
+
+// ---------- codename ----------
+const m = SemVer.exec(next);
+const [nextMajor, nextMinor] = [Number(m[1]), Number(m[2])];
+let codename;
+if (nameArg) {
+  codename = nameArg.charAt(0).toUpperCase() + nameArg.slice(1);
+} else if (level === 'patch') {
+  // PATCH mewarisi codename rilis minor yang sedang berjalan
+  codename = null;
+  if (existsSync(VERSION_TS_PATH)) {
+    const old = readFileSync(VERSION_TS_PATH, 'utf8');
+    codename = (/APP_VERSION_CODENAME = '([^']+)'/m.exec(old) || [])[1] || null;
+  }
+  codename = codename || codenameFor(nextMajor, nextMinor, 'minor');
+} else {
+  codename = codenameFor(nextMajor, nextMinor, level);
+}
 
 if (!existsSync(CHANGELOG_PATH)) fail('CHANGELOG.md tidak ditemukan di root project.');
 const changelog = readFileSync(CHANGELOG_PATH, 'utf8');
@@ -140,7 +187,7 @@ const newChangelog = [
   ...intro,
   '## [Unreleased]',
   '',
-  `## [${next}] - ${date}`,
+  `## [${next}] - ${date} — ${codename}`,
   sectionBody,
   '',
   ...rest,
@@ -179,25 +226,28 @@ const pkgNext = { ...pkg, version: next };
 
 // ---------- 5) src/version.ts ----------
 const versionTs = `// ⚠️ AUTO-GENERATED oleh scripts/release.mjs — jangan edit manual.
-// Sumber kebenaran: package.json → "version" (${newTag})
+// Sumber kebenaran: package.json → "version" (${newTag} · ${codename})
 // Regenerate: bun run release:patch | release:minor | release:major
 
 export const APP_VERSION = '${next}';
 export const APP_VERSION_TAG = '${newTag}';
+export const APP_VERSION_CODENAME = '${codename}';
+export const APP_RELEASE_LINE = 'v${nextMajor}.${nextMinor} · ${codename}';
+export const APP_VERSION_FULL = '${newTag} (${codename})';
 export const APP_VERSION_LEVEL = '${level}' as const;
 export const APP_RELEASE_DATE = '${date}';
 export const APP_NAME = '${pkg.name ?? 'juragan-kompresor'}';
 `;
 
 // ---------- eksekusi ----------
-log(`Rilis ${level}: ${prevTag} → ${newTag}  (tanggal ${date}, ${TIMEZONE})`);
+log(`Rilis ${level}: ${prevTag} → ${newTag} · codename «${codename}»  (tanggal ${date}, ${TIMEZONE})`);
 
 writeFileSync(CHANGELOG_PATH, footerLinks);
 ok(`CHANGELOG.md disegel: [Unreleased] → [${next}] - ${date}`);
 writeFileSync(PKG_PATH, JSON.stringify(pkgNext, null, 2) + '\n');
 ok(`package.json → "version": "${next}"`);
-writeFileSync(VERSION_PATH, `${newTag}\n`);
-ok(`VERSION → ${newTag}`);
+writeFileSync(VERSION_PATH, `${newTag} (${codename})\n`);
+ok(`VERSION → ${newTag} (${codename})`);
 writeFileSync(VERSION_TS_PATH, versionTs);
 ok(`src/version.ts di-generate (APP_VERSION=${next})`);
 
@@ -217,16 +267,19 @@ if (noGit) {
     warn(`git commit dilewati: ${e.message.split('\n')[0]}`);
   }
   try {
-    execSync(`git tag -a ${newTag} -m ${JSON.stringify(`Release ${newTag} (${date}) — ${level} bump`)}`, {
-      cwd: ROOT,
-      stdio: 'pipe',
-    });
-    ok(`git tag -a ${newTag}`);
+    execSync(
+      `git tag -a ${newTag} -m ${JSON.stringify(`Release ${newTag} (${codename}) — ${date} — ${level} bump`)}`,
+      {
+        cwd: ROOT,
+        stdio: 'pipe',
+      }
+    );
+    ok(`git tag -a ${newTag} (${codename})`);
   } catch (e) {
     warn(`git tag dilewati: ${e.message.split('\n')[0]}`);
   }
 }
 
-console.log(`\n\x1b[35m🎉 Rilis ${newTag} selesai.\x1b[0m`);
+console.log(`\n\x1b[35m🎉 Rilis ${newTag} (${codename}) selesai.\x1b[0m`);
 console.log('   Riwayat lengkap: CHANGELOG.md · Kebijakan: docs/VERSIONING.md');
 console.log(`   Jika perlu dorong ke remote: git push origin main --follow-tags\n`);

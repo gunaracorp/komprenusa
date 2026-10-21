@@ -77,3 +77,31 @@ Changelog Digest:
 - Changed: package.json scripts += release:*; version field kini dikelola release CLI
 - Fixed: -
 - Removed: -
+
+---
+Task ID: 4
+Version: v1.3.1 (Nexus)
+Level: patch
+Agent: Z.ai Code (main orchestrator)
+Task: (a) Adopsi sistem codename rilis — "Nexus" dipilih user untuk v1.3; (b) FIX hydration mismatch pada LogoMark SVG.
+
+Work Log:
+- FIX AKAR HYDRATION: useId() bersifat posisional — NoSSR di Header merender fallback di server vs konten penuh di client → posisi pohon bergeser → id gradien SVG (jk-bg/glow/spoke) tidak cocok saat hydration (error React terlampir user). Solusi: hapus useId(), ganti prop uid statis eksplisit — Header uid="hdr", sheet mobile uid="mnu", Footer uid="ftr" (default "jk"). Deterministik server=client, dokumentasi peringatan di komentar BrandLogo.tsx.
+- Sistem codename gaya Ubuntu/Android di scripts/release.mjs: pool MINOR 24 nama tema "Dingin & Tenaga" (Nexus, Aurora, Blizzard, Cryo, Glacier, Kelvin, …), pool MAJOR 6 era (Genesis, Garuda, Nusantara, …); PATCH mewarisi codename minor (point-release); override --name; index deterministik dari nomor versi.
+- Output script kini menyertakan codename: VERSION ("v1.3.1 (Nexus)"), src/version.ts (+APP_VERSION_CODENAME, APP_RELEASE_LINE, APP_VERSION_FULL), heading CHANGELOG ("## [1.3.1] - 2026-10-22 — Nexus"), anotasi git tag, pesan rilis.
+- docs/VERSIONING.md §8 Kebijakan Codename + tabel riwayat kolom codename (v1.0–v1.2 retroaktif era "Genesis").
+- Badge footer upgrade: "v1.3.1 · Nexus" (versi amber + codename teal, tooltip lengkap).
+- Catat [Unreleased] di CHANGELOG lalu jalankan bun run release:patch → v1.3.1 (Nexus): codename diwariskan otomatis ✓, commit + tag v1.3.1 terpasang.
+- DEBUGGING: setelah release muncul "Export APP_VERSION_CODENAME doesn't exist" — diselidiki: file & path benar; penyebab = console buffer browser berisi log basi pra-rilis + cache Turbopack; pkill next dev + rm -rf .next + restart + console --clear → fresh load ZERO error, ZERO hydration warning.
+- Verifikasi: lint 0 error; agent-browser errors/console bersih (hanya [HMR] connected); badge terlihat desktop; semua route 200.
+
+Stage Summary:
+- v1.3.1 (Nexus) rilis: hydration logo fixed permanen + identitas codename resmi.
+- Keputusan produk: v1.3.x = garis "Nexus" (usulan user diadopsi sebagai codename resmi); v1.4 = Aurora, v1.5 = Blizzard (otomatis); era MAJOR berikut = Garuda (v2).
+- Artefak: BrandLogo.tsx (uid statis), release.mjs (codename engine), VERSIONING.md §8, CHANGELOG [1.3.1], tag v1.3.1.
+
+Changelog Digest:
+- Added: sistem codename rilis + badge versi·codename di footer
+- Fixed: hydration mismatch LogoMark (useId → uid statis)
+- Changed: -
+- Removed: -

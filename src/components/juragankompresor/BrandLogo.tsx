@@ -1,15 +1,23 @@
 'use client';
 
-import { useId } from 'react';
 import { motion } from 'framer-motion';
 
 /**
  * LogoMark — emblem resmi Juragan Kompresor versi inline SVG.
- * Memakai useId() agar id gradien unik saat komponen dipakai di beberapa tempat
- * (header, sheet mobile, footer) sehingga tidak ada tabrakan id di DOM.
+ * PENTING (anti hydration-mismatch): uid WAJIB statis eksplisit per lokasi
+ * pemakaian (mis. 'hdr', 'mnu', 'ftr') — JANGAN memakai useId(), karena
+ * posisi pohon komponen bisa berbeda antara SSR dan client (efek NoSSR)
+ * sehingga id gradien SVG tidak cocok saat hydration.
  */
-export function LogoMark({ size = 44, className = '' }: { size?: number; className?: string }) {
-  const uid = useId().replace(/[:]/g, '');
+export function LogoMark({
+  size = 44,
+  className = '',
+  uid = 'jk',
+}: {
+  size?: number;
+  className?: string;
+  uid?: string;
+}) {
   const bgId = `jk-bg-${uid}`;
   const glowId = `jk-glow-${uid}`;
   const spokeId = `jk-spoke-${uid}`;
@@ -71,6 +79,8 @@ type BrandLogoProps = {
   className?: string;
   /** ukuran emblem dalam px */
   size?: number;
+  /** uid statis unik per lokasi pemakaian (wajib beda antar instance) */
+  uid?: string;
 };
 
 /**
@@ -78,7 +88,7 @@ type BrandLogoProps = {
  * "JURAGAN" solid (slate-900 / putih) + "KOMPRESOR" gradasi emas premium,
  * disertai sub-brand HVAC & Refrigerasi dengan aksen garis emas.
  */
-export function BrandLogo({ dark = false, className = '', size = 44 }: BrandLogoProps) {
+export function BrandLogo({ dark = false, className = '', size = 44, uid = 'jk' }: BrandLogoProps) {
   return (
     <div className={`flex items-center gap-2.5 group ${className}`}>
       {/* Emblem */}
@@ -94,7 +104,7 @@ export function BrandLogo({ dark = false, className = '', size = 44 }: BrandLogo
               : 'ring-black/10 shadow-md shadow-teal-900/10 group-hover:ring-amber-400/60 group-hover:shadow-lg group-hover:shadow-amber-500/20'
           }`}
         >
-          <LogoMark size={size} className="block w-full h-full" />
+          <LogoMark size={size} uid={uid} className="block w-full h-full" />
         </div>
       </motion.div>
 

@@ -171,13 +171,41 @@ package.json "version"   ← SUMBER UTAMA
 
 ---
 
-## 8. Riwayat Versi — Ringkas
+## 8. Kebijakan Codename (Nama Rilis) — gaya Ubuntu/Android
 
-| Versi | Tanggal (Asia/Bangkok) | Ringkasan |
+Setiap **rilis MINOR** mendapat satu **codename** bergaya internasional.
+PATCH mewarisi codename minor yang sedang berjalan (seperti *point release* Ubuntu:
+"20.04.2 LTS (Focal Fossa)"). MAJOR membuka **era baru**.
+
+| Garis rilis | Aturan | Contoh |
 |---|---|---|
-| v1.0.0 | 2026-10-21 | Instalasi repository, situs HVAC live |
-| v1.1.0 | 2026-10-21 | Rebranding total → Juragan Kompresor + warna & logo baru |
-| v1.2.0 | 2026-10-21 | Lockup merek premium di 5 titik sentuh |
-| v1.3.0 | 2026-10-22 | Sistem versioning internasional ini |
+| MINOR `v1.4.0` | Codename otomatis dari pool "Dingin & Tenaga" (urut nomor minor) | v1.3→**Nexus**, v1.4→**Aurora**, v1.5→**Blizzard**, v1.6→**Cryo**, v1.7→**Glacier**, v1.8→**Kelvin** … |
+| PATCH `v1.3.1` | Mewarisi codename minor | v1.3.1 → **Nexus** |
+| MAJOR `v2.0.0` | Era baru dari pool "Nusantara" | v1→era *Genesis*, v2→era **Garuda**, v3→**Nusantara** … |
+| Khusus | `bun run release:minor -- --name "Aurora"` | paksa codename manual |
+
+**Pool MINOR (24):** Nexus · Aurora · Blizzard · Cryo · Glacier · Kelvin · Polar · Subzero · Tundra ·
+Permafrost · Avalanche · Arctic · Snowcap · Zephyr · Iceberg · Frostline · Cirrus · Boreal ·
+Isobar · Absolute · Crystal · Hailstorm · Winteria · Frostbyte
+
+**Pool MAJOR (6):** Genesis · Garuda · Nusantara · Majapahit · Sriwijaya · Bhinneka
+
+Codename tercetak di: `VERSION`, `src/version.ts` (`APP_VERSION_CODENAME`), heading `CHANGELOG.md`,
+anotasi git tag, dan badge footer situs.
+
+---
+
+## 9. Riwayat Versi — Ringkas
+
+| Versi | Codename | Tanggal (Asia/Bangkok) | Ringkasan |
+|---|---|---|---|
+| v1.0.0 | Genesis | 2026-10-21 | Instalasi repository, situs HVAC live |
+| v1.1.0 | Genesis | 2026-10-21 | Rebranding total → Juragan Kompresor + warna & logo baru |
+| v1.2.0 | Genesis | 2026-10-21 | Lockup merek premium di 5 titik sentuh |
+| v1.3.0 | **Nexus** | 2026-10-22 | Sistem versioning internasional ini |
+| v1.3.1 | **Nexus** | 2026-10-22 | Fix hydration mismatch logo + badge codename di footer |
 
 Detail lengkap: lihat [`CHANGELOG.md`](../CHANGELOG.md).
+
+> Catatan: sistem codename resmi dimulai di garis v1.3 — versi sebelumnya
+> retroaktif diberi codename era *Genesis* untuk konsistensi arsip.

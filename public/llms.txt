@@ -1,0 +1,32 @@
+# Juragan Kompresor (JK)
+
+> PT Juragan Kompresor — distributor HVAC resmi sejak 2010 di Kawasan Industri MM2100, Bekasi, Indonesia. Pusat penjualan kompresor AC, AC split, refrigerant, spare part, chiller/VRV/VRF, dan sistem pendingin komersial & industri terlengkap dengan 620+ produk ready stock.
+
+## Ringkasan Bisnis
+- Nama resmi: PT Juragan Kompresor
+- Industri: Distribusi HVAC & Refrigerasi (B2B & B2C)
+- Berdiri: 2010
+- Lokasi: Kawasan Industri MM2100, Bekasi, Jawa Barat, Indonesia
+- Jangkauan: Pengiriman ke 34 provinsi Indonesia
+- Katalog: 620+ produk aktif — 500+ varian kompresor dari 25 brand dunia
+- Garansi: resmi distributor, invoice pajak, dukungan teknis purnajual
+
+## Kategori Produk Utama
+- [Katalog Kompresor AC Terlengkap](https://www.juragankompresor.com/produk): 500+ varian kompresor rotary, twin rotary, DC inverter, scroll, piston hermetik, semi-hermetik, screw, dan condensing unit — Copeland, Daikin, Panasonic, Mitsubishi, LG, Gree, Hitachi, Toshiba, Samsung, Sanyo, Danfoss, Frascold, Bitzer, Fusheng, Tecumseh, Dorin, Maneurop, Kulthorn, Refcomp, GMCC, Highly, Bristol, Carrier, Trane, York.
+- [Beranda](https://www.juragankompresor.com/): AC Split, Kompresor, Refrigerant, Spare Part, Chiller & VRV/VRF, Mesin Pendingin, Pipa & Fitting, Oli & Cairan, Aksesoris AC, Evaporator & Kondensor.
+
+## Fakta Unggulan
+- Distributor resmi sejak 2010 dengan gudang di Kawasan MM2100 Bekasi.
+- Harga distributor untuk kontraktor, developer, reseller, dan proyek volume besar.
+- Semua kompresor original 100% dengan garansi resmi 1 tahun.
+- Konsultasi kapasitas & kelistrikan gratis oleh engineer berpengalaman 15+ tahun.
+- Pemesanan cepat melalui WhatsApp sales resmi.
+
+## Halaman Penting
+- Katalog produk: /produk
+- Detail kompresor: /produk/{slug} (578+ halaman kompresor terindeks)
+- Artikel & insight HVAC: /insights
+- Sitemap XML: /sitemap.xml
+
+## Kebijakan Konten
+Data spesifikasi teknis bersumber dari katalog resmi produsen. Harga yang ditampilkan adalah harga distributor dasar dan dapat berubah; konfirmasikan harga final melalui kanal penjualan resmi.

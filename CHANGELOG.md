@@ -8,6 +8,8 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+
+## [1.4.0] - 2026-10-22 — Aurora
 ### Added
 - **Perpustakaan Logo Kompresor Dunia**: 42 merek terverifikasi dalam 3 kategori (Kompresor Udara 18, Kompresor Pendingin 9, HVAC & AC 15) di `public/logos/` — galeri interaktif `/logo-gallery.html` (pencarian, unduh per logo, ZIP paket lengkap), `manifest.json` metadata lengkap (dimensi, sha256, sumber, hash anti-duplikat)
 - Pipeline kurasi `scripts/logo-library/` (55 merek terkurasi + mesin perakit): rantai sumber presisi — logo infobox Wikipedia → auto-search Wikipedia (anti entitas-salah) → Wikimedia Commons (anti junk) → favicon resmi domain (anti globe-generik) → kurasi image-search; normalisasi sharp seragam (auto-trim, maks 640px, PNG palet 256, alpha transparan dipertahankan)
@@ -74,7 +76,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.3.2...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/prabudanling/bmp/compare/v1.3.2...v1.4.0
 [1.3.2]: https://github.com/prabudanling/bmp/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/prabudanling/bmp/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/prabudanling/bmp/compare/v1.2.0...v1.3.0

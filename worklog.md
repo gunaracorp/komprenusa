@@ -47,3 +47,33 @@ Stage Summary:
 - Lockup merek baru konsisten di 5 titik: Header desktop, sheet mobile, Footer, header /produk, header /insights — emblem teal+emas & wordmark dua-warna (JURAGAN gelap + KOMPRESOR emas).
 - Komponen reusable BrandLogo (dark/size props) siap dipakai halaman lain; LogoMark bisa dipakai terpisah.
 - Palet tetap Deep Teal + Amber Gold; kontras AA pada teks besar (amber-600 di latar putih).
+
+---
+Task ID: 3
+Version: v1.3.0
+Level: minor
+Agent: Z.ai Code (main orchestrator)
+Task: Merancang & menerapkan sistem versioning standar internasional (SemVer + Keep a Changelog + Conventional Commits) untuk seluruh project.
+
+Work Log:
+- Aktifkan peran Release Engineer + Standards Architect; audit kondisi awal: package.json@1.0.0, git 3 commit (0d2ba98 scaffold, 9075349 install+rebrand, deffc0b header rebrand), tanpa tag.
+- Tulis docs/VERSIONING.md: kebijakan resmi — format vMAJOR.MINOR.PATCH, aturan kapan naik MAJOR/MINOR/PATCH (dengan contoh nyata riwayat project), alur rilis 5 langkah, kategori changelog, templat worklog terstruktur, format Conventional Commits, rantai single-source-of-truth (package.json → VERSION → src/version.ts → CHANGELOG → git tag).
+- Tulis CHANGELOG.md format Keep a Changelog 1.1.0 dengan riwayat retroaktif: v1.0.0 (instalasi), v1.1.0 (rebranding + warna + logo + auth), v1.2.0 (BrandLogo premium) — tiap versi dipecah Added/Changed/Fixed/Removed/Security.
+- Bangun scripts/release.mjs (Node ESM, ~250 baris): CLI `release:patch|minor|major` — validasi SemVer, hitung versi berikutnya, segel [Unreleased] → [x.y.z - tanggal Asia/Bangkok], bump package.json, tulis VERSION, generate src/version.ts, perbarui link compare changelog, git commit "chore(release): vX.Y.Z [semver: level]" + git tag -a (flag --no-git / --yes tersedia).
+- Guard rilis: tolak bila [Unreleased] kosong (wajib catat perubahan) — teruji: `node scripts/release.mjs patch` ditolak dengan pesan panduan.
+- Align package.json → 1.2.0 (backfill riwayat), tambah script release/release:patch/release:minor/release:major.
+- Jalankan `bun run release:minor` → v1.3.0 rilis sukses: changelog tersegel, 4 file tersinkron, commit d1a9b70, tag v1.3.0 terpasang.
+- Tag retroaktif: v1.0.0 & v1.1.0 → 9075349, v1.2.0 → deffc0b (annotated, dengan deskripsi rilis).
+- Badge versi amber `v1.3.0` di footer (import APP_VERSION_TAG dari src/version.ts, tooltip tanggal rilis) — terverifikasi desktop & mobile via Agent Browser.
+- Verifikasi akhir: lint 0 error, dev.log semua 200, console/page errors 0.
+
+Stage Summary:
+- Sistem versioning hidup & berkelanjutan: satu perintah `bun run release:patch|minor|major` menghasilkan versi baru + changelog tersegel + tag git otomatis.
+- Artefak: docs/VERSIONING.md, CHANGELOG.md, scripts/release.mjs, VERSION, src/version.ts, 4 git tag (v1.0.0–v1.3.0).
+- Keputusan: zona waktu rilis Asia/Bangkok; src/version.ts auto-generated (dilarang edit manual); MAJOR hanya untuk breaking change.
+
+Changelog Digest:
+- Added: sistem versioning internasional (kebijakan, CLI rilis, badge UI, tag retroaktif)
+- Changed: package.json scripts += release:*; version field kini dikelola release CLI
+- Fixed: -
+- Removed: -

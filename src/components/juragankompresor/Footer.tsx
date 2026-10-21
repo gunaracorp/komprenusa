@@ -8,6 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { useT, type Entry } from '@/lib/i18n';
 import { useLangStore } from '@/stores/lang-store';
 import { BrandLogo } from './BrandLogo';
+import { APP_VERSION_TAG, APP_RELEASE_DATE } from '@/version';
 
 const quickLinks = [
   { labelKey: 'nav.home', href: '#beranda' },
@@ -351,7 +352,15 @@ export function Footer() {
       <div className="border-t border-gray-800/70">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-            <p>© {new Date().getFullYear()} PT Juragan Kompresor. {t('footer.rights')}</p>
+            <p className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+              <span>© {new Date().getFullYear()} PT Juragan Kompresor. {t('footer.rights')}</span>
+              <span
+                className="inline-flex items-center rounded-full border border-gray-700 bg-gray-800/70 px-2 py-0.5 font-mono text-[10px] tracking-wide text-amber-400/90 hover:text-amber-300 hover:border-amber-500/50 transition-colors cursor-help"
+                title={`Versi aplikasi ${APP_VERSION_TAG} — dirilis ${APP_RELEASE_DATE}. Riwayat lengkap: CHANGELOG.md`}
+              >
+                {APP_VERSION_TAG}
+              </span>
+            </p>
             <div className="flex items-center gap-4">
               <a
                 href="https://digiman.id"

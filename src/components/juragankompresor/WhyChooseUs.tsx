@@ -67,10 +67,10 @@ const features = [
 ] as const;
 
 const stats = [
-  { value: 13, suffix: '+', labelKey: 'why.stat.years' },
-  { value: 5000, suffix: '+', labelKey: 'why.stat.projects' },
+  { value: 18, suffix: '+', labelKey: 'why.stat.years' },
+  { value: 7439, suffix: '+', labelKey: 'why.stat.projects' },
   { value: 50, suffix: '+', labelKey: 'why.stat.brands' },
-  { value: 34, suffix: '', labelKey: 'why.stat.provinces' },
+  { value: 38, suffix: '', labelKey: 'why.stat.provinces' },
 ] as const;
 
 function formatNumber(n: number): string {

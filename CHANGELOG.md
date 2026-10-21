@@ -8,6 +8,8 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+### Fixed
+- Statistik blok "Kenapa Memilih Kami" (WhyChooseUs) masih memuat angka lama — diselaraskan dengan data resmi: **13+ → 18+ tahun** pengalaman, **5.000+ → 7.439+ proyek** selesai, **34 → 38 provinsi** terjangkau
 
 ## [1.3.2] - 2026-10-22 — Nexus
 ### Changed

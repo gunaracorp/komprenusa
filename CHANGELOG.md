@@ -9,6 +9,13 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-10-22 — Nexus
+### Added
+- **Sistem codename rilis** (gaya Ubuntu/Android): pool otomatis 24 codename MINOR (Nexus, Aurora, Blizzard, …) + 6 era MAJOR (Genesis, Garuda, Nusantara, …); PATCH mewarisi codename minor; override via `--name`
+- Badge footer kini menampilkan versi + codename (mis. `v1.3.1 · Nexus`)
+### Fixed
+- **Hydration mismatch** pada logo SVG (`useId()` menghasilkan id gradien berbeda antara SSR & client akibat pergeseran posisi pohon oleh `NoSSR`) → diganti uid statis eksplisit per lokasi (`hdr`, `mnu`, `ftr`)
+
 ## [1.3.0] - 2026-10-22
 ### Added
 - Sistem versioning standar internasional: kebijakan `docs/VERSIONING.md` (SemVer 2.0.0, Keep a Changelog 1.1.0, Conventional Commits 1.0.0)
@@ -54,7 +61,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/prabudanling/bmp/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/prabudanling/bmp/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/prabudanling/bmp/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/prabudanling/bmp/compare/v1.0.0...v1.1.0

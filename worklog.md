@@ -25,3 +25,25 @@ Stage Summary:
 - Kredensial admin: admin@juragankompresor.com / juraganadmin2026 (di .env).
 - Skema warna final: Deep Teal (#0F766E/#0D9488) + Amber Gold (#F59E0B) + Slate.
 - Catatan teknis: script maintenance PGlite HARUS via node (bukan bun); folder runtime PostgreSQL kosong tidak ter-track git — bila clone ulang, buat ulang folder (pg_notify dkk.).
+
+---
+Task ID: 2
+Agent: Z.ai Code (main orchestrator)
+Task: Rebranding visual header "Juragan Kompresor" agar terlihat keren & premium (user: teks header lama tidak enak dipandang).
+
+Work Log:
+- Diagnosa: lockup header lama = teks polos text-sm satu warna teal + ikon Snowflake generik dalam kotak kecil → terlihat datar/murah.
+- Buat komponen baru src/components/juragankompresor/BrandLogo.tsx: ekspor LogoMark (emblem SVG inline dari logo.svg dengan useId() anti-tabrakan id) + BrandLogo (lockup lengkap, prop dark & size).
+- Desain wordmark baru: "JURAGAN" extrabold slate-900 (putih pada varian dark) + "KOMPRESOR" gradasi emas bg-clip-text, jarak antar kata gap-[0.22em], sub-brand "HVAC & REFRIGERASI" uppercase tracking-lebar dengan dash emas; emblem responsif hover (tilt -4° + glow emas via framer-motion spring).
+- Wordmark kini TAMPIL di mobile (sebelumnya hidden sm:block) dengan ukuran responsif text-base sm:text-lg — brand terlihat di semua layar.
+- Terapkan di: Header desktop (ganti blok lama), sheet menu mobile (varian dark), Footer (varian dark, hapus lockup lama).
+- FIX BUG STRUKTUR: `</nav>` di Header menutup prematur — link "Katalog kompresor" & "Insight HVAC" berada di luar nav; dipindah ke dalam nav + whitespace-nowrap agar tidak patah 2 baris.
+- Samakan header halaman server-component: /produk (ganti link ArrowLeft teks → emblem next/image unoptimized + wordmark dua-warna) dan /insights (ganti kotak Snowflake → emblem + wordmark, varian dark).
+- Bersihkan import tak terpakai (Snowflake di Header & Footer).
+- Verifikasi Agent Browser: homepage desktop + scrolled (backdrop-blur OK), mobile 390px (lockup muat, header width OK), sheet mobile, footer, /produk, /insights; console & page errors = 0; semua route 200 di dev.log; bun run lint = 0 error.
+- Catatan: dev server sempat mati saat sesi (port 3000 bebas) → di-restart via `bun run dev` background, pulih normal.
+
+Stage Summary:
+- Lockup merek baru konsisten di 5 titik: Header desktop, sheet mobile, Footer, header /produk, header /insights — emblem teal+emas & wordmark dua-warna (JURAGAN gelap + KOMPRESOR emas).
+- Komponen reusable BrandLogo (dark/size props) siap dipakai halaman lain; LogoMark bisa dipakai terpisah.
+- Palet tetap Deep Teal + Amber Gold; kontras AA pada teks besar (amber-600 di latar putih).

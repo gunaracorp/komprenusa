@@ -2,11 +2,12 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Snowflake, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useT, type Entry } from '@/lib/i18n';
 import { useLangStore } from '@/stores/lang-store';
+import { BrandLogo } from './BrandLogo';
 
 const quickLinks = [
   { labelKey: 'nav.home', href: '#beranda' },
@@ -143,19 +144,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-teal flex items-center justify-center">
-                <Snowflake className="h-5 w-5 text-white" />
-              </div>
-              <div>
-                <div className="font-bold text-sm text-white leading-tight">
-                  JURAGAN KOMPRESOR
-                </div>
-                <div className="text-[9px] text-teal-300 tracking-wider uppercase">
-                  HVAC & Refrigerasi
-                </div>
-              </div>
-            </div>
+            <BrandLogo dark size={40} className="mb-4" />
             <p className="text-sm text-gray-400 leading-relaxed mb-4">
               {t('footer.desc')}
             </p>

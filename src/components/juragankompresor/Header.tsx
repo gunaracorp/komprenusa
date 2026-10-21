@@ -10,7 +10,6 @@ import {
   Menu,
   ShoppingCart,
   Phone,
-  Snowflake,
   Search,
   Mail,
   X,
@@ -18,6 +17,7 @@ import {
 import { useCartStore } from '@/stores/cart-store';
 import { useT, type DictKey } from '@/lib/i18n';
 import { LangSwitcher } from './LangSwitcher';
+import { BrandLogo } from './BrandLogo';
 
 const navItems = [
   { labelKey: 'nav.home', href: '#beranda' },
@@ -112,28 +112,10 @@ export function Header() {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('#beranda')}
-              className="flex items-center gap-2 group"
+              className="shrink-0"
+              aria-label="Juragan Kompresor — kembali ke beranda"
             >
-              <motion.div
-                className="w-10 h-10 rounded-lg bg-gradient-teal flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300"
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div
-                  className="text-white"
-                  whileHover={{ rotate: [0, -120, 240, 360] }}
-                  transition={{ duration: 0.6, ease: 'easeInOut' }}
-                >
-                  <Snowflake className="h-6 w-6" />
-                </motion.div>
-              </motion.div>
-              <div className="hidden sm:block">
-                <div className="font-bold text-sm leading-tight text-teal-800">
-                  JURAGAN KOMPRESOR
-                </div>
-                <div className="text-[10px] font-medium text-teal-600 tracking-wider uppercase">
-                  HVAC & Refrigerasi
-                </div>
-              </div>
+              <BrandLogo size={44} />
             </button>
 
             {/* Desktop Nav */}
@@ -147,15 +129,15 @@ export function Header() {
                   {t(item.labelKey)}
                 </button>
               ))}
-  </nav>
-              <a href="/produk" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-700 rounded-lg hover:bg-teal-50 transition-all duration-200">
+              <a href="/produk" className="px-3 py-2 text-sm font-medium whitespace-nowrap text-gray-700 hover:text-teal-700 rounded-lg hover:bg-teal-50 transition-all duration-200">
                 Katalog kompresor
               </a>
-              <a href="/insights" className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-700 rounded-lg hover:bg-teal-50 transition-all duration-200">
+              <a href="/insights" className="px-3 py-2 text-sm font-medium whitespace-nowrap text-gray-700 hover:text-teal-700 rounded-lg hover:bg-teal-50 transition-all duration-200">
                 Insight HVAC
               </a>
-              
-              {/* Actions */}
+            </nav>
+
+            {/* Actions */}
             <div className="flex items-center gap-2">
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <Button
@@ -257,16 +239,8 @@ export function Header() {
                   </SheetTrigger>
                   <SheetContent side="right" aria-describedby={undefined} className="w-72 p-0">
                     <SheetTitle className="sr-only">{t('header.menuTitle')}</SheetTitle>
-                    <div className="p-4 border-b bg-teal-900 text-white">
-                      <div className="flex items-center gap-2">
-                        <Snowflake className="h-6 w-6" />
-                        <div>
-                          <div className="font-bold text-sm">JURAGAN KOMPRESOR</div>
-                          <div className="text-[10px] text-teal-200 tracking-wider">
-                            HVAC & REFRIGERASI
-                          </div>
-                        </div>
-                      </div>
+                    <div className="p-4 border-b border-teal-800 bg-teal-900 text-white">
+                      <BrandLogo dark size={40} />
                     </div>
                     <nav className="p-2">
                       {navItems.map((item, i) => (

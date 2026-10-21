@@ -23,7 +23,7 @@ export default async function InsightsPage() {
     <main className="min-h-screen bg-[#f7faf9] text-slate-950">
       <header className="border-b border-white/10 bg-teal-950 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
-          <Link href="/" className="inline-flex items-center gap-2.5 font-semibold tracking-tight"><span className="flex size-9 items-center justify-center rounded-xl bg-white/10"><Snowflake aria-hidden="true" className="size-5" /></span>Juragan Kompresor</Link>
+          <Link href="/" className="group inline-flex items-center gap-2.5 font-semibold tracking-tight"><Image src="/images/logo.svg" alt="Logo Juragan Kompresor" width={36} height={36} unoptimized className="rounded-xl shadow-md shadow-black/20 ring-1 ring-white/20 transition duration-300 group-hover:ring-amber-400/70" /><span className="font-extrabold tracking-tight">JURAGAN <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent">KOMPRESOR</span></span></Link>
           <nav aria-label="Navigasi insight" className="flex items-center gap-4 text-sm"><Link href="/" className="text-white/75 transition hover:text-white">Beranda</Link><Link href="/admin/login" className="rounded-lg border border-white/20 px-3 py-2 font-medium text-white transition hover:bg-white/10">Admin</Link></nav>
         </div>
       </header>

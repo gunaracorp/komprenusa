@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Search, SlidersHorizontal } from 'lucide-react';
 import { getCatalogProductsPage, getPublicCategories } from '@/lib/cms-db';
@@ -77,8 +78,18 @@ export default async function ProductCatalogPage({ searchParams }: PageProps) {
     <main className="min-h-screen bg-[#f5f8f7] text-slate-950">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-teal-800">
-            <ArrowLeft aria-hidden="true" className="size-4" /> Juragan Kompresor
+          <Link href="/" className="group inline-flex items-center gap-2.5">
+            <Image
+              src="/images/logo.svg"
+              alt="Logo Juragan Kompresor"
+              width={36}
+              height={36}
+              unoptimized
+              className="rounded-lg shadow-sm ring-1 ring-black/10 transition duration-300 group-hover:ring-amber-400/60"
+            />
+            <span className="font-extrabold tracking-tight text-slate-900">
+              JURAGAN <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 bg-clip-text text-transparent">KOMPRESOR</span>
+            </span>
           </Link>
           <div className="flex items-center gap-3">
             <span className="rounded-lg bg-teal-950 px-2 py-1.5 font-bold text-sm text-teal-50 tracking-wide">JK</span>

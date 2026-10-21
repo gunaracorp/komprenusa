@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Perpustakaan Logo Kompresor Dunia — Juragan Kompresor</title>
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  :root { --teal:#0f766e; --teal-2:#0d9488; --gold:#f59e0b; --gold-2:#fbbf24; --ink:#0f172a; --muted:#94a3b8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:#020617; color:#e2e8f0; min-height:100vh; }
+  header.hero { padding:48px 24px 28px; text-align:center; background:linear-gradient(180deg,#041e1c 0%,#020617 100%); border-bottom:1px solid #0f2f2d; }
+  .kicker { display:inline-flex; gap:8px; align-items:center; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-2); border:1px solid #3f2d0a; background:#170f02; padding:6px 14px; border-radius:999px; }
+  h1 { margin:18px auto 8px; font-size:clamp(24px,4vw,40px); font-weight:800; color:#f8fafc; }
+  h1 em { font-style:normal; background:linear-gradient(90deg,var(--gold-2),var(--gold)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:var(--muted); font-size:14px; }
+  .stats { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:18px; }
+  .stat { background:#0b1a29; border:1px solid #14324b; border-radius:12px; padding:10px 18px; font-size:13px; }
+  .stat b { color:var(--gold-2); font-size:16px; }
+  nav.bar { position:sticky; top:0; z-index:50; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; padding:12px 16px; background:rgba(2,6,23,.88); backdrop-filter:blur(10px); border-bottom:1px solid #0f2f2d; }
+  #q { width:min(420px,90vw); padding:11px 16px; border-radius:999px; border:1px solid #1e3a5f; background:#0b1a29; color:#e2e8f0; font-size:14px; outline:none; }
+  #q:focus { border-color:var(--teal-2); box-shadow:0 0 0 3px rgba(13,148,136,.25); }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 16px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease; }
+  .btn:hover { transform:translateY(-1px); }
+  .btn-gold { background:linear-gradient(90deg,var(--gold-2),var(--gold)); color:#422006; box-shadow:0 6px 18px rgba(245,158,11,.25); }
+  .btn-ghost { border:1px solid #1e3a5f; color:#93c5fd; background:transparent; }
+  main { max-width:1200px; margin:0 auto; padding:32px 20px 60px; }
+  section.cat { margin-top:44px; }
+  section.cat h2 { font-size:20px; font-weight:800; color:#f1f5f9; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; border-left:4px solid var(--teal-2); padding-left:12px; }
+  section.cat h2 small { font-size:12px; color:var(--muted); font-weight:600; }
+  .grid { margin-top:18px; display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:16px; }
+  .card { background:#0b1524; border:1px solid #16283d; border-radius:16px; overflow:hidden; transition:transform .18s ease, border-color .18s ease; }
+  .card:hover { transform:translateY(-3px); border-color:var(--teal-2); }
+  .tile { background:#fff; height:120px; display:flex; align-items:center; justify-content:center; padding:14px; }
+  .tile img { max-width:100%; max-height:100%; object-fit:contain; }
+  .card-body { padding:12px 14px 14px; }
+  .card-body h3 { font-size:15px; font-weight:700; color:#f8fafc; }
+  .meta { margin-top:5px; font-size:11.5px; color:var(--muted); display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .cc { background:#132a3f; border:1px solid #1e3a5f; color:#7dd3fc; font-weight:700; font-size:10px; padding:2px 7px; border-radius:6px; letter-spacing:.06em; }
+  .actions { margin-top:11px; display:flex; gap:8px; }
+  .actions .btn { padding:7px 12px; font-size:12px; }
+  .warn { margin:26px auto 0; max-width:720px; text-align:center; color:#fcd34d; font-size:13px; }
+  footer { border-top:1px solid #0f2f2d; padding:26px 20px 34px; text-align:center; color:#64748b; font-size:12.5px; line-height:1.7; }
+  .vbadge { display:inline-block; margin-left:6px; padding:3px 10px; border-radius:999px; font-weight:700; font-size:11px; color:var(--gold-2); background:#170f02; border:1px solid #3f2d0a; }
+  .empty { display:none; text-align:center; color:var(--muted); padding:40px 0; }
+  @media (max-width:520px){ .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));} .tile{height:96px;} }
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="kicker">❄ Juragan Kompresor · Perpustakaan Aset</span>
+  <h1>Perpustakaan <em>Logo Kompresor</em> Dunia</h1>
+  <p class="sub">42 merek terkurasi dari 3 kategori — ternormalisasi rapi: auto-trim, maks 640px, PNG seragam, penamaan konsisten.</p>
+  <div class="stats">
+    <span class="stat"><b>18</b> Kompresor Udara</span>
+    <span class="stat"><b>9</b> Kompresor Pendingin</span>
+    <span class="stat"><b>15</b> HVAC &amp; AC</span>
+    <span class="stat"><b>42</b> Total Logo</span>
+  </div>
+</header>
+<nav class="bar">
+  <input id="q" type="search" placeholder="Cari merek… (mis. bitzer, atlas, daikin)" aria-label="Cari merek logo" />
+  <a class="btn btn-gold" href="/logos/juragan-kompresor-logo-library.zip" download>⬇ Unduh Semua (ZIP)</a>
+</nav>
+<main>
+  
+    <section class="cat" id="air-compressor">
+      <h2><span>💨</span> Kompresor Udara <small>Air Compressors · 18 merek</small></h2>
+      <div class="grid">
+        <article class="card" data-name="atlas copco atlas-copco" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/atlas-copco.png" alt="Logo Atlas Copco" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Atlas Copco</h3>
+            <p class="meta"><span class="cc">SE</span> Swedia · 640×307 · 20 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/atlas-copco.png" download="atlas-copco.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Atlas-Copco-Logo.svg/960px-Atlas-Copco-Logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="ingersoll rand ingersoll-rand" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/ingersoll-rand.png" alt="Logo Ingersoll Rand" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Ingersoll Rand</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×142 · 8 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/ingersoll-rand.png" download="ingersoll-rand.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Ingersoll_Rand_logo.svg/960px-Ingersoll_Rand_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="kaeser kompressoren kaeser" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/kaeser.png" alt="Logo KAESER KOMPRESSOREN" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>KAESER KOMPRESSOREN</h3>
+            <p class="meta"><span class="cc">DE</span> Jerman · 640×195 · 10 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/kaeser.png" download="kaeser.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Kaeser_Kompressoren_logo.svg/960px-Kaeser_Kompressoren_logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="sullair sullair" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/sullair.png" alt="Logo Sullair" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Sullair</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×95 · 6 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/sullair.png" download="sullair.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Sullair_logo.svg/960px-Sullair_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="chicago pneumatic chicago-pneumatic" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/chicago-pneumatic.png" alt="Logo Chicago Pneumatic" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Chicago Pneumatic</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 335×92 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/chicago-pneumatic.png" download="chicago-pneumatic.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://upload.wikimedia.org/wikipedia/commons/d/d2/Chicago_Pneumatic_CP_Full_Logo.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="compair compair" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/compair.png" alt="Logo CompAir" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>CompAir</h3>
+            <p class="meta"><span class="cc">GB</span> Inggris · 640×160 · 7 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/compair.png" download="compair.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/en/thumb/2/29/CompAir_logo.svg/960px-CompAir_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="elgi equipments elgi" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/elgi.png" alt="Logo ELGi Equipments" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>ELGi Equipments</h3>
+            <p class="meta"><span class="cc">IN</span> India · 640×280 · 8 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/elgi.png" download="elgi.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/ELGi_Equipments_Logo_%282020%29.png/960px-ELGi_Equipments_Logo_%282020%29.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="abac abac" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/abac.png" alt="Logo ABAC" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>ABAC</h3>
+            <p class="meta"><span class="cc">IT</span> Italia · 389×640 · 73 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/abac.png" download="abac.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/fef86ae3e786.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="ceccato ceccato" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/ceccato.png" alt="Logo Ceccato" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Ceccato</h3>
+            <p class="meta"><span class="cc">IT</span> Italia · 640×156 · 37 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/ceccato.png" download="ceccato.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/47e4ed428e5e.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="fiac fiac" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/fiac.png" alt="Logo Fiac" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Fiac</h3>
+            <p class="meta"><span class="cc">IT</span> Italia · 640×147 · 5 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/fiac.png" download="fiac.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Logo_fiac.svg/960px-Logo_fiac.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="mattei mattei" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/mattei.png" alt="Logo Mattei" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Mattei</h3>
+            <p class="meta"><span class="cc">IT</span> Italia · 640×135 · 21 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/mattei.png" download="mattei.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Logo_Mattei.jpg?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="boge boge" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/boge.png" alt="Logo BOGE" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>BOGE</h3>
+            <p class="meta"><span class="cc">DE</span> Jerman · 640×136 · 8 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/boge.png" download="boge.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://upload.wikimedia.org/wikipedia/commons/2/2a/BOGELogoDE.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="almig almig" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/almig.png" alt="Logo ALMiG" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>ALMiG</h3>
+            <p class="meta"><span class="cc">DE</span> Jerman · 272×94 · 14 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/almig.png" download="almig.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://upload.wikimedia.org/wikipedia/commons/9/9f/Almig_Logo.JPG?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="gardner denver gardner-denver" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/gardner-denver.png" alt="Logo Gardner Denver" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Gardner Denver</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×188 · 7 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/gardner-denver.png" download="gardner-denver.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Gardner_Denver_Logo.svg/960px-Gardner_Denver_Logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="quincy compressor quincy" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/quincy.png" alt="Logo Quincy Compressor" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Quincy Compressor</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 153×118 · 11 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/quincy.png" download="quincy.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://t0.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=https%3A%2F%2Fquincycompressor.com&amp;size=256" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="kobelco compressors kobelco" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/kobelco.png" alt="Logo Kobelco Compressors" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Kobelco Compressors</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×137 · 7 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/kobelco.png" download="kobelco.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Kobelco_logo.svg/960px-Kobelco_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="denair denair" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/denair.png" alt="Logo Denair" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Denair</h3>
+            <p class="meta"><span class="cc">CN</span> China · 256×256 · 15 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/denair.png" download="denair.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://t0.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=https%3A%2F%2Fdenair.cn&amp;size=256" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="liutech liutech" data-cat="air-compressor">
+          <div class="tile"><img src="/logos/air-compressor/liutech.png" alt="Logo Liutech" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Liutech</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×271 · 9 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/air-compressor/liutech.png" download="liutech.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/5d410d700b89.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article></div>
+    </section>
+    <section class="cat" id="refrigeration">
+      <h2><span>❄️</span> Kompresor Pendingin <small>Refrigeration Compressors · 9 merek</small></h2>
+      <div class="grid">
+        <article class="card" data-name="bitzer bitzer" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/bitzer.png" alt="Logo BITZER" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>BITZER</h3>
+            <p class="meta"><span class="cc">DE</span> Jerman · 454×159 · 23 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/bitzer.png" download="bitzer.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://upload.wikimedia.org/wikipedia/commons/9/92/BITZER_Logo_Basic_454px_XL_Green-RGB.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="copeland copeland" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/copeland.png" alt="Logo Copeland" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Copeland</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×58 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/copeland.png" download="copeland.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/en/thumb/c/c4/Copeland_%28company%29_logo.png/960px-Copeland_%28company%29_logo.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="danfoss danfoss" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/danfoss.png" alt="Logo Danfoss" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Danfoss</h3>
+            <p class="meta"><span class="cc">DK</span> Denmark · 640×251 · 12 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/danfoss.png" download="danfoss.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Danfoss-Logo.svg/960px-Danfoss-Logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="refcomp refcomp" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/refcomp.png" alt="Logo RefComp" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>RefComp</h3>
+            <p class="meta"><span class="cc">IT</span> Italia · 192×192 · 2 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/refcomp.png" download="refcomp.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://t0.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=https%3A%2F%2Frefcomp.it&amp;size=256" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="kulthorn kirby kulthorn" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/kulthorn.png" alt="Logo Kulthorn Kirby" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Kulthorn Kirby</h3>
+            <p class="meta"><span class="cc">TH</span> Thailand · 640×92 · 8 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/kulthorn.png" download="kulthorn.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Kulthorn_Kirby_Logo.svg/960px-Kulthorn_Kirby_Logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="hanbell hanbell" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/hanbell.png" alt="Logo Hanbell" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Hanbell</h3>
+            <p class="meta"><span class="cc">TW</span> Taiwan · 640×130 · 20 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/hanbell.png" download="hanbell.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a09ddeccf9c5.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="fusheng fusheng" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/fusheng.png" alt="Logo Fusheng" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Fusheng</h3>
+            <p class="meta"><span class="cc">TW</span> Taiwan · 640×375 · 103 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/fusheng.png" download="fusheng.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/a659abbad24d.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="mayekawa mycom mayekawa" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/mayekawa.png" alt="Logo Mayekawa MYCOM" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Mayekawa MYCOM</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 226×144 · 1 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/mayekawa.png" download="mayekawa.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://t0.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=https%3A%2F%2Fmayekawa.com&amp;size=256" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="gea bock gea-bock" data-cat="refrigeration">
+          <div class="tile"><img src="/logos/refrigeration/gea-bock.png" alt="Logo GEA Bock" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>GEA Bock</h3>
+            <p class="meta"><span class="cc">DE</span> Jerman · 640×195 · 3 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/refrigeration/gea-bock.png" download="gea-bock.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/GEA_Logo_2022.svg/960px-GEA_Logo_2022.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article></div>
+    </section>
+    <section class="cat" id="hvac-ac">
+      <h2><span>🏢</span> HVAC & Pendinginan Udara <small>HVAC & Air Conditioning · 15 merek</small></h2>
+      <div class="grid">
+        <article class="card" data-name="carrier carrier" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/carrier.png" alt="Logo Carrier" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Carrier</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×255 · 18 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/carrier.png" download="carrier.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Logo_of_the_Carrier_Corporation.svg/960px-Logo_of_the_Carrier_Corporation.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="trane trane" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/trane.png" alt="Logo Trane" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Trane</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 640×179 · 6 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/trane.png" download="trane.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/TraneTechnologieslogo.svg/960px-TraneTechnologieslogo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="daikin daikin" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/daikin.png" alt="Logo Daikin" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Daikin</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×134 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/daikin.png" download="daikin.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/DAIKIN_logo.svg/960px-DAIKIN_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="mitsubishi electric mitsubishi-electric" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/mitsubishi-electric.png" alt="Logo Mitsubishi Electric" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Mitsubishi Electric</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×552 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/mitsubishi-electric.png" download="mitsubishi-electric.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/960px-Mitsubishi_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="mitsubishi heavy industries mitsubishi-heavy" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/mitsubishi-heavy.png" alt="Logo Mitsubishi Heavy Industries" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Mitsubishi Heavy Industries</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×552 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/mitsubishi-heavy.png" download="mitsubishi-heavy.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/960px-Mitsubishi_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="hitachi air conditioning hitachi-ac" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/hitachi-ac.png" alt="Logo Hitachi Air Conditioning" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Hitachi Air Conditioning</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×103 · 4 KB · PNG</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/hitachi-ac.png" download="hitachi-ac.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/752b2f6a480d.jpg" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="panasonic panasonic" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/panasonic.png" alt="Logo Panasonic" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Panasonic</h3>
+            <p class="meta"><span class="cc">JP</span> Jepang · 640×98 · 6 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/panasonic.png" download="panasonic.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Panasonic_Group_logo.svg/960px-Panasonic_Group_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="lg lg" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/lg.png" alt="Logo LG" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>LG</h3>
+            <p class="meta"><span class="cc">KR</span> Korea Selatan · 640×283 · 9 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/lg.png" download="lg.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/LG_logo_%282014%29.svg/960px-LG_logo_%282014%29.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="samsung samsung" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/samsung.png" alt="Logo Samsung" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Samsung</h3>
+            <p class="meta"><span class="cc">KR</span> Korea Selatan · 640×98 · 6 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/samsung.png" download="samsung.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Samsung_wordmark.svg/960px-Samsung_wordmark.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="gree gree" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/gree.png" alt="Logo Gree" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Gree</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×125 · 6 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/gree.png" download="gree.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Gree_electric_appliances_logo.svg/960px-Gree_electric_appliances_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="midea midea" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/midea.png" alt="Logo Midea" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Midea</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×247 · 9 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/midea.png" download="midea.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Midea.svg/960px-Midea.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="haier haier" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/haier.png" alt="Logo Haier" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Haier</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×198 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/haier.png" download="haier.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Haier_logo.svg/960px-Haier_logo.svg.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="chigo chigo" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/chigo.png" alt="Logo Chigo" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Chigo</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×630 · 77 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/chigo.png" download="chigo.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://z-cdn.chatglm.cn/image-search-mcp/images-ppt/08a6d8ac48c8.png" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="aux aux" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/aux.png" alt="Logo AUX" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>AUX</h3>
+            <p class="meta"><span class="cc">CN</span> China · 640×168 · 4 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/aux.png" download="aux.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Logo_AUX_Air_Conditioner_%28China%29.svg/960px-Logo_AUX_Air_Conditioner_%28China%29.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article>
+        <article class="card" data-name="dunham-bush dunham-bush" data-cat="hvac-ac">
+          <div class="tile"><img src="/logos/hvac-ac/dunham-bush.png" alt="Logo Dunham-Bush" loading="lazy" /></div>
+          <div class="card-body">
+            <h3>Dunham-Bush</h3>
+            <p class="meta"><span class="cc">US</span> Amerika Serikat · 185×192 · 9 KB · PNG · alpha</p>
+            <div class="actions">
+              <a class="btn btn-gold" href="/logos/hvac-ac/dunham-bush.png" download="dunham-bush.png">⬇ Unduh</a>
+              <a class="btn btn-ghost" href="https://t0.gstatic.com/faviconV2?client=SOCIAL&amp;type=FAVICON&amp;fallback_opts=TYPE,SIZE,URL&amp;url=https%3A%2F%2Fdunham-bush.com&amp;size=256" target="_blank" rel="noopener noreferrer">Sumber</a>
+            </div>
+          </div>
+        </article></div>
+    </section>
+  <p class="empty" id="empty">Tidak ada merek yang cocok dengan pencarianmu.</p>
+  <p class="warn">⚠️ 26 merek belum terkumpul: Puma Air Compressors, Swan Air Compressor, Airman, Hitachi Industrial Equipment, Dorin, Frascold, Tecumseh, SABROE, GMCC, Highly, YORK, Toshiba Carrier, Fujitsu General, Puma Air Compressors, Swan Air Compressor, Airman, Hitachi Industrial Equipment, Dorin, Frascold, Tecumseh, SABROE, GMCC, Highly, YORK, Toshiba Carrier, Fujitsu General. Coba jalankan ulang pipeline untuk menambahkannya.</p>
+</main>
+<footer>
+  Seluruh logo adalah merek dagang milik pemiliknya masing-masing — perpustakaan ini untuk referensi/editorial distributor.<br/>
+  Dibangun otomatis oleh pipeline <code>scripts/logo-library</code> · <span class="vbadge">v1.4.0 (Aurora)</span>
+</footer>
+<script>
+  const q = document.getElementById('q'), cards = [...document.querySelectorAll('.card')], secs = [...document.querySelectorAll('section.cat')], empty = document.getElementById('empty');
+  q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase(); let n = 0;
+    cards.forEach(c => { const hit = !v || c.dataset.name.includes(v); c.style.display = hit ? '' : 'none'; if (hit) n++; });
+    secs.forEach(s => { const vis = [...s.querySelectorAll('.card')].some(c => c.style.display !== 'none'); s.style.display = vis ? '' : 'none'; });
+    empty.style.display = n ? 'none' : 'block';
+  });
+</script>
+</body>
+</html>

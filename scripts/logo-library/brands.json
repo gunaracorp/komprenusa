@@ -1,59 +1,756 @@
 [
-  { "slug": "atlas-copco", "name": "Atlas Copco", "country": "Swedia", "cc": "SE", "category": "air-compressor", "query": "Atlas Copco official company logo png", "gl": "us" },
-  { "slug": "ingersoll-rand", "name": "Ingersoll Rand", "country": "Amerika Serikat", "cc": "US", "category": "air-compressor", "query": "Ingersoll Rand official company logo png", "gl": "us" },
-  { "slug": "kaeser", "name": "KAESER KOMPRESSOREN", "country": "Jerman", "cc": "DE", "category": "air-compressor", "query": "KAESER KOMPRESSOREN official company logo png", "gl": "us" },
-  { "slug": "sullair", "name": "Sullair", "country": "Amerika Serikat", "cc": "US", "category": "air-compressor", "query": "Sullair air compressor official brand logo png", "gl": "us" },
-  { "slug": "chicago-pneumatic", "name": "Chicago Pneumatic", "country": "Amerika Serikat", "cc": "US", "category": "air-compressor", "query": "Chicago Pneumatic official brand logo png", "gl": "us" },
-  { "slug": "compair", "name": "CompAir", "country": "Inggris", "cc": "GB", "category": "air-compressor", "query": "CompAir compressors official brand logo png", "gl": "us" },
-  { "slug": "elgi", "name": "ELGi Equipments", "country": "India", "cc": "IN", "category": "air-compressor", "query": "ELGi Equipments official company logo png", "gl": "us" },
-  { "slug": "abac", "name": "ABAC", "country": "Italia", "cc": "IT", "category": "air-compressor", "query": "ABAC compressors official brand logo png", "gl": "us" },
-  { "slug": "ceccato", "name": "Ceccato", "country": "Italia", "cc": "IT", "category": "air-compressor", "query": "Ceccato air compressors official brand logo png", "gl": "us" },
-  { "slug": "fiac", "name": "Fiac", "country": "Italia", "cc": "IT", "category": "air-compressor", "query": "Fiac air compressors official brand logo png", "gl": "us" },
-  { "slug": "mattei", "name": "Mattei", "country": "Italia", "cc": "IT", "category": "air-compressor", "query": "Mattei compressors official brand logo png", "gl": "us" },
-  { "slug": "boge", "name": "BOGE", "country": "Jerman", "cc": "DE", "category": "air-compressor", "query": "BOGE compressors official company logo png", "gl": "us" },
-  { "slug": "almig", "name": "ALMiG", "country": "Jerman", "cc": "DE", "category": "air-compressor", "query": "ALMiG Kompressoren official company logo png", "gl": "us" },
-  { "slug": "gardner-denver", "name": "Gardner Denver", "country": "Amerika Serikat", "cc": "US", "category": "air-compressor", "query": "Gardner Denver official company logo png", "gl": "us" },
-  { "slug": "quincy", "name": "Quincy Compressor", "country": "Amerika Serikat", "cc": "US", "category": "air-compressor", "query": "Quincy Compressor official brand logo png", "gl": "us" },
-  { "slug": "puma", "name": "Puma Air Compressors", "country": "Taiwan", "cc": "TW", "category": "air-compressor", "query": "Puma air compressor brand logo png Taiwan", "gl": "us" },
-  { "slug": "swan", "name": "Swan Air Compressor", "country": "Taiwan", "cc": "TW", "category": "air-compressor", "query": "Swan air compressor brand Taiwan official logo png", "gl": "us" },
-  { "slug": "airman", "name": "Airman", "country": "Jepang", "cc": "JP", "category": "air-compressor", "query": "Airman compressor brand Hokuetsu official logo png", "gl": "us" },
-  { "slug": "kobelco", "name": "Kobelco Compressors", "country": "Jepang", "cc": "JP", "category": "air-compressor", "query": "Kobelco compressor official brand logo png", "gl": "us" },
-  { "slug": "hitachi-compressor", "name": "Hitachi Industrial Equipment", "country": "Jepang", "cc": "JP", "category": "air-compressor", "query": "Hitachi industrial equipment systems official logo png", "gl": "us" },
-  { "slug": "denair", "name": "Denair", "country": "China", "cc": "CN", "category": "air-compressor", "query": "Denair air compressor official brand logo png", "gl": "cn" },
-  { "slug": "liutech", "name": "Liutech", "country": "China", "cc": "CN", "category": "air-compressor", "query": "Liutech air compressor official brand logo png", "gl": "cn" },
-
-  { "slug": "bitzer", "name": "BITZER", "country": "Jerman", "cc": "DE", "category": "refrigeration", "query": "BITZER refrigeration compressor official logo png", "gl": "us" },
-  { "slug": "copeland", "name": "Copeland", "country": "Amerika Serikat", "cc": "US", "category": "refrigeration", "query": "Copeland compressor official company logo png", "gl": "us" },
-  { "slug": "danfoss", "name": "Danfoss", "country": "Denmark", "cc": "DK", "category": "refrigeration", "query": "Danfoss official company logo png", "gl": "us" },
-  { "slug": "dorin", "name": "Dorin", "country": "Italia", "cc": "IT", "category": "refrigeration", "query": "Dorin refrigeration compressors official logo png", "gl": "us" },
-  { "slug": "frascold", "name": "Frascold", "country": "Italia", "cc": "IT", "category": "refrigeration", "query": "Frascold refrigeration compressors official logo png", "gl": "us" },
-  { "slug": "refcomp", "name": "RefComp", "country": "Italia", "cc": "IT", "category": "refrigeration", "query": "RefComp refrigeration screw compressor logo png", "gl": "us" },
-  { "slug": "kulthorn", "name": "Kulthorn Kirby", "country": "Thailand", "cc": "TH", "category": "refrigeration", "query": "Kulthorn compressor official brand logo png", "gl": "us" },
-  { "slug": "tecumseh", "name": "Tecumseh", "country": "Amerika Serikat", "cc": "US", "category": "refrigeration", "query": "Tecumseh refrigeration compressor official logo png", "gl": "us" },
-  { "slug": "hanbell", "name": "Hanbell", "country": "Taiwan", "cc": "TW", "category": "refrigeration", "query": "Hanbell refrigeration screw compressor official logo png", "gl": "us" },
-  { "slug": "fusheng", "name": "Fusheng", "country": "Taiwan", "cc": "TW", "category": "refrigeration", "query": "Fusheng compressor official brand logo png", "gl": "us" },
-  { "slug": "mayekawa", "name": "Mayekawa MYCOM", "country": "Jepang", "cc": "JP", "category": "refrigeration", "query": "Mayekawa MYCOM refrigeration compressor official logo png", "gl": "us" },
-  { "slug": "sabroe", "name": "SABROE", "country": "Denmark", "cc": "DK", "category": "refrigeration", "query": "SABROE refrigeration compressor official logo png", "gl": "us" },
-  { "slug": "gea-bock", "name": "GEA Bock", "country": "Jerman", "cc": "DE", "category": "refrigeration", "query": "GEA Bock refrigeration compressor official logo png", "gl": "us" },
-  { "slug": "gmcc", "name": "GMCC", "country": "China", "cc": "CN", "category": "refrigeration", "query": "GMCC compressor official brand logo png", "gl": "cn" },
-  { "slug": "highly", "name": "Highly", "country": "China", "cc": "CN", "category": "refrigeration", "query": "Highly refrigeration compressor official brand logo png", "gl": "cn" },
-
-  { "slug": "carrier", "name": "Carrier", "country": "Amerika Serikat", "cc": "US", "category": "hvac-ac", "query": "Carrier HVAC official company logo png", "gl": "us" },
-  { "slug": "trane", "name": "Trane", "country": "Amerika Serikat", "cc": "US", "category": "hvac-ac", "query": "Trane HVAC official company logo png", "gl": "us" },
-  { "slug": "york", "name": "YORK", "country": "Amerika Serikat", "cc": "US", "category": "hvac-ac", "query": "YORK HVAC official brand logo png", "gl": "us" },
-  { "slug": "daikin", "name": "Daikin", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Daikin official company logo png", "gl": "us" },
-  { "slug": "mitsubishi-electric", "name": "Mitsubishi Electric", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Mitsubishi Electric official company logo png", "gl": "us" },
-  { "slug": "mitsubishi-heavy", "name": "Mitsubishi Heavy Industries", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Mitsubishi Heavy Industries official company logo png", "gl": "us" },
-  { "slug": "hitachi-ac", "name": "Hitachi Air Conditioning", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Hitachi air conditioning official brand logo png", "gl": "us" },
-  { "slug": "toshiba-carrier", "name": "Toshiba Carrier", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Toshiba air conditioning official brand logo png", "gl": "us" },
-  { "slug": "panasonic", "name": "Panasonic", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Panasonic official company logo png", "gl": "us" },
-  { "slug": "fujitsu-general", "name": "Fujitsu General", "country": "Jepang", "cc": "JP", "category": "hvac-ac", "query": "Fujitsu General official company logo png", "gl": "us" },
-  { "slug": "lg", "name": "LG", "country": "Korea Selatan", "cc": "KR", "category": "hvac-ac", "query": "LG Electronics official company logo png", "gl": "us" },
-  { "slug": "samsung", "name": "Samsung", "country": "Korea Selatan", "cc": "KR", "category": "hvac-ac", "query": "Samsung Electronics official company logo png", "gl": "us" },
-  { "slug": "gree", "name": "Gree", "country": "China", "cc": "CN", "category": "hvac-ac", "query": "Gree Electric air conditioner official logo png", "gl": "cn" },
-  { "slug": "midea", "name": "Midea", "country": "China", "cc": "CN", "category": "hvac-ac", "query": "Midea official brand logo png", "gl": "cn" },
-  { "slug": "haier", "name": "Haier", "country": "China", "cc": "CN", "category": "hvac-ac", "query": "Haier official brand logo png", "gl": "cn" },
-  { "slug": "chigo", "name": "Chigo", "country": "China", "cc": "CN", "category": "hvac-ac", "query": "Chigo air conditioning official brand logo png", "gl": "cn" },
-  { "slug": "aux", "name": "AUX", "country": "China", "cc": "CN", "category": "hvac-ac", "query": "AUX air conditioner official brand logo png", "gl": "cn" },
-  { "slug": "dunham-bush", "name": "Dunham-Bush", "country": "Amerika Serikat", "cc": "US", "category": "hvac-ac", "query": "Dunham-Bush HVAC official brand logo png", "gl": "us" }
+  {
+    "slug": "atlas-copco",
+    "name": "Atlas Copco",
+    "country": "Swedia",
+    "cc": "SE",
+    "category": "air-compressor",
+    "wiki": "Atlas Copco",
+    "domains": [
+      "atlascopco.com"
+    ],
+    "query": "Atlas Copco official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "ingersoll-rand",
+    "name": "Ingersoll Rand",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "air-compressor",
+    "wiki": "Ingersoll Rand",
+    "domains": [
+      "irco.com"
+    ],
+    "query": "Ingersoll Rand official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "kaeser",
+    "name": "KAESER KOMPRESSOREN",
+    "country": "Jerman",
+    "cc": "DE",
+    "category": "air-compressor",
+    "wiki": "Kaeser Kompressoren",
+    "domains": [
+      "kaeser.com"
+    ],
+    "query": "KAESER KOMPRESSOREN official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "sullair",
+    "name": "Sullair",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "air-compressor",
+    "wiki": "Sullair",
+    "domains": [
+      "sullair.com"
+    ],
+    "query": "Sullair air compressor official brand logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "chicago-pneumatic",
+    "name": "Chicago Pneumatic",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "air-compressor",
+    "wiki": "Chicago Pneumatic",
+    "domains": [
+      "cp.com"
+    ],
+    "query": "Chicago Pneumatic official brand logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "compair",
+    "name": "CompAir",
+    "country": "Inggris",
+    "cc": "GB",
+    "category": "air-compressor",
+    "wiki": "CompAir",
+    "domains": [
+      "compair.com"
+    ],
+    "query": "CompAir compressors official brand logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "elgi",
+    "name": "ELGi Equipments",
+    "country": "India",
+    "cc": "IN",
+    "category": "air-compressor",
+    "wiki": "Elgi Equipments",
+    "domains": [
+      "elgi.com"
+    ],
+    "query": "ELGi Equipments official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "abac",
+    "name": "ABAC",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "abac.com"
+    ],
+    "query": "ABAC compressors official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "ceccato",
+    "name": "Ceccato",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "ceccato.com",
+      "ceccatoairsolutions.com"
+    ],
+    "query": "Ceccato air compressors official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "fiac",
+    "name": "Fiac",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "fiac.it",
+      "fiaccompressors.com"
+    ],
+    "query": "Fiac air compressors official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "mattei",
+    "name": "Mattei",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "mattei.com",
+      "mattei.it"
+    ],
+    "query": "Mattei compressors official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "boge",
+    "name": "BOGE",
+    "country": "Jerman",
+    "cc": "DE",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "boge.com"
+    ],
+    "query": "BOGE compressors official company logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "almig",
+    "name": "ALMiG",
+    "country": "Jerman",
+    "cc": "DE",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "almig.de"
+    ],
+    "query": "ALMiG Kompressoren official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "gardner-denver",
+    "name": "Gardner Denver",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "air-compressor",
+    "wiki": "Gardner Denver",
+    "domains": [
+      "gardnerdenver.com"
+    ],
+    "query": "Gardner Denver official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "quincy",
+    "name": "Quincy Compressor",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "air-compressor",
+    "wiki": "Quincy Compressor",
+    "domains": [
+      "quincycompressor.com"
+    ],
+    "query": "Quincy Compressor official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "puma",
+    "name": "Puma Air Compressors",
+    "country": "Taiwan",
+    "cc": "TW",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [],
+    "query": "Puma air compressor brand logo png Taiwan",
+    "gl": "us",
+    "exclude": true
+  },
+  {
+    "slug": "swan",
+    "name": "Swan Air Compressor",
+    "country": "Taiwan",
+    "cc": "TW",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [],
+    "query": "Swan air compressor brand Taiwan official logo png",
+    "gl": "us",
+    "exclude": true
+  },
+  {
+    "slug": "airman",
+    "name": "Airman",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "airman.co.jp"
+    ],
+    "query": "Airman compressor brand Hokuetsu official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "kobelco",
+    "name": "Kobelco Compressors",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "air-compressor",
+    "wiki": "Kobe Steel",
+    "domains": [
+      "kobelco.co.jp"
+    ],
+    "query": "Kobelco compressor official brand logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "hitachi-compressor",
+    "name": "Hitachi Industrial Equipment",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "hitachi-ies.co.jp"
+    ],
+    "query": "Hitachi industrial equipment systems official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "denair",
+    "name": "Denair",
+    "country": "China",
+    "cc": "CN",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "denair.cn",
+      "denaircompressor.com"
+    ],
+    "query": "Denair air compressor official brand logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "liutech",
+    "name": "Liutech",
+    "country": "China",
+    "cc": "CN",
+    "category": "air-compressor",
+    "wiki": null,
+    "domains": [
+      "liutech.com.cn"
+    ],
+    "query": "Liutech air compressor official brand logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "bitzer",
+    "name": "BITZER",
+    "country": "Jerman",
+    "cc": "DE",
+    "category": "refrigeration",
+    "wiki": "Bitzer SE",
+    "domains": [
+      "bitzer.de"
+    ],
+    "query": "BITZER refrigeration compressor official logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "copeland",
+    "name": "Copeland",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "refrigeration",
+    "wiki": "Copeland (company)",
+    "domains": [
+      "copeland.com"
+    ],
+    "query": "Copeland compressor official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "danfoss",
+    "name": "Danfoss",
+    "country": "Denmark",
+    "cc": "DK",
+    "category": "refrigeration",
+    "wiki": "Danfoss",
+    "domains": [
+      "danfoss.com"
+    ],
+    "query": "Danfoss official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "dorin",
+    "name": "Dorin",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "dorin.it"
+    ],
+    "query": "Dorin refrigeration compressors official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "frascold",
+    "name": "Frascold",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "frascold.it"
+    ],
+    "query": "Frascold refrigeration compressors official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "refcomp",
+    "name": "RefComp",
+    "country": "Italia",
+    "cc": "IT",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "refcomp.it"
+    ],
+    "query": "RefComp refrigeration screw compressor logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "kulthorn",
+    "name": "Kulthorn Kirby",
+    "country": "Thailand",
+    "cc": "TH",
+    "category": "refrigeration",
+    "wiki": "Kulthorn Kirby",
+    "domains": [
+      "kulthorn.com"
+    ],
+    "query": "Kulthorn compressor official brand logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "tecumseh",
+    "name": "Tecumseh",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "refrigeration",
+    "wiki": "Tecumseh Products",
+    "domains": [
+      "tecumseh.com"
+    ],
+    "query": "Tecumseh refrigeration compressor official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "hanbell",
+    "name": "Hanbell",
+    "country": "Taiwan",
+    "cc": "TW",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "hanbell.com.tw"
+    ],
+    "query": "Hanbell refrigeration screw compressor official logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "fusheng",
+    "name": "Fusheng",
+    "country": "Taiwan",
+    "cc": "TW",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "fusheng.com.tw",
+      "fusheng.com"
+    ],
+    "query": "Fusheng compressor official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "mayekawa",
+    "name": "Mayekawa MYCOM",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "refrigeration",
+    "wiki": "Mayekawa Manufacturing",
+    "domains": [
+      "mayekawa.co.jp",
+      "mayekawa.com"
+    ],
+    "query": "Mayekawa MYCOM refrigeration compressor official logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "sabroe",
+    "name": "SABROE",
+    "country": "Denmark",
+    "cc": "DK",
+    "category": "refrigeration",
+    "wiki": "Sabroe",
+    "domains": [
+      "sabroe.com"
+    ],
+    "query": "SABROE refrigeration compressor official logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "gea-bock",
+    "name": "GEA Bock",
+    "country": "Jerman",
+    "cc": "DE",
+    "category": "refrigeration",
+    "wiki": "GEA Group",
+    "domains": [
+      "gea.com"
+    ],
+    "query": "GEA Bock refrigeration compressor official logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "gmcc",
+    "name": "GMCC",
+    "country": "China",
+    "cc": "CN",
+    "category": "refrigeration",
+    "wiki": null,
+    "domains": [
+      "gmcc.net"
+    ],
+    "query": "GMCC compressor official brand logo png",
+    "gl": "cn",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "highly",
+    "name": "Highly",
+    "country": "China",
+    "cc": "CN",
+    "category": "refrigeration",
+    "wiki": "Shanghai Highly",
+    "domains": [
+      "highly.com.cn"
+    ],
+    "query": "Highly refrigeration compressor official brand logo png",
+    "gl": "cn",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "carrier",
+    "name": "Carrier",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "hvac-ac",
+    "wiki": "Carrier Global",
+    "domains": [
+      "carrier.com"
+    ],
+    "query": "Carrier HVAC official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "trane",
+    "name": "Trane",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "hvac-ac",
+    "wiki": "Trane Technologies",
+    "domains": [
+      "trane.com"
+    ],
+    "query": "Trane HVAC official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "york",
+    "name": "YORK",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "hvac-ac",
+    "wiki": "York International",
+    "domains": [
+      "york.com"
+    ],
+    "query": "YORK HVAC official brand logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "daikin",
+    "name": "Daikin",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Daikin",
+    "domains": [
+      "daikin.com"
+    ],
+    "query": "Daikin official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "mitsubishi-electric",
+    "name": "Mitsubishi Electric",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Mitsubishi Electric",
+    "domains": [
+      "mitsubishielectric.com"
+    ],
+    "query": "Mitsubishi Electric official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "mitsubishi-heavy",
+    "name": "Mitsubishi Heavy Industries",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Mitsubishi Heavy Industries",
+    "domains": [
+      "mhi.com"
+    ],
+    "query": "Mitsubishi Heavy Industries official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "hitachi-ac",
+    "name": "Hitachi Air Conditioning",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": null,
+    "domains": [
+      "hitachi-aircon.com"
+    ],
+    "query": "Hitachi air conditioning official brand logo png",
+    "gl": "us",
+    "force": "favicon"
+  },
+  {
+    "slug": "toshiba-carrier",
+    "name": "Toshiba Carrier",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Toshiba Carrier",
+    "domains": [
+      "toshiba-carrier.com"
+    ],
+    "query": "Toshiba air conditioning official brand logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "panasonic",
+    "name": "Panasonic",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Panasonic",
+    "domains": [
+      "panasonic.com"
+    ],
+    "query": "Panasonic official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "fujitsu-general",
+    "name": "Fujitsu General",
+    "country": "Jepang",
+    "cc": "JP",
+    "category": "hvac-ac",
+    "wiki": "Fujitsu General",
+    "domains": [
+      "fujitsu-general.com",
+      "fujitsugeneral.com"
+    ],
+    "query": "Fujitsu General official company logo png",
+    "gl": "us",
+    "force": "favicon",
+    "exclude": true
+  },
+  {
+    "slug": "lg",
+    "name": "LG",
+    "country": "Korea Selatan",
+    "cc": "KR",
+    "category": "hvac-ac",
+    "wiki": "LG Electronics",
+    "domains": [
+      "lg.com"
+    ],
+    "query": "LG Electronics official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "samsung",
+    "name": "Samsung",
+    "country": "Korea Selatan",
+    "cc": "KR",
+    "category": "hvac-ac",
+    "wiki": "Samsung Electronics",
+    "domains": [
+      "samsung.com"
+    ],
+    "query": "Samsung Electronics official company logo png",
+    "gl": "us"
+  },
+  {
+    "slug": "gree",
+    "name": "Gree",
+    "country": "China",
+    "cc": "CN",
+    "category": "hvac-ac",
+    "wiki": "Gree Electric",
+    "domains": [
+      "gree.com",
+      "gree.com.cn"
+    ],
+    "query": "Gree Electric air conditioner official logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "midea",
+    "name": "Midea",
+    "country": "China",
+    "cc": "CN",
+    "category": "hvac-ac",
+    "wiki": "Midea",
+    "domains": [
+      "midea.com",
+      "midea.com.cn"
+    ],
+    "query": "Midea official brand logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "haier",
+    "name": "Haier",
+    "country": "China",
+    "cc": "CN",
+    "category": "hvac-ac",
+    "wiki": "Haier",
+    "domains": [
+      "haier.com"
+    ],
+    "query": "Haier official brand logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "chigo",
+    "name": "Chigo",
+    "country": "China",
+    "cc": "CN",
+    "category": "hvac-ac",
+    "wiki": "Chigo Air Conditioning",
+    "domains": [
+      "chinachigo.com"
+    ],
+    "query": "Chigo air conditioning official brand logo png",
+    "gl": "cn",
+    "force": "favicon"
+  },
+  {
+    "slug": "aux",
+    "name": "AUX",
+    "country": "China",
+    "cc": "CN",
+    "category": "hvac-ac",
+    "wiki": null,
+    "domains": [
+      "auxgroup.com"
+    ],
+    "query": "AUX air conditioner official brand logo png",
+    "gl": "cn"
+  },
+  {
+    "slug": "dunham-bush",
+    "name": "Dunham-Bush",
+    "country": "Amerika Serikat",
+    "cc": "US",
+    "category": "hvac-ac",
+    "wiki": null,
+    "domains": [
+      "dunham-bush.com"
+    ],
+    "query": "Dunham-Bush HVAC official brand logo png",
+    "gl": "us"
+  }
 ]

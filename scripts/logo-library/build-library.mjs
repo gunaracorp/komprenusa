@@ -2,15 +2,20 @@
 /**
  * build-library.mjs — Perakit Perpustakaan Logo Kompresor Dunia
  * ============================================================
- * Pipeline rapi (bukan asal-asalan):
- *   1. Baca hasil image-search (/tmp/logo-search/<slug>.json)
- *   2. Unduh kandidat logo berurutan + validasi magic bytes
- *   3. Normalisasi via sharp: auto-trim pinggiran, max 1200px, PNG seragam
- *   4. Tulis public/logos/<kategori>/<slug>.png
- *   5. Generate manifest.json (metadata lengkap: dimensi, sha256, sumber)
- *   6. Generate galeri HTML (public/logo-gallery.html) + README + ZIP
+ * Rantai sumber presisi (anti asal-asalan):
+ *   1. wiki        — file logo infobox Wikipedia (judul dikurasi manual)
+ *   2. wiki-search — auto-cari judul halaman Wikipedia yg cocok (token nama
+ *                    merek wajib match; file generik & ikon sistem dibuang)
+ *   3. commons     — Wikimedia Commons (atur ketat: nama penuh ATAU token +
+ *                    kata konteks ATAU token+logo utk nama multi-kata)
+ *   4. favicon     — ikon resmi per-domain via gstatic faviconV2 (deteksi
+ *                    ikon-globe-generik via hash probe, min 96px)
+ *   5. search      — hasil kurasi image-search (SWAP QC manual diutamakan)
+ * Lalu: normalisasi sharp (auto-trim, maks 640px, alpha dipertahankan,
+ * PNG palet 256) → manifest.json → galeri HTML → README → ZIP.
  *
  * Jalankan: node scripts/logo-library/build-library.mjs
+ * QC swap : SWAP="slug=idxCandidat" node scripts/logo-library/build-library.mjs
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -24,6 +29,9 @@ const OUT_DIR = path.join(ROOT, 'public/logos');
 const brands = JSON.parse(readFileSync(path.join(ROOT, 'scripts/logo-library/brands.json'), 'utf8'));
 
 const VERSION = 'v1.4.0 (Aurora)';
+const WIKI_API = 'https://en.wikipedia.org/w/api.php';
+const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
+const UA = 'JKLogoBot/1.0 (https://juragankompresor.example; refs@juragankompresor.example)';
 const CATEGORIES = [
   { id: 'air-compressor', label: 'Kompresor Udara', en: 'Air Compressors', icon: '💨' },
   { id: 'refrigeration', label: 'Kompresor Pendingin', en: 'Refrigeration Compressors', icon: '❄️' },
@@ -35,11 +43,11 @@ const catLabel = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
 const sha256 = buf => createHash('sha256').update(buf).digest('hex');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function fetchWithTimeout(url, ms = 30000) {
+async function fetchWithTimeout(url, ms = 30000, ua = UA) {
   const ac = new AbortController();
   const t = setTimeout(() => ac.abort(), ms);
   try {
-    return await fetch(url, { signal: ac.signal, headers: { 'user-agent': 'Mozilla/5.0 (compatible; JKLogoBot/1.0)' } });
+    return await fetch(url, { signal: ac.signal, headers: { 'user-agent': ua } });
   } finally { clearTimeout(t); }
 }
 
@@ -49,25 +57,211 @@ function detectKind(buf, contentType = '') {
   if (buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return 'jpeg';
   if (buf.slice(0, 4).toString() === 'RIFF' && buf.slice(8, 12).toString() === 'WEBP') return 'webp';
   if (buf.slice(0, 4).toString() === 'GIF8') return 'gif';
+  if (buf[0] === 0x00 && buf[1] === 0x00 && buf[2] === 0x01 && buf[3] === 0x00) return 'ico';
   if (buf.slice(4, 12).toString().includes('ftypavif')) return 'avif';
   const head = buf.slice(0, 512).toString('utf8').toLowerCase();
-  if ((head.includes('<svg') || head.includes('<?xml')) && contentType.includes('svg')) return 'svg';
   if (head.includes('<svg')) return 'svg';
   return 'unknown';
 }
 
-/** Normalisasi logo → PNG rapi (trim pinggiran, max 1200px, alpha dipertahankan). */
+const REJECT_KINDS = new Set(['too-small', 'unknown', 'gif', 'ico', 'avif']);
+
+/** Normalisasi logo → PNG rapi: trim pinggiran, maks 640px, alpha dipertahankan, palet hemat. */
 async function normalizeToPng(buf, kind) {
   let img = kind === 'svg' ? sharp(buf, { density: 300 }) : sharp(buf);
   const meta = await img.metadata();
   if (!meta.width || !meta.height) throw new Error('dimensi tidak terbaca');
-  // Auto-trim pinggiran seragam/transparan supaya logo rapat & konsisten
   try { img = img.trim({ threshold: 12 }); } catch { /* gambar solid — lanjut tanpa trim */ }
+  const hasAlpha = Boolean(meta.hasAlpha);
+  img = img.resize({ width: 640, height: 640, fit: 'inside', withoutEnlargement: kind !== 'svg' });
+  // PENTING: flatten HANYA untuk sumber tanpa alpha (JPEG/GIF) — jangan bunuh transparansi PNG/WebP
+  if (!hasAlpha) img = img.flatten({ background: '#ffffff' });
   return img
-    .resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: kind !== 'svg' })
-    .flatten({ background: '#ffffff' }) // hanya berpengaruh jika tak ada alpha; JPEG/GIF jadi dasar putih
-    .png({ compressionLevel: 9 })
+    .png({ compressionLevel: 9, palette: true, colors: 256, quality: 90, effort: 10 })
     .toBuffer({ resolveWithObject: true });
+}
+
+/* ---------- API Wikimedia ---------- */
+async function wikiJson(api, params) {
+  const url = `${api}?${new URLSearchParams({ format: 'json', redirects: '1', origin: '*', ...params })}`;
+  const res = await fetchWithTimeout(url, 25000);
+  if (!res.ok) throw new Error(`wiki http ${res.status}`);
+  return res.json();
+}
+
+const WIKI_EXCLUDE = /commons-logo|oojs|symbol|icon\b|icon\.|flag|edit|wikimedia|wikisource|wikiquote|wikinews|wikivoyage|increase|decrease|question_book|ambox|arrow|padlock|disambig|stub|star|balance|dot\.svg|check|x_|x-|letter|crystal|nuvola|emblem|commended|award|nara|damaged|light[-_ ]?box|street|insegna|parco|park|sign|factory|fabrik|leinenfabrik|building|gedung|museum|philharmonic|new york|la salle|lazaristes|school|universit/i;
+
+function pickWikiLogoFile(titles, brandName) {
+  const tokens = brandName.toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 1);
+  const scored = titles
+    .filter(t => /^File:/i.test(t) && !WIKI_EXCLUDE.test(t))
+    .map(t => {
+      const lower = t.toLowerCase();
+      let score = 0;
+      if (/logo|logotype|wordmark/i.test(lower)) score += 3;
+      if (/\.svg$/i.test(lower)) score += 2;
+      else if (/\.png$/i.test(lower)) score += 1;
+      else if (/\.jpe?g$/i.test(lower)) score -= 1;
+      const tokenHit = tokens.some(tok => lower.includes(tok));
+      if (tokenHit) score += 2;
+      return { t, score, tokenHit };
+    })
+    .filter(x => x.score >= 3 && x.tokenHit) // WAJIB: skoring layak + cocok nama merek
+    .sort((a, b) => b.score - a.score || a.t.length - b.t.length);
+  return scored[0]?.t || null;
+}
+
+/** Ambil file logo dari sebuah halaman wiki (dipakai wiki langsung & auto-search). */
+async function wikiPageLogo(api, pageTitle, brand) {
+  const j1 = await wikiJson(api, { action: 'query', titles: pageTitle, prop: 'images', imlimit: '100' });
+  const page = Object.values(j1.query.pages ?? {})[0];
+  const files = (page?.images ?? []).map(i => i.title);
+  if (!files.length) return null;
+  const file = pickWikiLogoFile(files, brand.name);
+  if (!file) return null;
+  return wikiFileThumb(api, file);
+}
+
+async function wikiFileThumb(api, file) {
+  const j2 = await wikiJson(api, { action: 'query', titles: file, prop: 'imageinfo', iiprop: 'url|mime|size', iiurlwidth: '640' });
+  const p2 = Object.values(j2.query.pages ?? {})[0];
+  const info = p2?.imageinfo?.[0];
+  if (!info) return null;
+  const url = info.thumburl || info.url;
+  const res = await fetchWithTimeout(url);
+  if (!res.ok) return null;
+  const buf = Buffer.from(await res.arrayBuffer());
+  const kind = detectKind(buf, res.headers.get('content-type') || '');
+  if (REJECT_KINDS.has(kind)) return null;
+  const { data: out, info: meta } = await normalizeToPng(buf, kind);
+  if (meta.width < 100 || meta.height < 40) return null;
+  return { buf: out, meta, sourceUrl: url, fileTitle: file };
+}
+
+/* SUMBER 1: infobox Wikipedia (judul dikurasi) */
+async function fetchWikiLogo(brand) {
+  if (!brand.wiki) return null;
+  const got = await wikiPageLogo(WIKI_API, brand.wiki, brand);
+  if (!got) return null;
+  return { ...got, sourceSite: 'wiki', candidateIndex: -1 };
+}
+
+/* SUMBER 2: auto-search judul halaman Wikipedia — ketat anti entitas salah */
+async function fetchWikiAuto(brand) {
+  if (!brand.wiki) return null; // hanya utk merek unambiguous (kurasi manual)
+  const tokens = brand.name.toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 1);
+  const j = await wikiJson(WIKI_API, { action: 'query', list: 'search', srsearch: brand.wiki, srlimit: '5', srprop: 'snippet' });
+  const titles = (j.query?.search ?? []).map(x => x.title);
+  for (const t of titles) {
+    const l = t.toLowerCase();
+    if (WIKI_EXCLUDE.test(l)) continue;
+    if (/,/.test(t) && !/,\s*(inc|ltd|plc|llc|se|ag|gmbh|co\.)/i.test(t)) continue; // tempat/orang: "Tecumseh, Michigan"
+    const matched = tokens.filter(tok => l.includes(tok)).length;
+    const okTitle = tokens.length === 1 ? matched === 1 : matched >= 2; // wajib ≥2 token utk nama multi-kata
+    if (!okTitle) continue;
+    const got = await wikiPageLogo(WIKI_API, t, brand);
+    if (got) return { ...got, sourceSite: `wiki-search:${t}`, candidateIndex: -1 };
+  }
+  return null;
+}
+
+/* SUMBER 3: Wikimedia Commons — KETAT: wajib "logo" di nama file + token merek */
+async function fetchCommonsLogo(brand) {
+  const full = brand.name.toLowerCase();
+  const tokens = brand.name.toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 1);
+  for (const srsearch of [`${brand.name} logo`, `${brand.name} compressor logo`]) {
+    const j = await wikiJson(COMMONS_API, { action: 'query', list: 'search', srsearch, srnamespace: '6', srlimit: '8' });
+    const files = (j.query?.search ?? []).map(x => x.title);
+    for (const t of files) {
+      const l = t.toLowerCase();
+      if (!/^file:/.test(l) || WIKI_EXCLUDE.test(l)) continue;
+      if (!/logo|logotype|wordmark/i.test(l)) continue;              // WAJIB kata logo
+      if (/\.jpe?g$/.test(l) && !/logo/i.test(l)) continue;           // jpg hanya bila ada "logo"
+      const hasFull = full.length > 4 && l.includes(full);
+      const tokenHit = tokens.some(tok => l.includes(tok));
+      if (!hasFull && !tokenHit) continue;
+      const got = await wikiFileThumb(COMMONS_API, t);
+      if (got) return { ...got, sourceSite: `commons:${t}`, candidateIndex: -1 };
+    }
+  }
+  return null;
+}
+
+/* SUMBER 4: favicon resmi per-domain (gstatic) — anti ikon-globe-generik */
+let DEFAULT_FAVICON_SHA = null;
+async function probeDefaultFavicon() {
+  if (DEFAULT_FAVICON_SHA) return DEFAULT_FAVICON_SHA;
+  try {
+    const res = await fetchWithTimeout('https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://domain-pasti-tidak-ada-jk-probe-7f3x9.com&size=256', 15000);
+    if (res.ok) DEFAULT_FAVICON_SHA = sha256(Buffer.from(await res.arrayBuffer()));
+  } catch { /* abaikan */ }
+  return DEFAULT_FAVICON_SHA;
+}
+
+async function fetchFavicon(brand) {
+  for (const domain of brand.domains ?? []) {
+    try {
+      const url = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent('https://' + domain)}&size=256`;
+      const res = await fetchWithTimeout(url, 15000);
+      if (!res.ok) continue;
+      const buf = Buffer.from(await res.arrayBuffer());
+      const kind = detectKind(buf, res.headers.get('content-type') || '');
+      if (kind !== 'png' && kind !== 'webp' && kind !== 'jpeg') continue;
+      const defSha = await probeDefaultFavicon();
+      if (defSha && sha256(buf) === defSha) continue; // globe generik → domain salah
+      const { data: out, info: meta } = await normalizeToPng(buf, kind);
+      if (meta.width < 96 || meta.height < 96) continue;
+      return { buf: out, meta, sourceUrl: url, sourceSite: `favicon:${domain}`, fileTitle: null, candidateIndex: -2 };
+    } catch { /* domain berikutnya */ }
+  }
+  return null;
+}
+
+/* SUMBER 4b: site-icon langsung dari domain resmi (apple-touch-icon / favicon.ico) */
+async function fetchDirectFavicon(brand) {
+  for (const domain of brand.domains ?? []) {
+    for (const p of ['/apple-touch-icon.png', '/favicon.ico']) {
+      try {
+        const res = await fetchWithTimeout(`https://${domain}${p}`, 12000, 'Mozilla/5.0 (compatible; JKLogoBot/1.0)');
+        if (!res.ok) continue;
+        const buf = Buffer.from(await res.arrayBuffer());
+        const kind = detectKind(buf, res.headers.get('content-type') || '');
+        if (kind !== 'png' && kind !== 'webp' && kind !== 'jpeg') continue;
+        const { data: out, info: meta } = await normalizeToPng(buf, kind);
+        if (meta.width < 56 || meta.height < 56) continue;
+        return { buf: out, meta, sourceUrl: `https://${domain}${p}`, sourceSite: `site-icon:${domain}`, fileTitle: null, candidateIndex: -3 };
+      } catch { /* lanjut */ }
+    }
+  }
+  return null;
+}
+
+/* ---------- SUMBER 5: hasil image-search terkurasi ---------- */
+// QC swap manual: SWAP="slug=idxCandidat,slug2=idxCandidat" → pakai kandidat tertentu
+const SWAP = Object.fromEntries(
+  (process.env.SWAP || '').split(',').filter(Boolean).map(s => {
+    const [slug, idx] = s.split('=');
+    return [slug.trim(), Number(idx)];
+  }),
+);
+
+async function fetchSearchCandidate(brand, idx) {
+  const file = path.join(SEARCH_DIR, `${brand.slug}.json`);
+  if (!existsSync(file)) return null;
+  let data;
+  try { data = JSON.parse(readFileSync(file, 'utf8')); } catch { return null; }
+  if (!data?.success || !Array.isArray(data.results)) return null;
+  const cand = data.results[idx];
+  const url = cand?.original_url;
+  if (!url || usedUrls.has(url)) return null;
+  const res = await fetchWithTimeout(url, 30000, 'Mozilla/5.0 (compatible; JKLogoBot/1.0)');
+  if (!res.ok) return null;
+  const buf = Buffer.from(await res.arrayBuffer());
+  const kind = detectKind(buf, res.headers.get('content-type') || '');
+  if (REJECT_KINDS.has(kind)) return null;
+  const { data: out, info: meta } = await normalizeToPng(buf, kind);
+  if (meta.width < 100 || meta.height < 50) return null;
+  return { buf: out, meta, sourceUrl: url, sourceSite: cand.source || 'web', fileTitle: null, candidateIndex: idx };
 }
 
 /* ---------- pass unduh ---------- */
@@ -75,61 +269,80 @@ const usedUrls = new Set();
 const results = [];
 const failed = [];
 
-async function tryBrand(brand, altQuery = null) {
-  const file = path.join(SEARCH_DIR, `${brand.slug}.json`);
-  if (!existsSync(file)) return { ok: false, reason: 'hasil pencarian tidak ditemukan' };
-  let data;
-  try { data = JSON.parse(readFileSync(file, 'utf8')); } catch { return { ok: false, reason: 'json rusak' }; }
-  if (!data?.success || !Array.isArray(data.results) || data.results.length === 0) {
-    return { ok: false, reason: data?.error || 'tanpa hasil' };
-  }
-  for (const [i, cand] of data.results.entries()) {
-    const url = cand?.original_url;
-    if (!url || usedUrls.has(url)) continue;
-    try {
-      const res = await fetchWithTimeout(url);
-      if (!res.ok) continue;
-      const buf = Buffer.from(await res.arrayBuffer());
-      const kind = detectKind(buf, res.headers.get('content-type') || '');
-      if (kind === 'too-small' || kind === 'unknown' || kind === 'gif') continue;
-      const { data: out, info } = await normalizeToPng(buf, kind);
-      if (info.width < 100 || info.height < 50) continue; // terlalu kecil = tidak rapi
-      const dir = path.join(OUT_DIR, brand.category);
-      mkdirSync(dir, { recursive: true });
-      const filePath = path.join(dir, `${brand.slug}.png`);
-      writeFileSync(filePath, out);
-      usedUrls.add(url);
-      results.push({
-        slug: brand.slug, name: brand.name, country: brand.country, cc: brand.cc,
-        category: brand.category, categoryLabel: catLabel[brand.category],
-        file: `logos/${brand.category}/${brand.slug}.png`,
-        width: info.width, height: info.height,
-        bytes: statSync(filePath).size,
-        format: 'PNG',
-        hasAlpha: info.channels === 4,
-        sha256: sha256(out),
-        sourceSite: cand.source || 'web',
-        sourceUrl: url,
-        query: altQuery ?? brand.query,
-        candidateIndex: i,
-        downloadedAt: new Date().toISOString(),
-      });
-      return { ok: true };
-    } catch { /* kandidat berikutnya */ }
-  }
-  return { ok: false, reason: 'semua kandidat gagal validasi' };
+async function saveLogo(brand, got, queryUsed) {
+  const dir = path.join(OUT_DIR, brand.category);
+  mkdirSync(dir, { recursive: true });
+  const filePath = path.join(dir, `${brand.slug}.png`);
+  writeFileSync(filePath, got.buf);
+  usedUrls.add(got.sourceUrl);
+  results.push({
+    slug: brand.slug, name: brand.name, country: brand.country, cc: brand.cc,
+    category: brand.category, categoryLabel: catLabel[brand.category],
+    file: `logos/${brand.category}/${brand.slug}.png`,
+    width: got.meta.width, height: got.meta.height,
+    bytes: statSync(filePath).size,
+    format: 'PNG',
+    hasAlpha: got.meta.channels === 4,
+    sha256: sha256(got.buf),
+    sourceSite: got.sourceSite,
+    sourceUrl: got.sourceUrl,
+    wikiFile: got.fileTitle ?? undefined,
+    query: queryUsed,
+    candidateIndex: got.candidateIndex,
+    swapped: got.swapped,
+    downloadedAt: new Date().toISOString(),
+  });
 }
 
-// Pass 1: query utama
-for (const brand of brands) {
-  const r = await tryBrand(brand);
-  console.log(`${r.ok ? '✓' : '✗'} ${brand.slug}${r.ok ? '' : ` — ${r.reason}`}`);
+async function tryBrand(brand) {
+  const chain = [
+    ['wiki', () => fetchWikiLogo(brand)],
+    ['wiki-search', () => fetchWikiAuto(brand)],
+    ['commons', () => fetchCommonsLogo(brand)],
+    ['favicon', () => fetchFavicon(brand)],
+    ['site-icon', () => fetchDirectFavicon(brand)],
+  ];
+  // brand.force = 'favicon' → dua varian ikon domain resmi diujicobakan paling awal
+  if (brand.force === 'favicon') {
+    const f = chain.splice(3, 2);
+    chain.unshift(...f);
+  }
+  for (const [, fn] of chain) {
+    try {
+      const got = await fn();
+      if (got) { await saveLogo(brand, got, brand.force || 'auto'); return { ok: true, via: got.sourceSite }; }
+    } catch { /* lanjut sumber berikutnya */ }
+  }
+  // Sumber 5: image-search (urutan kandidat; SWAP diutamakan)
+  const file = path.join(SEARCH_DIR, `${brand.slug}.json`);
+  if (existsSync(file)) {
+    let order = [];
+    try {
+      const data = JSON.parse(readFileSync(file, 'utf8'));
+      const n = data?.results?.length ?? 0;
+      const allIdx = [...Array(n).keys()];
+      const swapIdx = SWAP[brand.slug];
+      order = Number.isInteger(swapIdx) ? [swapIdx, ...allIdx.filter(i => i !== swapIdx)] : allIdx;
+    } catch { /* kosong */ }
+    for (const i of order) {
+      try {
+        const got = await fetchSearchCandidate(brand, i);
+        if (got) {
+          got.swapped = Number.isInteger(SWAP[brand.slug]) && i === SWAP[brand.slug] ? true : undefined;
+          await saveLogo(brand, got, brand.query);
+          return { ok: true, via: `search#${i}` };
+        }
+      } catch { /* kandidat berikutnya */ }
+    }
+  }
+  return { ok: false, reason: 'semua sumber gagal' };
 }
-// Pass 2: retry kueri alternatif bagi yang gagal
-for (const brand of brands.filter(b => !results.some(r => r.slug === b.slug))) {
-  await sleep(500);
-  const r = await tryBrand(brand, `${brand.name} company logo png transparent`);
-  console.log(`↻ retry ${brand.slug}: ${r.ok ? 'BERHASIL' : `gagal — ${r.reason}`}`);
+
+for (const brand of brands) {
+  if (brand.exclude) { console.log(`⊘ ${brand.slug} — dikeluarkan (tanpa logo terverifikasi)`); failed.push(brand); continue; }
+  const r = await tryBrand(brand);
+  console.log(`${r.ok ? '✓' : '✗'} ${brand.slug} — ${r.ok ? r.via : r.reason}`);
+  await sleep(120);
 }
 for (const brand of brands.filter(b => !results.some(r => r.slug === b.slug))) failed.push(brand);
 
@@ -141,10 +354,11 @@ const manifest = {
   generatedAt: new Date().toISOString(),
   counts: { total: brands.length, ok: results.length, failed: failed.length },
   categories: byCat.map(({ id, label, en, icon, count }) => ({ id, label, en, icon, count })),
-  namingConvention: 'logos/<kategori>/<merek>.png — huruf kecil, tanda hubung, PNG ternormalisasi (auto-trim, maks 1200px)',
+  namingConvention: 'logos/<kategori>/<merek>.png — huruf kecil, tanda hubung, PNG ternormalisasi (auto-trim, maks 640px, palet 256, alpha dipertahankan)',
+  sources: 'Rantai presisi: logo infobox Wikipedia → auto-search Wikipedia → Wikimedia Commons → favicon resmi domain (gstatic) → kurasi image-search.',
   license: 'Seluruh logo adalah merek dagang milik pemiliknya masing-masing; dipakai untuk keperluan referensi/editorial distributor.',
   brands: results,
-  failed: failed.map(b => ({ slug: b.slug, name: b.name, category: b.category })),
+  failed: [...new Map(failed.map(b => [b.slug, { slug: b.slug, name: b.name, category: b.category }])).values()],
 };
 writeFileSync(path.join(OUT_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 
@@ -164,7 +378,9 @@ logos/
 \`\`\`
 
 Aturan penamaan: \`<kategori>/<merek>.png\` — slug huruf kecil tanda hubung.
-Semua logo sudah dinormalisasi: auto-trim pinggiran, maksimal 1200px, format PNG seragam.
+Semua logo sudah dinormalisasi: auto-trim pinggiran, maksimal 640px, PNG palet 256 warna, alpha transparan dipertahankan.
+
+Rantai sumber presisi (urut prioritas): logo infobox Wikipedia → auto-search Wikipedia → Wikimedia Commons → favicon resmi domain → kurasi image-search.
 
 Lihat galeri interaktif: **/logo-gallery.html**
 Unduh sekaligus: **/logos/juragan-kompresor-logo-library.zip**
@@ -256,7 +472,7 @@ const html = `<!doctype html>
 <header class="hero">
   <span class="kicker">❄ Juragan Kompresor · Perpustakaan Aset</span>
   <h1>Perpustakaan <em>Logo Kompresor</em> Dunia</h1>
-  <p class="sub">${results.length} merek terkurasi dari 3 kategori — ternormalisasi rapi: auto-trim, maks 1200px, PNG seragam, penamaan konsisten.</p>
+  <p class="sub">${results.length} merek terkurasi dari 3 kategori — ternormalisasi rapi: auto-trim, maks 640px, PNG seragam, penamaan konsisten.</p>
   <div class="stats">
     <span class="stat"><b>${byCat[0].count}</b> Kompresor Udara</span>
     <span class="stat"><b>${byCat[1].count}</b> Kompresor Pendingin</span>
@@ -294,8 +510,13 @@ writeFileSync(path.join(ROOT, 'public/logo-gallery.html'), html);
 execSync(`cd ${ROOT}/public && rm -f logos/juragan-kompresor-logo-library.zip && zip -r -X -q logos/juragan-kompresor-logo-library.zip logos -x "logos/juragan-kompresor-logo-library.zip"`, { stdio: 'inherit' });
 
 /* ---------- ringkasan ---------- */
+const viaCount = {};
+for (const r of results) {
+  const k = r.sourceSite.startsWith('wiki') ? 'wiki' : r.sourceSite.startsWith('commons') ? 'commons' : r.sourceSite.startsWith('favicon') ? 'favicon' : 'search';
+  viaCount[k] = (viaCount[k] || 0) + 1;
+}
 console.log('\n===== RINGKASAN =====');
-console.log(`Berhasil : ${results.length}/${brands.length}`);
+console.log(`Berhasil : ${results.length}/${brands.length} — via: ${JSON.stringify(viaCount)}`);
 console.log(`Gagal    : ${failed.length}${failed.length ? ' → ' + failed.map(b => b.slug).join(', ') : ''}`);
 for (const c of byCat) console.log(`  ${c.icon} ${c.label}: ${c.count}`);
 console.log(`Manifest : public/logos/manifest.json`);

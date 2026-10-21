@@ -8,6 +8,10 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+### Added
+- **Perpustakaan Logo Kompresor Dunia**: 42 merek terverifikasi dalam 3 kategori (Kompresor Udara 18, Kompresor Pendingin 9, HVAC & AC 15) di `public/logos/` — galeri interaktif `/logo-gallery.html` (pencarian, unduh per logo, ZIP paket lengkap), `manifest.json` metadata lengkap (dimensi, sha256, sumber, hash anti-duplikat)
+- Pipeline kurasi `scripts/logo-library/` (55 merek terkurasi + mesin perakit): rantai sumber presisi — logo infobox Wikipedia → auto-search Wikipedia (anti entitas-salah) → Wikimedia Commons (anti junk) → favicon resmi domain (anti globe-generik) → kurasi image-search; normalisasi sharp seragam (auto-trim, maks 640px, PNG palet 256, alpha transparan dipertahankan)
+- 13 merek tanpa logo terverifikasi (YORK, Tecumseh, Frascold, Sabroe, dst.) dikeluarkan demi kualitas & tercatat di `manifest.json` untuk re-run berikutnya
 ### Fixed
 - Statistik blok "Kenapa Memilih Kami" (WhyChooseUs) masih memuat angka lama — diselaraskan dengan data resmi: **13+ → 18+ tahun** pengalaman, **5.000+ → 7.439+ proyek** selesai, **34 → 38 provinsi** terjangkau
 

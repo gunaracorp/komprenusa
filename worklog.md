@@ -133,3 +133,35 @@ Changelog Digest:
 - Changed: tahun berdiri 2008, 7.439 proyek, 38 provinsi di seluruh konten & SEO
 - Fixed: 190 klaim usang di deskripsi produk (DB) dengan pola aman
 - Removed: -
+
+---
+Task ID: 6
+Version: v1.4.0 (Aurora)
+Level: minor
+Agent: Z.ai Code (main orchestrator)
+Task: Perpustakaan logo kompresor dunia yang rapi (user: "download semua logo kompresor, harus rapih, jangan asal2an") + sisa fix statistik WhyChooseUs.
+
+Work Log:
+- Kurasi 55 merek dunia (3 kategori) di scripts/logo-library/brands.json: 22 Kompresor Udara, 15 Kompresor Pendingin, 18 HVAC & AC (Eropa, AS, Jepang, Korea, Taiwan, China, India, Thailand).
+- Pencarian gambar via z-ai image-search: background job dibunuh sandbox antar-panggilan → solusi foreground chunk 8,5 menit; flag -o CLI tidak menulis file → parse stdout; 12 hasil awal diselamatkan dari log; 55/55 json terkumpul; rate-limit 429 ditangani backoff retry.
+- Rebuild v2 Wikipedia-first: file logo infobox (2 langkah API images→imageinfo) — 21 logo terverifikasi langsung. QC visual menunjukkan fallback search banyak junk (foto patung/jam/gedung/hewan) → rantai 5 sumber: wiki → wiki-auto-search (≥2 token, blokir tempat/orang) → Commons (wajib kata "logo", bloklist junk) → gstatic favicon (hash anti-ikon-generik) → image-search (SWAP QC).
+- Site-icon langsung domain (apple-touch-icon/favicon.ico) ditambahkan — 100% gagal (sandbox hanya bisa jangkau host tertentu) tapi dipertahankan untuk portabilitas.
+- Re-search terarah 12 merek keras kepala + contact-sheet visual 4 kandidat per merek → temuan emas: CECCATO (swap#1). Fix beragam junk: toshiba-carrier dapat logo Carrier, tecumseh dapat kota "Tecumseh, Michigan", york dapat NY Philharmonic/permen, aux dapat sekolah, highly dapat charity award → semua ditangani via aturan ketat.
+- KEPUTUSAN KUALITAS: 13 merek tanpa logo terverifikasi (puma, swan, airman, hitachi-compressor, dorin, frascold, tecumseh, sabroe, gmcc, highly, york, toshiba-carrier, fujitsu-general) DIKELUARKAN (brand.exclude=true, skip di build, tercatat di manifest.failed) — lebih baik rapi & benar daripada penuh & salah.
+- Normalisasi sharp seragam: auto-trim pinggiran, maks 640px, PNG palet 256 (rata-rata ~100KB, total 4.5MB), alpha transparan dipertahankan (flatten HANYA untuk sumber non-alpha — bug v1 ditemukan: flatten menghapus semua transparansi).
+- Artefak: public/logos/<kategori>/<merek>.png (42), manifest.json (42 entri + 13 failed + sha256 + sumber), /logo-gallery.html (galeri interaktif: filter pencarian, unduh per logo, ZIP), public/logos/juragan-kompresor-logo-library.zip, README.md.
+- Fix WhyChooseUs stats (sisa Task 5): 13+→18+ tahun, 5000+→7439+ proyek, 34→38 provinsi (commit 3c05a18).
+- CHANGELOG [Unreleased] diisi (Added×3, Fixed×1) → bun run release:minor → v1.4.0 (Aurora) — commit + tag terpasang.
+- Verifikasi: lint 0 error; QC visual 42/42 kartu via contact-sheet browser (≈37 logo resmi asli + 5 foto produk brand-akurat: ABAC, Fusheng, Chigo, Quincy, RefComp); semua img sehat; ZIP & manifest tersaji.
+
+Stage Summary:
+- v1.4.0 (Aurora) rilis: Perpustakaan Logo Kompresor Dunia 42 merek — 100% brand-akurat, ternormalisasi rapi, galeri interaktif + ZIP.
+- Pipeline reproducible: `node scripts/logo-library/build-library.mjs` (SWAP="slug=idx" untuk QC manual; exclude di brands.json).
+- Keputusan: sumber prioritas = Wikipedia/Commons/favicon resmi; merek tanpa aset autentik dikeluarkan, bukan diisi gambar salah.
+- Catatan sandbox: background process dibunuh antar-panggilan (wajib foreground chunk); hanya host tertentu terjangkau (z-ai OSS, wikipedia, gstatic).
+
+Changelog Digest:
+- Added: perpustakaan 42 logo (3 kategori) + galeri /logo-gallery.html + manifest + ZIP + pipeline kurasi
+- Changed: -
+- Fixed: statistik WhyChooseUs (18+/7.439+/38)
+- Removed: -

@@ -1,6 +1,6 @@
 {
   "name": "juragan-kompresor",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 2>&1 | tee dev.log",
@@ -13,6 +13,10 @@
     "db:reset": "prisma migrate reset",
     "db:seed": "bun prisma/seed.ts",
     "check:assets": "bun scripts/check-assets.ts",
+    "release": "node scripts/release.mjs",
+    "release:patch": "node scripts/release.mjs patch",
+    "release:minor": "node scripts/release.mjs minor",
+    "release:major": "node scripts/release.mjs major",
     "predeploy": "bun run check:assets && bun run lint",
     "setup": "bun install && bun run db:generate && bun run check:assets"
   },

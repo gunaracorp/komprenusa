@@ -145,8 +145,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
       title={L({ id: 'Tentang Kami', en: 'About Us' }, lang)}
       subtitle={L(
         {
-          id: 'PT Juragan Kompresor — distributor HVAC resmi sejak 2010, melayani seluruh Indonesia.',
-          en: 'PT Juragan Kompresor — official HVAC distributor since 2010, serving all of Indonesia.',
+          id: 'PT Juragan Kompresor — distributor HVAC resmi sejak 2008, melayani seluruh Indonesia.',
+          en: 'PT Juragan Kompresor — official HVAC distributor since 2008, serving all of Indonesia.',
         },
         lang
       )}
@@ -156,8 +156,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'PT Juragan Kompresor adalah perusahaan distribusi sistem pendingin (HVAC) yang berkantor pusat di Kawasan Industri MM2100, Bekasi, Jawa Barat. Berdiri sejak 2010, kami telah tumbuh dari toko spare part AC kecil menjadi salah satu distributor pendingin terlengkap di Indonesia dengan lebih dari 50 brand ternama dan 120+ produk aktif.',
-              en: 'PT Juragan Kompresor is a cooling-system (HVAC) distribution company headquartered in the MM2100 Industrial Estate, Bekasi, West Java. Founded in 2010, we have grown from a small AC spare-parts store into one of Indonesia\u2019s most complete cooling distributors, carrying more than 50 leading brands and 120+ active products.',
+              id: 'PT Juragan Kompresor adalah perusahaan distribusi sistem pendingin (HVAC) yang berkantor pusat di Kawasan Industri MM2100, Bekasi, Jawa Barat. Berdiri sejak 2008, kami telah tumbuh dari toko spare part AC kecil menjadi salah satu distributor pendingin terlengkap di Indonesia dengan lebih dari 50 brand ternama dan 120+ produk aktif.',
+              en: 'PT Juragan Kompresor is a cooling-system (HVAC) distribution company headquartered in the MM2100 Industrial Estate, Bekasi, West Java. Founded in 2008, we have grown from a small AC spare-parts store into one of Indonesia\u2019s most complete cooling distributors, carrying more than 50 leading brands and 120+ active products.',
             },
             lang
           )}
@@ -165,8 +165,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'Kami melayani kebutuhan residensial, komersial, dan industri — dari rumah tangga, hotel, rumah sakit, mal, hingga pabrik — dengan pengiriman ke 34 provinsi di seluruh Indonesia.',
-              en: 'We serve residential, commercial, and industrial needs — from households to hotels, hospitals, shopping malls, and factories — with delivery to all 34 provinces of Indonesia.',
+              id: 'Kami melayani kebutuhan residensial, komersial, dan industri — dari rumah tangga, hotel, rumah sakit, mal, hingga pabrik — dengan pengiriman ke 38 provinsi di seluruh Indonesia.',
+              en: 'We serve residential, commercial, and industrial needs — from households to hotels, hospitals, shopping malls, and factories — with delivery to all 38 provinces of Indonesia.',
             },
             lang
           )}
@@ -275,8 +275,8 @@ function ServicesPage({ lang }: { lang: 'id' | 'en' }) {
       icon: Truck,
       t: { id: 'Pengiriman Seluruh Indonesia', en: 'Nationwide Delivery' },
       d: {
-        id: 'Jaringan ekspedisi terpercaya dengan packing aman (kayu & bubble wrap) ke 34 provinsi.',
-        en: 'Trusted logistics partners with secure packing (wooden crating & bubble wrap) to all 34 provinces.',
+        id: 'Jaringan ekspedisi terpercaya dengan packing aman (kayu & bubble wrap) ke 38 provinsi.',
+        en: 'Trusted logistics partners with secure packing (wooden crating & bubble wrap) to all 38 provinces.',
       },
     },
     {
@@ -344,8 +344,8 @@ function FaqPage({ lang }: { lang: 'id' | 'en' }) {
     {
       q: { id: 'Berapa lama pengiriman dan apakah ke luar pulau?', en: 'How long does shipping take, and do you ship outside Java?' },
       a: {
-        id: 'Jabodetabek 1-2 hari kerja. Luar Jawa 2-5 hari kerja via ekspedisi terpercaya dengan packing kayu untuk keamanan unit. Kami mengirim ke seluruh 34 provinsi Indonesia.',
-        en: 'Greater Jakarta 1-2 business days. Outside Java 2-5 business days via trusted couriers with wooden crating for unit safety. We ship to all 34 provinces of Indonesia.',
+        id: 'Jabodetabek 1-2 hari kerja. Luar Jawa 2-5 hari kerja via ekspedisi terpercaya dengan packing kayu untuk keamanan unit. Kami mengirim ke seluruh 38 provinsi Indonesia.',
+        en: 'Greater Jakarta 1-2 business days. Outside Java 2-5 business days via trusted couriers with wooden crating for unit safety. We ship to all 38 provinces of Indonesia.',
       },
     },
     {

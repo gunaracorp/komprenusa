@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSeoSettings().catch(() => null);
   const title = settings?.siteTitle ?? 'Juragan Kompresor';
-  const description = settings?.siteDescription ?? 'Distributor HVAC resmi sejak 2010 di Kawasan MM2100 Bekasi.';
+  const description = settings?.siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.';
   return {
     title,
     description,
@@ -44,8 +44,8 @@ const jsonLd = {
       url: SITE_URL,
       logo: `${SITE_URL}/images/logo.svg`,
       image: `${SITE_URL}/images/hero/hero-1.png`,
-      description: 'Distributor HVAC resmi sejak 2010 — pusat penjualan AC, kompresor, refrigerant, spare part, chiller, dan sistem pendingin gedung terlengkap di Indonesia.',
-      foundingDate: '2010',
+      description: 'Distributor HVAC resmi sejak 2008 — pusat penjualan AC, kompresor, refrigerant, spare part, chiller, dan sistem pendingin gedung terlengkap di Indonesia.',
+      foundingDate: '2008',
       email: 'juragankompresor@gmail.com',
       telephone: '+62-21-2268-2617',
       address: {

@@ -175,7 +175,7 @@ export function Hero() {
                   <span className="text-lg">🏢</span>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-gray-900">5,000+</div>
+                  <div className="text-xl font-bold text-gray-900">7,439+</div>
                   <div className="text-xs text-gray-600 font-medium">{t('hero.stat.projects')}</div>
                 </div>
               </div>

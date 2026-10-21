@@ -7,10 +7,10 @@ import { Badge } from '@/components/ui/badge';
 import { useT, type DictKey } from '@/lib/i18n';
 
 const stats = [
-  { value: '13+', labelKey: 'about.stat.years' },
-  { value: '5000+', labelKey: 'about.stat.projects' },
+  { value: '18+', labelKey: 'about.stat.years' },
+  { value: '7439+', labelKey: 'about.stat.projects' },
   { value: '50+', labelKey: 'about.stat.brands' },
-  { value: '34', labelKey: 'about.stat.provinces' },
+  { value: '38', labelKey: 'about.stat.provinces' },
 ] as const;
 
 const specialties = [

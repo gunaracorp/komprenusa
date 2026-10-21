@@ -105,3 +105,31 @@ Changelog Digest:
 - Fixed: hydration mismatch LogoMark (useId → uid statis)
 - Changed: -
 - Removed: -
+
+---
+Task ID: 5
+Version: v1.3.2 (Nexus)
+Level: patch
+Agent: Z.ai Code (main orchestrator)
+Task: Revisi data resmi perusahaan — berdiri 2008 (bukan 2010), 7.439 proyek selesai, jangkauan 38 provinsi seluruh Indonesia.
+
+Work Log:
+- Inventarisasi menyeluruh: rg "2010|5,000|5000|5.000|50 kota|34 prov" di src/, public/, prisma, DB PGlite. Temuan: 10 file kode + llms.txt + 191 deskripsi produk di DB (107× "sejak 2010", 83× "34 provinsi").
+- PENTING (presisi): identifikasi nomor model "SH2010410A" di DB mengandung "2010" — jangan diganti. Gunakan pola aman: "sejak 2010"→"sejak 2008", "34 provinsi"→"38 provinsi" saja. Nomor telepon +62 813-5000-3423 juga dijaga.
+- i18n.ts (ID+EN): hero.badge "Sejak 2008/Since 2008", about.badge.founded "Didirikan 2008", about.story (2008, 7.439 proyek / 7,439 projects, 38 provinsi/provinces), why.f8.title "7,439+ Klien Puas", coverage.sub (38 provinsi), key coverage.cities→coverage.provinces.
+- Komponen: Hero stat "7,439+", AboutSection stats (13+→18+ tahun [2008–2026], 5000+→7439+, 34→38), ServiceCoverage badge "38 {t('coverage.provinces')}", InfoPages 5 titik (subtitle, Siapa Kami, pengiriman, ekspedisi, FAQ ID+EN).
+- SEO: layout.tsx (description "sejak 2008" + "38 provinsi", title OG/Twitter "Sejak 2008"), page.tsx (JSON-LD Organization foundingDate '2008' + 2 description), produk/page.tsx kicker "Sejak 2008", produk/[slug] FAQ JSON-LD + list "38 provinsi", cms-db.ts 2 fallback siteDescription, llms.txt 4 titik.
+- DB PGlite via node: UPDATE products 2 statement REPLACE aman → hasil: 107× sejak-2008, 83× 38-provinsi; sisa "%2010%" tepat 1 (model SH2010410A ✓ dijaga); site_settings kosong (pakai fallback), testimonials 0 hit.
+- Scan final nol sisa; lint 0 error; CHANGELOG [Unreleased] diisi (Changed + Fixed); bun run release:patch → v1.3.2 (Nexus) — codename diwariskan otomatis, commit + tag v1.3.2.
+- Verifikasi Agent Browser: hero badge "Sejak 2008" ✓, stat "7,439+ Proyek Selesai" ✓, coverage "38 provinsi di seluruh Indonesia" + badge "38 Provinsi Indonesia" ✓, about "Didirikan 2008" ✓, footer badge v1.3.2 ✓; console zero error; semua route 200.
+
+Stage Summary:
+- Data resmi baru hidup di seluruh sistem: kode (10 file), i18n dwi-bahasa, SEO/JSON-LD, llms.txt, dan 190 klaim di database — total ~190+ titik revisi tanpa merusak nomor model & kontak.
+- Situs kini konsisten: Berdiri 2008 · 7.439 proyek selesai · 38 provinsi Indonesia · 18+ tahun pengalaman.
+- v1.3.2 (Nexus) dirilis + tag git; sistem versioning kembali membuktikan jejak perubahan yang rapi.
+
+Changelog Digest:
+- Added: -
+- Changed: tahun berdiri 2008, 7.439 proyek, 38 provinsi di seluruh konten & SEO
+- Fixed: 190 klaim usang di deskripsi produk (DB) dengan pola aman
+- Removed: -

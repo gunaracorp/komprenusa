@@ -91,7 +91,7 @@ export function ServiceCoverage() {
             className="mt-6 inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-full px-5 py-2"
           >
             <MapPin className="h-4 w-4 text-white" />
-            <span className="text-white text-sm font-bold">50+ {t('coverage.cities')}</span>
+            <span className="text-white text-sm font-bold">38 {t('coverage.provinces')}</span>
           </motion.div>
         </motion.div>
 

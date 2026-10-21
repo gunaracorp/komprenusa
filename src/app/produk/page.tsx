@@ -101,7 +101,7 @@ export default async function ProductCatalogPage({ searchParams }: PageProps) {
       <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-800">Kompresor AC · Distributor Resmi Sejak 2010</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-teal-800">Kompresor AC · Distributor Resmi Sejak 2008</p>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">Katalog Kompresor Terlengkap — Pilih Berdasarkan Model & Spesifikasi.</h1>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
               Jelajahi 500+ varian kompresor rotary, scroll, piston, semi-hermetik, dan screw dari 25 brand ternama dunia. Semua unit original dengan garansi resmi — minta penawaran untuk pemeriksaan stok dan kecocokan aplikasi.

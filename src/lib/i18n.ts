@@ -21,7 +21,7 @@ export const dict = {
   'header.menuTitle': { id: 'Menu Navigasi', en: 'Navigation Menu' },
 
   // ── Hero ──
-  'hero.badge': { id: 'Distributor Resmi HVAC Terpercaya Sejak 2010', en: 'Trusted Official HVAC Distributor Since 2010' },
+  'hero.badge': { id: 'Distributor Resmi HVAC Terpercaya Sejak 2008', en: 'Trusted Official HVAC Distributor Since 2008' },
   'hero.title1': { id: 'Solusi', en: 'Cooling' },
   'hero.titleHighlight': { id: 'Pendingin', en: 'Solutions' },
   'hero.title2': { id: 'Terlengkap untuk', en: 'Complete for' },
@@ -46,7 +46,7 @@ export const dict = {
     id: 'Mengenal lebih dekat PT Juragan Kompresor, mitra terpercaya Anda dalam solusi pendingin.',
     en: 'Get to know PT Juragan Kompresor, your trusted partner in cooling solutions.',
   },
-  'about.badge.founded': { id: 'Didirikan 2010', en: 'Established 2010' },
+  'about.badge.founded': { id: 'Didirikan 2008', en: 'Established 2008' },
   'about.badge.location': { id: 'Kawasan MM2100 Bekasi', en: 'MM2100 Estate, Bekasi' },
   'about.badge.distributor': { id: 'Distributor HVAC Resmi', en: 'Official HVAC Distributor' },
   'about.specialties': { id: 'Spesialisasi Kami', en: 'Our Specialties' },
@@ -64,8 +64,8 @@ export const dict = {
   'about.stat.provinces': { id: 'Provinsi', en: 'Provinces' },
   'about.story.heading': { id: 'Cerita Kami', en: 'Our Story' },
   'about.story.text': {
-    id: 'Juragan Kompresor didirikan pada tahun 2010 di kawasan industri MM2100 Bekasi. Bermula dari toko spare part AC kecil, kami terus berkembang menjadi salah satu distributor pendingin terbesar di Indonesia. Dengan komitmen menghadirkan produk berkualitas tinggi dan layanan terbaik, kami telah melayani lebih dari 5.000 proyek di 34 provinsi seluruh Indonesia. Kami percaya bahwa setiap proyek pendingin membutuhkan mitra yang dapat dipercaya \u2014 itulah mengapa kami selalu mengutamakan kejujuran, kualitas, dan pelayanan prima dalam setiap transaksi.',
-    en: 'Juragan Kompresor was founded in 2010 in the MM2100 industrial estate, Bekasi. Starting from a small air-conditioning spare parts store, we have grown into one of Indonesia\u2019s largest cooling distributors. With a commitment to high-quality products and excellent service, we have served more than 5,000 projects across all 34 provinces of Indonesia. We believe every cooling project needs a trustworthy partner \u2014 that is why we always prioritize honesty, quality, and excellence in every transaction.',
+    id: 'Juragan Kompresor didirikan pada tahun 2008 di kawasan industri MM2100 Bekasi. Bermula dari toko spare part AC kecil, kami terus berkembang menjadi salah satu distributor pendingin terbesar di Indonesia. Dengan komitmen menghadirkan produk berkualitas tinggi dan layanan terbaik, kami telah menyelesaikan 7.439 proyek di 38 provinsi seluruh Indonesia. Kami percaya bahwa setiap proyek pendingin membutuhkan mitra yang dapat dipercaya \u2014 itulah mengapa kami selalu mengutamakan kejujuran, kualitas, dan pelayanan prima dalam setiap transaksi.',
+    en: 'Juragan Kompresor was founded in 2008 in the MM2100 industrial estate, Bekasi. Starting from a small air-conditioning spare parts store, we have grown into one of Indonesia\u2019s largest cooling distributors. With a commitment to high-quality products and excellent service, we have completed 7,439 projects across all 38 provinces of Indonesia. We believe every cooling project needs a trustworthy partner \u2014 that is why we always prioritize honesty, quality, and excellence in every transaction.',
   },
   'about.vision': { id: 'Visi', en: 'Vision' },
   'about.vision.text': {
@@ -161,7 +161,7 @@ export const dict = {
     id: 'Tim teknisi berpengalaman siap membantu pemasangan dan instalasi.',
     en: 'Experienced technicians ready to assist with mounting and installation.',
   },
-  'why.f8.title': { id: '5,000+ Klien Puas', en: '5,000+ Happy Clients' },
+  'why.f8.title': { id: '7,439+ Klien Puas', en: '7,439+ Happy Clients' },
   'why.f8.desc': {
     id: 'Dipercaya oleh ribuan perusahaan, hotel, rumah sakit, dan pabrik di Indonesia.',
     en: 'Trusted by thousands of companies, hotels, hospitals, and factories across Indonesia.',
@@ -234,10 +234,10 @@ export const dict = {
   'coverage.heading1': { id: 'Melayani', en: 'Serving' },
   'coverage.headingHighlight': { id: 'Seluruh Indonesia', en: 'All of Indonesia' },
   'coverage.sub': {
-    id: 'Jaringan distribusi dan layanan purna jual kami mencakup lebih dari 50 kota di seluruh Indonesia, memastikan produk dan layanan HVAC terbaik selalu terjangkau di dekat Anda.',
-    en: 'Our distribution and after-sales service network covers more than 50 cities across Indonesia, ensuring the best HVAC products and services are always within your reach.',
+    id: 'Jaringan distribusi dan layanan purna jual kami mencakup 38 provinsi di seluruh Indonesia, memastikan produk dan layanan HVAC terbaik selalu terjangkau di dekat Anda.',
+    en: 'Our distribution and after-sales service network covers all 38 provinces across Indonesia, ensuring the best HVAC products and services are always within your reach.',
   },
-  'coverage.cities': { id: 'Kota di Indonesia', en: 'Cities in Indonesia' },
+  'coverage.provinces': { id: 'Provinsi Indonesia', en: 'Provinces of Indonesia' },
 
   // ── Contact ──
   'contact.badge': { id: 'Hubungi Kami', en: 'Contact Us' },

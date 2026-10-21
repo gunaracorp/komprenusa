@@ -183,7 +183,7 @@ export default async function ProductDetailPage({ params }: RouteProps) {
             name: `Apakah ${product.brand || 'kompresor ini'} ready stock dan bisa dikirim ke seluruh Indonesia?`,
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Ya, unit tersedia di gudang Kawasan Industri MM2100, Bekasi, dan dikirim ke 34 provinsi Indonesia dengan packing aman berdasarkan standar logistik HVAC.',
+              text: 'Ya, unit tersedia di gudang Kawasan Industri MM2100, Bekasi, dan dikirim ke 38 provinsi Indonesia dengan packing aman berdasarkan standar logistik HVAC.',
             },
           },
           {
@@ -245,7 +245,7 @@ export default async function ProductDetailPage({ params }: RouteProps) {
               <li className="flex items-center gap-2"><BadgeCheck aria-hidden="true" className="size-4 text-teal-700" /> 100% Original Distributor Resmi</li>
               <li className="flex items-center gap-2"><ShieldCheck aria-hidden="true" className="size-4 text-teal-700" /> Garansi resmi 1 tahun</li>
               <li className="flex items-center gap-2"><PackageCheck aria-hidden="true" className="size-4 text-teal-700" /> Ready stock MM2100 Bekasi</li>
-              <li className="flex items-center gap-2"><Truck aria-hidden="true" className="size-4 text-teal-700" /> Kirim ke 34 provinsi Indonesia</li>
+              <li className="flex items-center gap-2"><Truck aria-hidden="true" className="size-4 text-teal-700" /> Kirim ke 38 provinsi Indonesia</li>
             </ul>
 
             <div>

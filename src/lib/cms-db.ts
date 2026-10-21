@@ -490,7 +490,7 @@ export async function getSiteSeoSettings() {
   const values = Object.fromEntries(settings.map(({ key, value }) => [key, value]));
   return {
     siteTitle: values.site_title || 'Juragan Kompresor',
-    siteDescription: values.site_description || 'Distributor HVAC resmi sejak 2010 di Kawasan MM2100 Bekasi. Pusat penjualan AC, kompresor, refrigerant, spare part, chiller, VRV/VRF, dan sistem pendingin gedung terlengkap.',
+    siteDescription: values.site_description || 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi. Pusat penjualan AC, kompresor, refrigerant, spare part, chiller, VRV/VRF, dan sistem pendingin gedung terlengkap.',
   };
 }
 
@@ -709,7 +709,7 @@ export async function getCatalogPageData() {
 
 export async function getAdminSettings() {
   const [siteTitle, siteDescription] = await Promise.all([getCmsSetting('site_title'), getCmsSetting('site_description')]);
-  return { siteTitle: siteTitle ?? 'Juragan Kompresor', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2010 di Kawasan MM2100 Bekasi.' };
+  return { siteTitle: siteTitle ?? 'Juragan Kompresor', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.' };
 }
 
 export async function getArticleTotalCount() {

@@ -9,6 +9,13 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-10-22 — Nexus
+### Changed
+- Revisi data resmi perusahaan di seluruh situs & SEO: tahun berdiri **2010 → 2008**, jumlah proyek **5.000+ → 7.439**, jangkauan **34 provinsi / 50+ kota → 38 provinsi seluruh Indonesia**
+- Statistik diperbarui: badge hero "Sejak 2008", stat proyek 7,439+, umur perusahaan 18+ tahun, badge jangkauan "38 Provinsi Indonesia", FAQ & JSON-LD (`foundingDate: 2008`), metadata & judul SEO, `llms.txt`
+### Fixed
+- Database: 190 klaim usang pada 191 deskripsi produk diperbarui (107× tahun berdiri, 83× jangkauan provinsi) dengan pola aman — nomor model seperti `SH2010410A` dijaga utuh
+
 ## [1.3.1] - 2026-10-22 — Nexus
 ### Added
 - **Sistem codename rilis** (gaya Ubuntu/Android): pool otomatis 24 codename MINOR (Nexus, Aurora, Blizzard, …) + 6 era MAJOR (Genesis, Garuda, Nusantara, …); PATCH mewarisi codename minor; override via `--name`
@@ -61,7 +68,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.3.1...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.3.2...HEAD
+[1.3.2]: https://github.com/prabudanling/bmp/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/prabudanling/bmp/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/prabudanling/bmp/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/prabudanling/bmp/compare/v1.1.0...v1.2.0

@@ -217,3 +217,32 @@ Changelog Digest:
 - Changed: -
 - Fixed: -
 - Removed: -
+
+---
+Task ID: 9
+Version: v2.0.2 (Garuda)
+Level: patch
+Agent: Z.ai Code (main orchestrator)
+Task: Rapikan & redesign header (user: "tolong rapihkan dan design headernya masa seperti itu").
+
+Work Log:
+- DIAGNOSA via agent-browser 3 viewport (1440/1024/390) menemukan 2 bug fatal + 3 masalah estetika: (1) nav "Katalog kompresor"/"Insight HVAC" TERPOTONG di 1024px dan CTA terdorong keluar; (2) tombol keranjang TERPOTONG di tepi kanan mobile 390px — penyebab: tagline "COMPRESSOR & COOLING PARTS CENTER" (33 char, tracking lebar) membuat lockup logo ~250-340px; (3) wordmark terbaca "KOMPRES A" (gap 0.22em peninggalan era dua kata "JURAGAN KOMPRESOR"); (4) topbar berantakan & dobel (telepon/WA muncul 2x, ikon mail kecil menumpuk, nomor mentah 081220030092); (5) nav 8 item campur aduk menempel tepi kanan.
+- BrandLogo.tsx: gap-[0.22em] -> gap-0 (KOMPRESA satu kata utuh, "A" tetap gradasi emas); tagline kini responsif — hanya tampil >=1280px (xl), wordmark TETAP tampil di semua layar (keputusan v1.2.0 dijaga); tracking tagline diselaraskan.
+- Header.tsx REDESIGN TOTAL: topbar dua zona (kiri: chip WhatsApp dengan indikator online pulse emerald + telepon terformat +62 812-2003-0092; kanan: Truck amber + "Pengiriman Seluruh Indonesia" + LangSwitcher — info dobel & ikon mail dihapus); nav DIPUSATKAN (flex-1 justify-center) dengan pil rounded-full hover teal; sistem breakpoint xlOnly (Testimoni+Insight hanya >=1280px); nav disusun ulang — "Produk" kini menuju halaman /produk (SPA via useRouter, bukan scroll); CTA "Hubungi Kami" gradasi EMAS konsisten dengan CTA hero (teks slate-900); keranjang bulat + badge amber; hairline emas-teal di bawah header; tinggi header menyusut halus saat scroll (72->64px, mobile 64->56px) + backdrop blur + shadow teal; search desktop rounded-full + tombol Escape; sheet mobile diperkaya (header teal gradien, item dengan panah hover emas, CTA emas, baris kontak telepon/WA, LangSwitcher); mobile search icon hanya 640-768px.
+- i18n.ts: kunci baru 'nav.insights' (ID: "Insight" / EN: "Insights"); hardcode "Katalog kompresor"/"Insight HVAC" diganti kunci kamus.
+- Verifikasi iteratif: screenshot SEBELUM (3 viewport) -> fix -> screenshot SESUDAH: 1440 (topbar bersih, nav terpusat, CTA emas ✓), 1024 (logo ringkas, 5 pil nav, NOL tumpang-tindih ✓), 390 (logo + cart + menu muat, NOL terpotong ✓), scrolled 1440 (header kompak blur ✓), sheet mobile (nav + CTA emas + kontak ✓), footer (wordmark satu kata + badge v2.0.1 ✓).
+- Rilis resmi: CHANGELOG [Unreleased] (Fixed x2 + Changed x2) -> commit 4581600 -> bun run release:patch -> v2.0.2 (Garuda) — commit + tag annotated terpasang.
+- Final: lint 0 error; agent-browser errors = kosong; dev.log semua route 200.
+
+Stage Summary:
+- Header kini rapi & premium di SEMUA viewport: 320/390 (logo+aksi muat), 1024 (nav ringkas tanpa overlap), 1440+ (nav lengkap + tagline).
+- 2 bug overflow fatal diperbaiki di akar masalahnya (lebar lockup & jumlah item nav), bukan tambal sulam.
+- Identitas konsisten: wordmark KOMPRESA satu kata (emblem + wordmark di semua layar), tagline muncul saat ada ruang, CTA emas = bahasa visual "aksi" merek.
+- Artefak: Header.tsx (rewritten), BrandLogo.tsx (2 fix), i18n.ts (+1 kunci), CHANGELOG [2.0.2], tag v2.0.2.
+- Keputusan: tagline hanya >=1280px (trade-off ruang vs identitas — wordmark tetap prioritas); nav path pakai router.push (SPA, tidak full reload).
+
+Changelog Digest:
+- Added: -
+- Changed: redesign header penuh (topbar dua zona, nav pil terpusat, CTA emas, sheet mobile diperkaya, nav SPA) + kunci i18n nav.insights
+- Fixed: nav terpotong 1024px & keranjang terpotong mobile; wordmark "KOMPRES A" -> "KOMPRESA"
+- Removed: ikon mail & info kontak dobel di topbar

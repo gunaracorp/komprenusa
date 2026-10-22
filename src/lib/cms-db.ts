@@ -489,7 +489,7 @@ export async function getSiteSeoSettings() {
   const settings = await cmsDb.select().from(cmsSettings);
   const values = Object.fromEntries(settings.map(({ key, value }) => [key, value]));
   return {
-    siteTitle: values.site_title || 'Kompresa',
+    siteTitle: values.site_title || 'Jual Kompresor AC & Spare Part Pendingin | KOMPRESA',
     siteDescription: values.site_description || 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi. Pusat penjualan AC, kompresor, refrigerant, spare part, chiller, VRV/VRF, dan sistem pendingin gedung terlengkap.',
   };
 }

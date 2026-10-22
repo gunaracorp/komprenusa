@@ -8,6 +8,12 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+### Fixed
+- **Header meluber di laptop & mobile**: nav ("Katalog kompresor"/"Insight HVAC") terpotong di viewport 1024px dan tombol keranjang terpotong di tepi kanan mobile (390px) — nav dipusatkan dengan sistem breakpoint (`xlOnly` untuk item sekunder), tagline lockup logo kini hanya tampil ≥1280px sehingga nav/aksi tidak pernah tumpang-tindih; wordmark tetap tampil di semua layar (keputusan v1.2.0 dijaga)
+- **Wordmark terbaca "KOMPRES A"**: gap antar-kata 0.22em peninggalan era dua kata "JURAGAN KOMPRESOR" dihapus — KOMPRESA kini terbaca satu kata utuh dengan "A" gradasi emas
+### Changed
+- **Redesign header**: topbar dua zona (chip WhatsApp dengan indikator online + telepon terformat di kiri; pengiriman + switcher bahasa di kanan — info dobel dihapus), nav pil terpusat dengan hover halus, CTA "Hubungi Kami" gradasi emas konsisten dengan CTA hero, tombol keranjang bulat dengan badge amber, hairline emas-teal di bawah header, tinggi header menyusut halus saat scroll, sheet mobile diperkaya (CTA emas + baris kontak telepon/WhatsApp + switcher bahasa); navigasi path (/produk, /insights) kini SPA via router; pencarian desktop mendukung tombol Escape
+- i18n: kunci baru `nav.insights` (ID/EN)
 
 ## [2.0.1] - 2026-10-22 — Garuda
 ### Added

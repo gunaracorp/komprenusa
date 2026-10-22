@@ -13,6 +13,7 @@ export const dict = {
   'nav.advantages': { id: 'Keunggulan', en: 'Why Us' },
   'nav.testimonials': { id: 'Testimoni', en: 'Testimonials' },
   'nav.contact': { id: 'Kontak', en: 'Contact' },
+  'nav.insights': { id: 'Insight', en: 'Insights' },
   'topbar.shipping': { id: 'Pengiriman Seluruh Indonesia', en: 'Nationwide Delivery Across Indonesia' },
   'header.contactUs': { id: 'Hubungi Kami', en: 'Contact Us' },
   'header.searchPlaceholder': { id: 'Cari produk...', en: 'Search products...' },

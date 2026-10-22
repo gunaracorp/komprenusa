@@ -108,9 +108,11 @@ export function BrandLogo({ dark = false, className = '', size = 44, uid = 'ka' 
         </div>
       </motion.div>
 
-      {/* Wordmark — selalu tampil, ukuran responsif agar brand terlihat di semua layar */}
+      {/* Wordmark — selalu tampil, ukuran responsif agar brand terlihat di semua layar.
+          CATATAN v2.0.2: gap antar-kata dihapus — KOMPRESA adalah SATU kata utuh
+          (gap 0.22em era "JURAGAN KOMPRESOR" membuat brand terbaca "KOMPRES A"). */}
       <div className="leading-none">
-        <div className="flex items-baseline whitespace-nowrap gap-[0.22em]">
+        <div className="flex items-baseline whitespace-nowrap gap-0">
           <span
             className={`font-extrabold tracking-tight text-base sm:text-lg ${
               dark ? 'text-white' : 'text-slate-900'
@@ -128,15 +130,18 @@ export function BrandLogo({ dark = false, className = '', size = 44, uid = 'ka' 
             A
           </span>
         </div>
-        <div className="mt-1 flex items-center gap-1.5">
+        {/* Tagline hanya tampil mulai xl (≥1280px) — di bawahnya lockup logo dibuat
+            ringkas agar nav & aksi header tidak pernah tumpang-tindih
+            (bug overflow v2.0.1 di viewport 1024px). Wordmark TETAP tampil di semua layar. */}
+        <div className="mt-1 hidden xl:flex items-center gap-1.5">
           <span
-            className={`h-[2px] w-3 sm:w-4 rounded-full bg-gradient-to-r ${
+            className={`h-[2px] w-4 rounded-full bg-gradient-to-r ${
               dark ? 'from-amber-300 to-amber-300/0' : 'from-amber-400 to-amber-400/0'
             }`}
             aria-hidden="true"
           />
           <span
-            className={`text-[8px] sm:text-[9px] font-bold tracking-[0.18em] sm:tracking-[0.24em] uppercase ${
+            className={`text-[9px] font-bold tracking-[0.2em] uppercase ${
               dark ? 'text-teal-200/90' : 'text-teal-700/90'
             }`}
           >

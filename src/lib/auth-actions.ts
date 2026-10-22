@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * Server actions login CMS — KompresNusa.
+ * Server actions login CMS — Kompresa.
  * Memisahkan lapisan aksi dari lapisan helper auth agar
  * client component dapat memanggil tanpa menarik node:crypto.
  */
@@ -12,17 +12,17 @@ const COOKIE_NAME = 'jk_admin_session';
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 7; // 7 hari
 
 function adminEmail(): string {
-  return (process.env.CMS_ADMIN_EMAIL?.trim() || 'admin@juragankompresor.com').toLowerCase();
+  return (process.env.CMS_ADMIN_EMAIL?.trim() || 'admin@kompresa.com').toLowerCase();
 }
 
 function adminPassword(): string {
-  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresnusaadmin2026';
+  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresaadmin2026';
 }
 
 function sessionSecret(): string {
   return (
     process.env.CMS_SESSION_SECRET?.trim() ||
-    'kompresnusa-fallback-secret-0f766e-14b8a6'
+    'kompresa-fallback-secret-0f766e-14b8a6'
   );
 }
 
@@ -62,7 +62,7 @@ export async function signInAction(
   }
 
   const store = await cookies();
-  store.set(COOKIE_NAME, createSessionToken(cleanEmail, 'Admin KompresNusa'), {
+  store.set(COOKIE_NAME, createSessionToken(cleanEmail, 'Admin Kompresa'), {
     httpOnly: true,
     sameSite: 'lax',
     secure: process.env.NODE_ENV === 'production',

@@ -86,7 +86,7 @@ export function Header() {
                 <Phone className="h-3 w-3" />
               </motion.a>
               <motion.a
-                href="mailto:kompresnusa@gmail.com"
+                href="mailto:kompresa@gmail.com"
                 whileHover={{ scale: 1.15, y: -1 }}
                 className="hover:text-teal-200 transition-colors"
                 aria-label="Email"
@@ -113,7 +113,7 @@ export function Header() {
             <button
               onClick={() => scrollToSection('#beranda')}
               className="shrink-0"
-              aria-label="KompresNusa — kembali ke beranda"
+              aria-label="Kompresa — kembali ke beranda"
             >
               <BrandLogo size={44} uid="hdr" />
             </button>

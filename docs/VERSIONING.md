@@ -1,7 +1,7 @@
-# 📦 Sistem Versioning — KompresNusa
+# 📦 Sistem Versioning — Kompresa
 
 > Dokumen kebijakan resmi. Seluruh perubahan pada project ini **wajib** mengikuti sistem di bawah.
-> Terakhir diperbarui: 2026-10-22 · Pemilik: PT KompresNusa
+> Terakhir diperbarui: 2026-10-22 · Pemilik: PT Kompresa
 
 ---
 
@@ -55,7 +55,7 @@ Prerelease (opsional): `v2.0.0-beta.1` — hanya untuk uji coba sebelum rilis be
 | Versi | Jenis | Alasan |
 |---|---|---|
 | `v1.0.0` | Rilis awal | Instalasi repository & situs hidup (620 produk) |
-| `v1.1.0` | **MINOR** | Rebranding total BMP → KompresNusa + skema warna + logo baru (fitur/kemampuan baru, kompatibel) |
+| `v1.1.0` | **MINOR** | Rebranding total BMP → Kompresa + skema warna + logo baru (fitur/kemampuan baru, kompatibel) |
 | `v1.2.0` | **MINOR** | Lockup merek premium `BrandLogo` + konsistensi 5 titik sentuh |
 | `v1.3.0` | **MINOR** | Sistem versioning internasional (infrastruktur baru) |
 | `v1.2.1`* | **PATCH** | (contoh) memperbaiki posisi badge keranjang — tanpa fitur baru |
@@ -200,7 +200,7 @@ anotasi git tag, dan badge footer situs.
 | Versi | Codename | Tanggal (Asia/Bangkok) | Ringkasan |
 |---|---|---|---|
 | v1.0.0 | Genesis | 2026-10-21 | Instalasi repository, situs HVAC live |
-| v1.1.0 | Genesis | 2026-10-21 | Rebranding total → KompresNusa + warna & logo baru |
+| v1.1.0 | Genesis | 2026-10-21 | Rebranding total → Kompresa + warna & logo baru |
 | v1.2.0 | Genesis | 2026-10-21 | Lockup merek premium di 5 titik sentuh |
 | v1.3.0 | **Nexus** | 2026-10-22 | Sistem versioning internasional ini |
 | v1.3.1 | **Nexus** | 2026-10-22 | Fix hydration mismatch logo + badge codename di footer |

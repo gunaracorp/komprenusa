@@ -68,7 +68,7 @@ function productMeta(product: NonNullable<Awaited<ReturnType<typeof getProductDe
     'kompresor ac murah',
     'distributor kompresor indonesia',
     'harga kompresor ac',
-    'kompresnusa',
+    'kompresa',
   ].filter(Boolean);
   return { title, description, keywords, typeLabel };
 }
@@ -153,7 +153,7 @@ export default async function ProductDetailPage({ params }: RouteProps) {
           price: product.price,
           itemCondition: 'https://schema.org/NewCondition',
           availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-          seller: { '@type': 'Organization', name: 'PT KompresNusa', url: SITE_URL },
+          seller: { '@type': 'Organization', name: 'PT Kompresa', url: SITE_URL },
           areaServed: 'ID',
           priceValidUntil: `${new Date().getFullYear() + 1}-12-31`,
         },

@@ -31,7 +31,7 @@ const brands = JSON.parse(readFileSync(path.join(ROOT, 'scripts/logo-library/bra
 const VERSION = 'v1.4.0 (Aurora)';
 const WIKI_API = 'https://en.wikipedia.org/w/api.php';
 const COMMONS_API = 'https://commons.wikimedia.org/w/api.php';
-const UA = 'JKLogoBot/1.0 (https://kompresnusa.example; refs@kompresnusa.example)';
+const UA = 'JKLogoBot/1.0 (https://kompresa.example; refs@kompresa.example)';
 const CATEGORIES = [
   { id: 'air-compressor', label: 'Kompresor Udara', en: 'Air Compressors', icon: '💨' },
   { id: 'refrigeration', label: 'Kompresor Pendingin', en: 'Refrigeration Compressors', icon: '❄️' },
@@ -349,7 +349,7 @@ for (const brand of brands.filter(b => !results.some(r => r.slug === b.slug))) f
 /* ---------- manifest ---------- */
 const byCat = CATEGORIES.map(c => ({ ...c, count: results.filter(r => r.category === c.id).length }));
 const manifest = {
-  library: 'KompresNusa — Perpustakaan Logo Kompresor Dunia',
+  library: 'Kompresa — Perpustakaan Logo Kompresor Dunia',
   version: VERSION,
   generatedAt: new Date().toISOString(),
   counts: { total: brands.length, ok: results.length, failed: failed.length },
@@ -364,7 +364,7 @@ writeFileSync(path.join(OUT_DIR, 'manifest.json'), JSON.stringify(manifest, null
 
 /* ---------- README ---------- */
 writeFileSync(path.join(OUT_DIR, 'README.md'), `# Perpustakaan Logo Kompresor Dunia
-**KompresNusa** · ${VERSION} · ${results.length} merek · 3 kategori
+**Kompresa** · ${VERSION} · ${results.length} merek · 3 kategori
 
 Struktur folder:
 \`\`\`
@@ -373,7 +373,7 @@ logos/
 ├── refrigeration/    # Kompresor Pendingin (${byCat[1].count} merek)
 ├── hvac-ac/          # HVAC & Pendinginan Udara (${byCat[2].count} merek)
 ├── manifest.json     # Metadata lengkap tiap logo (dimensi, sha256, sumber)
-├── kompresnusa-logo-library.zip  # Semua logo dalam 1 paket
+├── kompresa-logo-library.zip  # Semua logo dalam 1 paket
 └── README.md
 \`\`\`
 
@@ -383,7 +383,7 @@ Semua logo sudah dinormalisasi: auto-trim pinggiran, maksimal 640px, PNG palet 2
 Rantai sumber presisi (urut prioritas): logo infobox Wikipedia → auto-search Wikipedia → Wikimedia Commons → favicon resmi domain → kurasi image-search.
 
 Lihat galeri interaktif: **/logo-gallery.html**
-Unduh sekaligus: **/logos/kompresnusa-logo-library.zip**
+Unduh sekaligus: **/logos/kompresa-logo-library.zip**
 
 > ⚖️ Seluruh logo adalah merek dagang milik pemiliknya masing-masing.
 > Perpustakaan ini untuk keperluan referensi/editorial distributor, bukan untuk diperjualbelikan.
@@ -425,7 +425,7 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Perpustakaan Logo Kompresor Dunia — KompresNusa</title>
+<title>Perpustakaan Logo Kompresor Dunia — Kompresa</title>
 <meta name="robots" content="noindex, nofollow" />
 <style>
   :root { --teal:#0f766e; --teal-2:#0d9488; --gold:#f59e0b; --gold-2:#fbbf24; --ink:#0f172a; --muted:#94a3b8; }
@@ -470,7 +470,7 @@ const html = `<!doctype html>
 </head>
 <body>
 <header class="hero">
-  <span class="kicker">❄ KompresNusa · Perpustakaan Aset</span>
+  <span class="kicker">❄ Kompresa · Perpustakaan Aset</span>
   <h1>Perpustakaan <em>Logo Kompresor</em> Dunia</h1>
   <p class="sub">${results.length} merek terkurasi dari 3 kategori — ternormalisasi rapi: auto-trim, maks 640px, PNG seragam, penamaan konsisten.</p>
   <div class="stats">
@@ -482,7 +482,7 @@ const html = `<!doctype html>
 </header>
 <nav class="bar">
   <input id="q" type="search" placeholder="Cari merek… (mis. bitzer, atlas, daikin)" aria-label="Cari merek logo" />
-  <a class="btn btn-gold" href="/logos/kompresnusa-logo-library.zip" download>⬇ Unduh Semua (ZIP)</a>
+  <a class="btn btn-gold" href="/logos/kompresa-logo-library.zip" download>⬇ Unduh Semua (ZIP)</a>
 </nav>
 <main>
   ${sections}
@@ -507,7 +507,7 @@ const html = `<!doctype html>
 writeFileSync(path.join(ROOT, 'public/logo-gallery.html'), html);
 
 /* ---------- ZIP ---------- */
-execSync(`cd ${ROOT}/public && rm -f logos/kompresnusa-logo-library.zip && zip -r -X -q logos/kompresnusa-logo-library.zip logos -x "logos/kompresnusa-logo-library.zip"`, { stdio: 'inherit' });
+execSync(`cd ${ROOT}/public && rm -f logos/kompresa-logo-library.zip && zip -r -X -q logos/kompresa-logo-library.zip logos -x "logos/kompresa-logo-library.zip"`, { stdio: 'inherit' });
 
 /* ---------- ringkasan ---------- */
 const viaCount = {};
@@ -521,4 +521,4 @@ console.log(`Gagal    : ${failed.length}${failed.length ? ' → ' + failed.map(b
 for (const c of byCat) console.log(`  ${c.icon} ${c.label}: ${c.count}`);
 console.log(`Manifest : public/logos/manifest.json`);
 console.log(`Galeri   : public/logo-gallery.html (/logo-gallery.html)`);
-console.log(`ZIP      : public/logos/kompresnusa-logo-library.zip`);
+console.log(`ZIP      : public/logos/kompresa-logo-library.zip`);

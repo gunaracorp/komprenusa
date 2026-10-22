@@ -66,6 +66,6 @@ export const useCartStore = create<CartState>()(
       getTotalItems: () =>
         get().items.reduce((sum, item) => sum + item.quantity, 0),
     }),
-    { name: 'kompresnusa-cart' }
+    { name: 'kompresa-cart' }
   )
 );

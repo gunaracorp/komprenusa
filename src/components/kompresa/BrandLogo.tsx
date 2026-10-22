@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 /**
- * LogoMark — emblem resmi KompresNusa versi inline SVG.
+ * LogoMark — emblem resmi Kompresa versi inline SVG.
  * PENTING (anti hydration-mismatch): uid WAJIB statis eksplisit per lokasi
  * pemakaian (mis. 'hdr', 'mnu', 'ftr') — JANGAN memakai useId(), karena
  * posisi pohon komponen bisa berbeda antara SSR dan client (efek NoSSR)
@@ -12,15 +12,15 @@ import { motion } from 'framer-motion';
 export function LogoMark({
   size = 44,
   className = '',
-  uid = 'kn',
+  uid = 'ka',
 }: {
   size?: number;
   className?: string;
   uid?: string;
 }) {
-  const bgId = `kn-bg-${uid}`;
-  const glowId = `kn-glow-${uid}`;
-  const spokeId = `kn-spoke-${uid}`;
+  const bgId = `ka-bg-${uid}`;
+  const glowId = `ka-glow-${uid}`;
+  const spokeId = `ka-spoke-${uid}`;
 
   return (
     <svg
@@ -29,7 +29,7 @@ export function LogoMark({
       height={size}
       className={className}
       role="img"
-      aria-label="Logo KompresNusa"
+      aria-label="Logo Kompresa"
     >
       <defs>
         <linearGradient id={bgId} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -47,7 +47,7 @@ export function LogoMark({
       <rect width="512" height="512" rx="112" fill={`url(#${bgId})`} />
       <rect width="512" height="512" rx="112" fill={`url(#${glowId})`} />
 
-      {/* Cincin emas kompresnusa */}
+      {/* Cincin emas kompresa */}
       <circle cx="256" cy="256" r="206" fill="none" stroke="#f59e0b" strokeWidth="8" strokeOpacity="0.92" />
 
       {/* Kepingan salju: satu lengan, diputar 6x */}
@@ -88,7 +88,7 @@ type BrandLogoProps = {
  * "KOMPRES" solid (slate-900 / putih) + "NUSA" gradasi emas premium,
  * disertai tagline resmi "Compressor & Cooling Parts Center".
  */
-export function BrandLogo({ dark = false, className = '', size = 44, uid = 'kn' }: BrandLogoProps) {
+export function BrandLogo({ dark = false, className = '', size = 44, uid = 'ka' }: BrandLogoProps) {
   return (
     <div className={`flex items-center gap-2.5 group ${className}`}>
       {/* Emblem */}
@@ -125,7 +125,7 @@ export function BrandLogo({ dark = false, className = '', size = 44, uid = 'kn' 
                 : 'bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600'
             }`}
           >
-            NUSA
+            A
           </span>
         </div>
         <div className="mt-1 flex items-center gap-1.5">

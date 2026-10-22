@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * scripts/release.mjs — CLI Rilis Otomatis "KompresNusa"
+ * scripts/release.mjs — CLI Rilis Otomatis "Kompresa"
  * ============================================================
  * Menerapkan: Semantic Versioning 2.0.0 + Keep a Changelog 1.1.0
  * + Conventional Commits 1.0.0 + Git Tagged Releases.
@@ -107,7 +107,7 @@ if (nameFlagIdx !== -1) {
 
 if (!level) {
   console.error(`
-📦 KompresNusa — Release CLI (SemVer 2.0.0)
+📦 Kompresa — Release CLI (SemVer 2.0.0)
 
 Pemakaian:
   node scripts/release.mjs <patch|minor|major> [--name "Aurora"] [--no-git] [--yes]
@@ -236,7 +236,7 @@ export const APP_RELEASE_LINE = 'v${nextMajor}.${nextMinor} · ${codename}';
 export const APP_VERSION_FULL = '${newTag} (${codename})';
 export const APP_VERSION_LEVEL = '${level}' as const;
 export const APP_RELEASE_DATE = '${date}';
-export const APP_NAME = '${pkg.name ?? 'kompresnusa'}';
+export const APP_NAME = '${pkg.name ?? 'kompresa'}';
 `;
 
 // ---------- eksekusi ----------

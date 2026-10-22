@@ -145,8 +145,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
       title={L({ id: 'Tentang Kami', en: 'About Us' }, lang)}
       subtitle={L(
         {
-          id: 'PT KompresNusa — distributor HVAC resmi sejak 2008, melayani seluruh Indonesia.',
-          en: 'PT KompresNusa — official HVAC distributor since 2008, serving all of Indonesia.',
+          id: 'PT Kompresa — distributor HVAC resmi sejak 2008, melayani seluruh Indonesia.',
+          en: 'PT Kompresa — official HVAC distributor since 2008, serving all of Indonesia.',
         },
         lang
       )}
@@ -156,8 +156,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'PT KompresNusa adalah perusahaan distribusi sistem pendingin (HVAC) yang berkantor pusat di Kawasan Industri MM2100, Bekasi, Jawa Barat. Berdiri sejak 2008, kami telah tumbuh dari toko spare part AC kecil menjadi salah satu distributor pendingin terlengkap di Indonesia dengan lebih dari 50 brand ternama dan 120+ produk aktif.',
-              en: 'PT KompresNusa is a cooling-system (HVAC) distribution company headquartered in the MM2100 Industrial Estate, Bekasi, West Java. Founded in 2008, we have grown from a small AC spare-parts store into one of Indonesia\u2019s most complete cooling distributors, carrying more than 50 leading brands and 120+ active products.',
+              id: 'PT Kompresa adalah perusahaan distribusi sistem pendingin (HVAC) yang berkantor pusat di Kawasan Industri MM2100, Bekasi, Jawa Barat. Berdiri sejak 2008, kami telah tumbuh dari toko spare part AC kecil menjadi salah satu distributor pendingin terlengkap di Indonesia dengan lebih dari 50 brand ternama dan 120+ produk aktif.',
+              en: 'PT Kompresa is a cooling-system (HVAC) distribution company headquartered in the MM2100 Industrial Estate, Bekasi, West Java. Founded in 2008, we have grown from a small AC spare-parts store into one of Indonesia\u2019s most complete cooling distributors, carrying more than 50 leading brands and 120+ active products.',
             },
             lang
           )}
@@ -213,8 +213,8 @@ function AboutPage({ lang }: { lang: 'id' | 'en' }) {
           <a href="https://wa.me/6281350003423" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-teal-700 hover:text-teal-800 font-medium">
             <Phone className="h-4 w-4" /> WhatsApp +62 813-5000-3423
           </a>
-          <a href="mailto:kompresnusa@gmail.com" className="flex items-center gap-3 text-teal-700 hover:text-teal-800 font-medium break-all">
-            <Mail className="h-4 w-4" /> kompresnusa@gmail.com
+          <a href="mailto:kompresa@gmail.com" className="flex items-center gap-3 text-teal-700 hover:text-teal-800 font-medium break-all">
+            <Mail className="h-4 w-4" /> kompresa@gmail.com
           </a>
           <p className="flex items-start gap-3 text-gray-600">
             <MapPin className="h-4 w-4 mt-1 shrink-0 text-teal-700" />
@@ -477,8 +477,8 @@ function PrivacyPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'Anda berhak meminta akses, koreksi, atau penghapusan data pribadi Anda dengan menghubungi kompresnusa@gmail.com. Kami akan merespons dalam 1x24 jam kerja.',
-              en: 'You may request access to, correction of, or deletion of your personal data by contacting kompresnusa@gmail.com. We will respond within 1x24 business hours.',
+              id: 'Anda berhak meminta akses, koreksi, atau penghapusan data pribadi Anda dengan menghubungi kompresa@gmail.com. Kami akan merespons dalam 1x24 jam kerja.',
+              en: 'You may request access to, correction of, or deletion of your personal data by contacting kompresa@gmail.com. We will respond within 1x24 business hours.',
             },
             lang
           )}
@@ -493,7 +493,7 @@ function TermsPage({ lang }: { lang: 'id' | 'en' }) {
     <PageShell
       title={L({ id: 'Syarat & Ketentuan', en: 'Terms & Conditions' }, lang)}
       subtitle={L(
-        { id: 'Ketentuan penggunaan website dan ketentuan transaksi PT KompresNusa.', en: 'Website usage and transaction terms of PT KompresNusa.' },
+        { id: 'Ketentuan penggunaan website dan ketentuan transaksi PT Kompresa.', en: 'Website usage and transaction terms of PT Kompresa.' },
         lang
       )}
       icon={FileText}
@@ -502,8 +502,8 @@ function TermsPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'Dengan mengakses website ini dan bertransaksi dengan PT KompresNusa ("Kami"), Anda menyetujui Syarat & Ketentuan ini. Website ini dioperasikan dan dikelola oleh PT KompresNusa, Bekasi, Indonesia.',
-              en: 'By accessing this website and transacting with PT KompresNusa ("we/us"), you agree to these Terms & Conditions. This website is operated and managed by PT KompresNusa, Bekasi, Indonesia.',
+              id: 'Dengan mengakses website ini dan bertransaksi dengan PT Kompresa ("Kami"), Anda menyetujui Syarat & Ketentuan ini. Website ini dioperasikan dan dikelola oleh PT Kompresa, Bekasi, Indonesia.',
+              en: 'By accessing this website and transacting with PT Kompresa ("we/us"), you agree to these Terms & Conditions. This website is operated and managed by PT Kompresa, Bekasi, Indonesia.',
             },
             lang
           )}
@@ -557,8 +557,8 @@ function TermsPage({ lang }: { lang: 'id' | 'en' }) {
         <p>
           {L(
             {
-              id: 'Seluruh konten website ini (teks, logo, gambar produk) merupakan milik PT KompresNusa atau pemilik hak terkait. Dilarang menyalin atau mendistribusikan tanpa izin tertulis. Website dikelola dengan sistem oleh PT Digital Bisnis Manajemen (digiman.id) dengan konsultan strategis PT Top Konsultan Internasional.',
-              en: 'All content on this website (text, logo, product images) belongs to PT KompresNusa or the respective rights holders. Copying or distribution without written permission is prohibited. This website is operated on a system by PT Digital Bisnis Manajemen (digiman.id) with strategic consulting from PT Top Konsultan Internasional.',
+              id: 'Seluruh konten website ini (teks, logo, gambar produk) merupakan milik PT Kompresa atau pemilik hak terkait. Dilarang menyalin atau mendistribusikan tanpa izin tertulis. Website dikelola dengan sistem oleh PT Digital Bisnis Manajemen (digiman.id) dengan konsultan strategis PT Top Konsultan Internasional.',
+              en: 'All content on this website (text, logo, product images) belongs to PT Kompresa or the respective rights holders. Copying or distribution without written permission is prohibited. This website is operated on a system by PT Digital Bisnis Manajemen (digiman.id) with strategic consulting from PT Top Konsultan Internasional.',
             },
             lang
           )}

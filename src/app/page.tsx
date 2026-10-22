@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageClient } from '@/components/kompresnusa/PageClient';
+import { PageClient } from '@/components/kompresa/PageClient';
 import {
   getApprovedTestimonials,
   getCategoryProductCounts,
@@ -14,8 +14,8 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSeoSettings().catch(() => null);
-  const title = settings?.siteTitle ?? 'KompresNusa';
-  const description = settings?.siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.';
+  const title = settings?.siteTitle ?? 'Jual Kompresor AC & Spare Part Pendingin | KOMPRESA';
+  const description = settings?.siteDescription ?? 'Pusat Kompresor AC dan Spare Part Pendingin Indonesia — distributor HVAC resmi sejak 2008. Periksa spesifikasi, kecocokan produk, harga, dan informasi pemesanan.';
   return {
     title,
     description,
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: 'id_ID',
       title,
       description,
-      images: [{ url: '/images/hero/hero-1.png', alt: 'Sistem pendingin HVAC modern — PT KompresNusa' }],
+      images: [{ url: '/images/hero/hero-1.png', alt: 'Sistem pendingin HVAC modern — PT Kompresa' }],
     },
     twitter: { card: 'summary_large_image', title, description, images: ['/images/hero/hero-1.png'] },
   };
@@ -39,14 +39,14 @@ const jsonLd = {
     {
       '@type': ['Organization', 'LocalBusiness'],
       '@id': `${SITE_URL}/#organization`,
-      name: 'PT KompresNusa',
-      alternateName: 'KompresNusa',
+      name: 'PT Kompresa',
+      alternateName: 'Kompresa',
       url: SITE_URL,
       logo: `${SITE_URL}/images/logo.svg`,
       image: `${SITE_URL}/images/hero/hero-1.png`,
       description: 'Distributor HVAC resmi sejak 2008 — pusat penjualan AC, kompresor, refrigerant, spare part, chiller, dan sistem pendingin gedung terlengkap di Indonesia.',
       foundingDate: '2008',
-      email: 'kompresnusa@gmail.com',
+      email: 'kompresa@gmail.com',
       telephone: '+62-21-2268-2617',
       address: {
         '@type': 'PostalAddress',
@@ -68,7 +68,7 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'KompresNusa',
+      name: 'Kompresa',
       inLanguage: 'id-ID',
       publisher: { '@id': `${SITE_URL}/#organization` },
     },

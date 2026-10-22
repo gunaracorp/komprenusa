@@ -1,6 +1,6 @@
 /**
  * ──────────────────────────────────────────────────────────────────
- *  KOMPRESNUSA — ASSET TOTALITY CHECKER
+ *  KOMPRESA — ASSET TOTALITY CHECKER
  * ──────────────────────────────────────────────────────────────────
  *  Memastikan NOL gambar rusak/kosong sebelum upload/deploy.
  *  Audit:
@@ -75,7 +75,7 @@ function countImageFiles(): number {
 }
 
 async function main() {
-  console.log('\n🔍 KOMPRESNUSA — AUDIT TOTALITAS ASET\n' + '═'.repeat(64));
+  console.log('\n🔍 KOMPRESA — AUDIT TOTALITAS ASET\n' + '═'.repeat(64));
 
   // 1. Kategori
   const cats = await db.category.findMany({ select: { name: true, image: true } });

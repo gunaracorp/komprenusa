@@ -146,7 +146,7 @@ export const CMS_BACKUP_PUBLIC_TABLES = [
 ] as const;
 
 export type CmsDatabaseBackupSnapshot = {
-  format: 'kompresnusa-cms-backup';
+  format: 'kompresa-cms-backup';
   version: 1;
   capturedAt: string;
   database: 'postgres';
@@ -229,7 +229,7 @@ export async function exportCmsDatabaseSnapshot(): Promise<CmsDatabaseBackupSnap
     transactionOpen = false;
 
     return {
-      format: 'kompresnusa-cms-backup',
+      format: 'kompresa-cms-backup',
       version: 1,
       capturedAt,
       database: 'postgres',
@@ -489,7 +489,7 @@ export async function getSiteSeoSettings() {
   const settings = await cmsDb.select().from(cmsSettings);
   const values = Object.fromEntries(settings.map(({ key, value }) => [key, value]));
   return {
-    siteTitle: values.site_title || 'KompresNusa',
+    siteTitle: values.site_title || 'Kompresa',
     siteDescription: values.site_description || 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi. Pusat penjualan AC, kompresor, refrigerant, spare part, chiller, VRV/VRF, dan sistem pendingin gedung terlengkap.',
   };
 }
@@ -709,7 +709,7 @@ export async function getCatalogPageData() {
 
 export async function getAdminSettings() {
   const [siteTitle, siteDescription] = await Promise.all([getCmsSetting('site_title'), getCmsSetting('site_description')]);
-  return { siteTitle: siteTitle ?? 'KompresNusa', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.' };
+  return { siteTitle: siteTitle ?? 'Kompresa', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.' };
 }
 
 export async function getArticleTotalCount() {

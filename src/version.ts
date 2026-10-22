@@ -9,4 +9,4 @@ export const APP_RELEASE_LINE = 'v1.4 · Aurora';
 export const APP_VERSION_FULL = 'v1.4.0 (Aurora)';
 export const APP_VERSION_LEVEL = 'minor' as const;
 export const APP_RELEASE_DATE = '2026-10-22';
-export const APP_NAME = 'kompresnusa';
+export const APP_NAME = 'kompresa';

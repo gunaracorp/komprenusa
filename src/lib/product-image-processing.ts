@@ -18,7 +18,7 @@ const MAX_FILE_BYTES = 20 * 1024 * 1024;
 const MAX_PIXELS = 40_000_000;
 const OUTPUT_EDGE = 1600;
 const WATERMARK_VERSION = 'jk-product-catalog-v1';
-const WATERMARK_LABEL = 'KOMPRESNUSA · PRODUCT CATALOG';
+const WATERMARK_LABEL = 'KOMPRESA · PRODUCT CATALOG';
 const APPROVED_RIGHTS = new Set(['OWNED', 'LICENSED', 'SUPPLIER_AUTHORIZED', 'MANUFACTURER_AUTHORIZED', 'PARTNER_AUTHORIZED', 'PUBLIC_REUSE_PERMITTED']);
 const EXPECTED_FORMATS: Record<string, string> = {
   avif: 'avif', bmp: 'bmp', gif: 'gif', jpeg: 'jpeg', jpg: 'jpeg', png: 'png', tif: 'tiff', tiff: 'tiff', webp: 'webp',

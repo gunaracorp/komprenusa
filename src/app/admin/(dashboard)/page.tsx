@@ -21,7 +21,7 @@ export default async function AdminDashboardPage() {
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">Pusat kendali editorial</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">Ringkasan</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Kelola konten dan optimasi pencarian website KompresNusa.</p>
+          <p className="mt-2 text-sm text-muted-foreground">Kelola konten dan optimasi pencarian website Kompresa.</p>
         </div>
         <Link href="/admin/articles/new" className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-teal-900 px-4 text-sm font-semibold text-white transition hover:bg-teal-800"><FilePlus2 aria-hidden="true" className="size-4" /> Tulis artikel</Link>
       </header>

@@ -1,5 +1,5 @@
 /**
- * AUTH LOKAL — KompresNusa
+ * AUTH LOKAL — Kompresa
  *
  * Menggantikan Neon Auth (butuh infra cloud) dengan sesi cookie
  * bertanda tangan HMAC-SHA256 — 100% berjalan mandiri di server.
@@ -32,17 +32,17 @@ export type AdminUser = {
 };
 
 function adminEmail(): string {
-  return (process.env.CMS_ADMIN_EMAIL?.trim() || 'admin@juragankompresor.com').toLowerCase();
+  return (process.env.CMS_ADMIN_EMAIL?.trim() || 'admin@kompresa.com').toLowerCase();
 }
 
 function adminPassword(): string {
-  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresnusaadmin2026';
+  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresaadmin2026';
 }
 
 function sessionSecret(): string {
   return (
     process.env.CMS_SESSION_SECRET?.trim() ||
-    'kompresnusa-fallback-secret-0f766e-14b8a6'
+    'kompresa-fallback-secret-0f766e-14b8a6'
   );
 }
 

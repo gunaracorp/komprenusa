@@ -213,7 +213,7 @@ function buildDescription(p: {
 }): string {
   const city = pick(CITIES);
   const openers = [
-    `Jual ${p.label} ${p.brand} ${hpLabel(p.hp)} original dengan refrigerant ${p.refrigerant} — ready stock di gudang PT KompresNusa, Kawasan Industri MM2100 Bekasi.`,
+    `Jual ${p.label} ${p.brand} ${hpLabel(p.hp)} original dengan refrigerant ${p.refrigerant} — ready stock di gudang PT Kompresa, Kawasan Industri MM2100 Bekasi.`,
     `${p.label} ${p.brand} model ${p.model} berkapasitas ${hpLabel(p.hp)} dengan refrigerant ${p.refrigerant} kini tersedia untuk pengiriman ke seluruh ${REGIONS}.`,
     `Cari ${p.label} ${p.brand} ${hpLabel(p.hp)} refrigerant ${p.refrigerant}? Kami distributor HVAC resmi sejak 2010 dengan harga distributor termurah dan garansi resmi.`,
     `${p.label} ${p.brand} ${hpLabel(p.hp)} untuk ${p.applications} — unit original 100%, dikirim dari Bekasi ke ${city} dan 34 provinsi ${REGIONS}.`,

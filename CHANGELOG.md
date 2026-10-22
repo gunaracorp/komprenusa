@@ -9,6 +9,17 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-10-22 — Garuda
+### Changed
+- **REBRAND TOTAL v2 — KOMPRESNUSA → KOMPRESA**: identitas resmi baru "KOMPRESA — THE COMPRESSOR & COOLING PARTS CENTER", deskripsi "Pusat Kompresor AC dan Spare Part Pendingin Indonesia"
+- 47 file kode/publik + database PGlite (125 baris: 106 deskripsi produk, 12 brand, 7 testimoni) dimigrasi case-aware; domain kanonis www.juragankompresor.com DIPERTAHANKAN (aturan keamanan SEO — pengecualian terdokumentasi)
+- Wordmark dua-warna baru: KOMPRES (solid) + A (gradasi emas), tagline "Compressor & Cooling Parts Center"; folder komponen → src/components/kompresa
+- Storage keys → ka-lang & kompresnusa→kompresa-cart (migrasi preferensi bahasa dari ka-lang lama); email admin → admin@kompresa.com
+- SEO: title homepage "Jual Kompresor AC & Spare Part Pendingin | KOMPRESA", description sesuai positioning, JSON-LD WebSite name KOMPRESA + alternateName Kompresa, Organization/Kompresa konsisten
+### Security
+- Kredensial admin diperbarui (lihat .env) — email lama dinonaktifkan
+
+
 ## [1.4.0] - 2026-10-22 — Aurora
 ### Added
 - **Perpustakaan Logo Kompresor Dunia**: 42 merek terverifikasi dalam 3 kategori (Kompresor Udara 18, Kompresor Pendingin 9, HVAC & AC 15) di `public/logos/` — galeri interaktif `/logo-gallery.html` (pencarian, unduh per logo, ZIP paket lengkap), `manifest.json` metadata lengkap (dimensi, sha256, sumber, hash anti-duplikat)

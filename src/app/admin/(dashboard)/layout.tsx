@@ -25,7 +25,7 @@ export default async function AdminDashboardLayout({ children }: { children: Rea
       <aside className="border-b border-border bg-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:border-b-0 lg:border-r">
         <div className="flex items-center gap-3 border-b border-border px-5 py-5">
           <span className="flex size-10 items-center justify-center rounded-xl bg-teal-900 text-white"><Snowflake aria-hidden="true" className="size-5" /></span>
-          <span className="min-w-0"><span className="block text-sm font-semibold">KompresNusa CMS</span><span className="block text-xs text-muted-foreground">Editorial workspace</span></span>
+          <span className="min-w-0"><span className="block text-sm font-semibold">Kompresa CMS</span><span className="block text-xs text-muted-foreground">Editorial workspace</span></span>
         </div>
         <nav aria-label="Navigasi admin" className="flex gap-2 overflow-x-auto p-3 lg:flex-col lg:overflow-visible">
           {navigation.map(({ href, label, icon: Icon }) => (

@@ -22,7 +22,7 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
     openGraph: {
       type: 'website',
       url: `${SITE_URL}/produk`,
-      title: 'Katalog Kompresor AC Terlengkap | KompresNusa',
+      title: 'Katalog Kompresor AC Terlengkap | Kompresa',
       description: 'Jelajahi 500+ varian kompresor dari 25 brand ternama — bandingkan spesifikasi dan minta penawaran distributor.',
     },
   };
@@ -64,7 +64,7 @@ export default async function ProductCatalogPage({ searchParams }: PageProps) {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Katalog kompresor AC KompresNusa',
+    name: 'Katalog kompresor AC Kompresa',
     numberOfItems: total,
     itemListElement: products.map(({ product }, index) => ({
       '@type': 'ListItem',
@@ -81,14 +81,14 @@ export default async function ProductCatalogPage({ searchParams }: PageProps) {
           <Link href="/" className="group inline-flex items-center gap-2.5">
             <Image
               src="/images/logo.svg"
-              alt="Logo KompresNusa"
+              alt="Logo Kompresa"
               width={36}
               height={36}
               unoptimized
               className="rounded-lg shadow-sm ring-1 ring-black/10 transition duration-300 group-hover:ring-amber-400/60"
             />
             <span className="font-extrabold tracking-tight text-slate-900">
-              KOMPRESNUSA <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 bg-clip-text text-transparent">KOMPRESOR</span>
+              KOMPRESA <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-yellow-600 bg-clip-text text-transparent">KOMPRESOR</span>
             </span>
           </Link>
           <div className="flex items-center gap-3">

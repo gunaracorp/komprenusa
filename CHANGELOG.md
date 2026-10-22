@@ -8,8 +8,6 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
-
-## [2.0.0] - 2026-10-22 — Garuda
 ### Changed
 - **REBRAND TOTAL v2 — KOMPRESNUSA → KOMPRESA**: identitas resmi baru "KOMPRESA — THE COMPRESSOR & COOLING PARTS CENTER", deskripsi "Pusat Kompresor AC dan Spare Part Pendingin Indonesia"
 - 47 file kode/publik + database PGlite (125 baris: 106 deskripsi produk, 12 brand, 7 testimoni) dimigrasi case-aware; domain kanonis www.juragankompresor.com DIPERTAHANKAN (aturan keamanan SEO — pengecualian terdokumentasi)
@@ -18,6 +16,7 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - SEO: title homepage "Jual Kompresor AC & Spare Part Pendingin | KOMPRESA", description sesuai positioning, JSON-LD WebSite name KOMPRESA + alternateName Kompresa, Organization/Kompresa konsisten
 ### Security
 - Kredensial admin diperbarui (lihat .env) — email lama dinonaktifkan
+
 
 
 ## [1.4.0] - 2026-10-22 — Aurora

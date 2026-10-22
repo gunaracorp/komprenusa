@@ -16,6 +16,17 @@ export const useLangStore = create<LangState>()(
       lang: 'id',
       setLang: (lang) => set({ lang }),
     }),
-    { name: 'jk-lang' }
+    {
+      name: 'kn-lang',
+      // Migrasi satu kali dari kunci lama (era rebrand) agar preferensi bahasa tidak hilang
+      onRehydrateStorage: () => (state) => {
+        if (state && typeof window !== 'undefined' && !localStorage.getItem('kn-lang')) {
+          const legacy = localStorage.getItem('jk-lang');
+          if (legacy) {
+            try { localStorage.setItem('kn-lang', legacy); } catch { /* abaikan */ }
+          }
+        }
+      },
+    }
   )
 );

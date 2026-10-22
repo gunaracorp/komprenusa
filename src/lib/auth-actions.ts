@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * Server actions login CMS — Juragan Kompresor.
+ * Server actions login CMS — KompresNusa.
  * Memisahkan lapisan aksi dari lapisan helper auth agar
  * client component dapat memanggil tanpa menarik node:crypto.
  */
@@ -16,13 +16,13 @@ function adminEmail(): string {
 }
 
 function adminPassword(): string {
-  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'juraganadmin2026';
+  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresnusaadmin2026';
 }
 
 function sessionSecret(): string {
   return (
     process.env.CMS_SESSION_SECRET?.trim() ||
-    'juragan-kompresor-fallback-secret-0f766e-14b8a6'
+    'kompresnusa-fallback-secret-0f766e-14b8a6'
   );
 }
 
@@ -62,7 +62,7 @@ export async function signInAction(
   }
 
   const store = await cookies();
-  store.set(COOKIE_NAME, createSessionToken(cleanEmail, 'Admin Juragan Kompresor'), {
+  store.set(COOKIE_NAME, createSessionToken(cleanEmail, 'Admin KompresNusa'), {
     httpOnly: true,
     sameSite: 'lax',
     secure: process.env.NODE_ENV === 'production',

@@ -1,5 +1,5 @@
 /**
- * AUTH LOKAL — Juragan Kompresor
+ * AUTH LOKAL — KompresNusa
  *
  * Menggantikan Neon Auth (butuh infra cloud) dengan sesi cookie
  * bertanda tangan HMAC-SHA256 — 100% berjalan mandiri di server.
@@ -36,13 +36,13 @@ function adminEmail(): string {
 }
 
 function adminPassword(): string {
-  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'juraganadmin2026';
+  return process.env.CMS_ADMIN_PASSWORD?.trim() || 'kompresnusaadmin2026';
 }
 
 function sessionSecret(): string {
   return (
     process.env.CMS_SESSION_SECRET?.trim() ||
-    'juragan-kompresor-fallback-secret-0f766e-14b8a6'
+    'kompresnusa-fallback-secret-0f766e-14b8a6'
   );
 }
 

@@ -1,7 +1,7 @@
 /**
  * REBADGE GAMBAR PRODUK — BMP → JK
  * Menimpa badge lingkaran "BMP" (cx=742, cy=52, r=30) pada gambar
- * turunan kompresor dengan badge "JK" Juragan Kompresor.
+ * turunan kompresor dengan badge "JK" KompresNusa.
  * Warna lingkaran baru disamarkan dengan piksel badge asli per-gambar.
  *
  * Jalankan: node scripts/rebadge-images.mjs [--dry]

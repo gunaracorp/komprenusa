@@ -43,8 +43,8 @@ export const dict = {
   'about.badge': { id: 'Tentang Kami', en: 'About Us' },
   'about.heading': { id: 'Profil Perusahaan', en: 'Company Profile' },
   'about.sub': {
-    id: 'Mengenal lebih dekat PT Juragan Kompresor, mitra terpercaya Anda dalam solusi pendingin.',
-    en: 'Get to know PT Juragan Kompresor, your trusted partner in cooling solutions.',
+    id: 'Mengenal lebih dekat PT KompresNusa, mitra terpercaya Anda dalam solusi pendingin.',
+    en: 'Get to know PT KompresNusa, your trusted partner in cooling solutions.',
   },
   'about.badge.founded': { id: 'Didirikan 2008', en: 'Established 2008' },
   'about.badge.location': { id: 'Kawasan MM2100 Bekasi', en: 'MM2100 Estate, Bekasi' },
@@ -64,8 +64,8 @@ export const dict = {
   'about.stat.provinces': { id: 'Provinsi', en: 'Provinces' },
   'about.story.heading': { id: 'Cerita Kami', en: 'Our Story' },
   'about.story.text': {
-    id: 'Juragan Kompresor didirikan pada tahun 2008 di kawasan industri MM2100 Bekasi. Bermula dari toko spare part AC kecil, kami terus berkembang menjadi salah satu distributor pendingin terbesar di Indonesia. Dengan komitmen menghadirkan produk berkualitas tinggi dan layanan terbaik, kami telah menyelesaikan 7.439 proyek di 38 provinsi seluruh Indonesia. Kami percaya bahwa setiap proyek pendingin membutuhkan mitra yang dapat dipercaya \u2014 itulah mengapa kami selalu mengutamakan kejujuran, kualitas, dan pelayanan prima dalam setiap transaksi.',
-    en: 'Juragan Kompresor was founded in 2008 in the MM2100 industrial estate, Bekasi. Starting from a small air-conditioning spare parts store, we have grown into one of Indonesia\u2019s largest cooling distributors. With a commitment to high-quality products and excellent service, we have completed 7,439 projects across all 38 provinces of Indonesia. We believe every cooling project needs a trustworthy partner \u2014 that is why we always prioritize honesty, quality, and excellence in every transaction.',
+    id: 'KompresNusa didirikan pada tahun 2008 di kawasan industri MM2100 Bekasi. Bermula dari toko spare part AC kecil, kami terus berkembang menjadi salah satu distributor pendingin terbesar di Indonesia. Dengan komitmen menghadirkan produk berkualitas tinggi dan layanan terbaik, kami telah menyelesaikan 7.439 proyek di 38 provinsi seluruh Indonesia. Kami percaya bahwa setiap proyek pendingin membutuhkan mitra yang dapat dipercaya \u2014 itulah mengapa kami selalu mengutamakan kejujuran, kualitas, dan pelayanan prima dalam setiap transaksi.',
+    en: 'KompresNusa was founded in 2008 in the MM2100 industrial estate, Bekasi. Starting from a small air-conditioning spare parts store, we have grown into one of Indonesia\u2019s largest cooling distributors. With a commitment to high-quality products and excellent service, we have completed 7,439 projects across all 38 provinces of Indonesia. We believe every cooling project needs a trustworthy partner \u2014 that is why we always prioritize honesty, quality, and excellence in every transaction.',
   },
   'about.vision': { id: 'Visi', en: 'Vision' },
   'about.vision.text': {
@@ -116,7 +116,7 @@ export const dict = {
   'catalog.added': { id: 'Ditambahkan ke keranjang', en: 'Added to cart' },
 
   // ── Why Choose Us ──
-  'why.badge': { id: 'Mengapa Juragan Kompresor?', en: 'Why Juragan Kompresor?' },
+  'why.badge': { id: 'Mengapa KompresNusa?', en: 'Why KompresNusa?' },
   'why.heading': { id: 'Keunggulan Kami', en: 'Our Advantages' },
   'why.sub': {
     id: 'Komitmen kami menghadirkan produk pendingin berkualitas tinggi dengan layanan terbaik untuk memastikan kepuasan pelanggan.',

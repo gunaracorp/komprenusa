@@ -52,7 +52,7 @@ export default async function InsightArticlePage({ params }: PageProps) {
         datePublished: article.publishedAt?.toISOString(),
         dateModified: article.updatedAt.toISOString(),
         author: { '@type': 'Organization', name: article.authorName },
-        publisher: { '@type': 'Organization', name: 'PT Juragan Kompresor', url: siteUrl },
+        publisher: { '@type': 'Organization', name: 'PT KompresNusa', url: siteUrl },
         mainEntityOfPage: articleUrl,
         image: article.coverImage ? [article.coverImage] : undefined,
       },
@@ -71,7 +71,7 @@ export default async function InsightArticlePage({ params }: PageProps) {
     <main className="min-h-screen bg-white text-slate-950">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
       <header className="border-b border-border bg-teal-950 text-white">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8"><Link href="/" className="inline-flex items-center gap-2.5 font-semibold tracking-tight"><span className="flex size-9 items-center justify-center rounded-xl bg-white/10"><Snowflake aria-hidden="true" className="size-5" /></span>Juragan Kompresor</Link><Link href="/insights" className="text-sm text-white/80 transition hover:text-white">Semua insight</Link></div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8"><Link href="/" className="inline-flex items-center gap-2.5 font-semibold tracking-tight"><span className="flex size-9 items-center justify-center rounded-xl bg-white/10"><Snowflake aria-hidden="true" className="size-5" /></span>KompresNusa</Link><Link href="/insights" className="text-sm text-white/80 transition hover:text-white">Semua insight</Link></div>
       </header>
       <article>
         <header className="mx-auto max-w-4xl px-5 pb-10 pt-12 sm:px-8 sm:pb-14 sm:pt-16">
@@ -87,7 +87,7 @@ export default async function InsightArticlePage({ params }: PageProps) {
           <aside className="h-fit rounded-2xl border border-border bg-[#f5faf9] p-5 lg:sticky lg:top-8"><p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-800">Butuh konsultasi?</p><h2 className="mt-3 text-lg font-semibold">Diskusikan kebutuhan sistem pendingin Anda.</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">Tim kami siap membantu menemukan solusi HVAC yang tepat.</p><Link href="/#kontak" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-800">Hubungi tim kami <ArrowUpRight aria-hidden="true" className="size-4" /></Link></aside>
         </div>
       </article>
-      <footer className="border-t border-border bg-[#f7faf9]"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-7 text-sm sm:px-8"><Link href="/" className="font-medium">PT Juragan Kompresor</Link><Link href="/insights" className="text-muted-foreground hover:text-teal-800">Jelajahi insight lainnya</Link></div></footer>
+      <footer className="border-t border-border bg-[#f7faf9]"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-7 text-sm sm:px-8"><Link href="/" className="font-medium">PT KompresNusa</Link><Link href="/insights" className="text-muted-foreground hover:text-teal-800">Jelajahi insight lainnya</Link></div></footer>
     </main>
   );
 }

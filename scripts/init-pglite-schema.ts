@@ -1,6 +1,6 @@
 /**
  * INISIALISASI SKEMA POSTGRES (PGlite)
- * Membuat seluruh tabel yang dibutuhkan website Juragan Kompresor.
+ * Membuat seluruh tabel yang dibutuhkan website KompresNusa.
  * Aman dijalankan berulang (IF NOT EXISTS).
  */
 import path from 'node:path';

@@ -149,7 +149,7 @@ export function Hero() {
             >
               <Image
                 src="/images/hero/hero-1.png"
-                alt="Sistem pendingin HVAC modern Juragan Kompresor"
+                alt="Sistem pendingin HVAC modern KompresNusa"
                 fill
                 className="object-cover"
                 priority

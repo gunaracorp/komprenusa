@@ -13,7 +13,7 @@ import { disconnectDropboxAction, processProductImageBatchAction, saveProductIma
 import { DropboxControls } from './dropbox-controls';
 
 export const metadata: Metadata = {
-  title: 'Aset & hak gambar | Juragan CMS',
+  title: 'Aset & hak gambar | KompresNusa CMS',
   robots: { index: false, follow: false },
 };
 

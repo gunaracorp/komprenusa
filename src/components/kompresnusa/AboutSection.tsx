@@ -79,7 +79,7 @@ export function AboutSection() {
                     <Building2 className="h-7 w-7 text-white" />
                   </div>
                   <h3 className="text-2xl lg:text-3xl font-bold mb-2">
-                    PT Juragan Kompresor
+                    PT KompresNusa
                   </h3>
                   <div className="flex flex-wrap gap-2 mt-3">
                     <Badge className="bg-white/20 text-white border-white/30 hover:bg-white/30">

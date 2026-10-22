@@ -65,7 +65,7 @@ export default function SeoGuidePage() {
     <div className="mx-auto flex max-w-5xl flex-col gap-8">
       <header className="rounded-3xl border border-teal-900/10 bg-white p-6 shadow-sm sm:p-9">
         <div className="flex size-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-900"><BookOpen aria-hidden="true" className="size-5" /></div>
-        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-teal-800">Pusat belajar Juragan CMS</p>
+        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-teal-800">Pusat belajar KompresNusa CMS</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Panduan SEO dari draf sampai ditemukan</h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">Ikuti alur singkat ini untuk menyiapkan halaman yang mudah dipahami manusia dan mesin pencari. CMS mengelola metadata dasar, canonical, data terstruktur, robots, dan sitemap; kualitas konten serta keputusan bisnis tetap perlu ditinjau oleh tim.</p>
         <p className="mt-4 max-w-3xl rounded-xl bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-950">SEO tidak dapat menjamin posisi atau waktu indeksasi tertentu. Google dapat memilih ulang judul dan cuplikan berdasarkan kueri; fokus pada informasi yang berguna, konsisten, dan dapat dipercaya.</p>

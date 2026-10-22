@@ -34,7 +34,7 @@ const contactInfo = [
     labelKey: 'contact.whatsapp' as const,
     value: '+62 813-5000-3423',
     descKey: 'contact.waDesc' as const,
-    href: 'https://wa.me/6281350003423?text=Halo%20Juragan%20Kompresor%2C%20saya%20ingin%20bertanya.',
+    href: 'https://wa.me/6281350003423?text=Halo%20KompresNusa%20Kompresor%2C%20saya%20ingin%20bertanya.',
   },
   {
     icon: Mail,
@@ -106,7 +106,7 @@ export function ContactSection() {
     // Send via WhatsApp — no server/API needed!
     try {
       const lines = [
-        `Halo, saya ingin menghubungi Juragan Kompresor:`,
+        `Halo, saya ingin menghubungi KompresNusa:`,
         ``,
         `*Nama:* ${form.name}`,
         form.email ? `*Email:* ${form.email}` : '',
@@ -315,7 +315,7 @@ export function ContactSection() {
                         variant="outline"
                         className="border-emerald-300 text-emerald-800 hover:bg-emerald-50 h-11 font-semibold"
                         onClick={() => {
-                          const msg = `Halo, saya ingin bertanya tentang produk di Juragan Kompresor.`;
+                          const msg = `Halo, saya ingin bertanya tentang produk di KompresNusa.`;
                           window.open(
                             `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,
                             '_blank'

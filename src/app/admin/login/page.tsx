@@ -27,7 +27,7 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
         <div className="mb-7 flex size-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-800">
           <Snowflake aria-hidden="true" className="size-6" />
         </div>
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">Juragan Kompresor</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">KompresNusa</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950">Masuk ke CMS</h1>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">Kelola insight, artikel, dan metadata website melalui satu workspace.</p>
         <div className="mt-8">

@@ -158,9 +158,9 @@ export function Footer() {
                 <Phone className="h-3.5 w-3.5 text-teal-400 shrink-0" />
                 <span>(021) 2268-2617</span>
               </a>
-              <a href="mailto:juragankompresor@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:kompresnusa@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                 <Mail className="h-3.5 w-3.5 text-teal-400 shrink-0" />
-                <span>juragankompresor@gmail.com</span>
+                <span>kompresnusa@gmail.com</span>
               </a>
             </div>
             {/* Contact & Platform Links */}
@@ -186,7 +186,7 @@ export function Footer() {
                 <Phone className="h-3.5 w-3.5" />
               </motion.a>
               <motion.a
-                href="mailto:juragankompresor@gmail.com"
+                href="mailto:kompresnusa@gmail.com"
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
                 className="w-8 h-8 rounded-full bg-gray-800 hover:bg-teal-600 flex items-center justify-center text-gray-400 hover:text-white transition-all"
@@ -353,7 +353,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
             <p className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
-              <span>© {new Date().getFullYear()} PT Juragan Kompresor. {t('footer.rights')}</span>
+              <span>© {new Date().getFullYear()} PT KompresNusa. {t('footer.rights')}</span>
               <span
                 className="inline-flex items-center gap-1.5 rounded-full border border-gray-700 bg-gray-800/70 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-amber-400/90 hover:text-amber-300 hover:border-amber-500/50 transition-colors cursor-help"
                 title={`Versi aplikasi ${APP_VERSION_TAG} · codename ${APP_VERSION_CODENAME} — dirilis ${APP_RELEASE_DATE}. Riwayat lengkap: CHANGELOG.md`}

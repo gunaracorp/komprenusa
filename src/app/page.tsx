@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageClient } from '@/components/juragankompresor/PageClient';
+import { PageClient } from '@/components/kompresnusa/PageClient';
 import {
   getApprovedTestimonials,
   getCategoryProductCounts,
@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSeoSettings().catch(() => null);
-  const title = settings?.siteTitle ?? 'Juragan Kompresor';
+  const title = settings?.siteTitle ?? 'KompresNusa';
   const description = settings?.siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.';
   return {
     title,
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: 'id_ID',
       title,
       description,
-      images: [{ url: '/images/hero/hero-1.png', alt: 'Sistem pendingin HVAC modern — PT Juragan Kompresor' }],
+      images: [{ url: '/images/hero/hero-1.png', alt: 'Sistem pendingin HVAC modern — PT KompresNusa' }],
     },
     twitter: { card: 'summary_large_image', title, description, images: ['/images/hero/hero-1.png'] },
   };
@@ -39,14 +39,14 @@ const jsonLd = {
     {
       '@type': ['Organization', 'LocalBusiness'],
       '@id': `${SITE_URL}/#organization`,
-      name: 'PT Juragan Kompresor',
-      alternateName: 'Juragan Kompresor',
+      name: 'PT KompresNusa',
+      alternateName: 'KompresNusa',
       url: SITE_URL,
       logo: `${SITE_URL}/images/logo.svg`,
       image: `${SITE_URL}/images/hero/hero-1.png`,
       description: 'Distributor HVAC resmi sejak 2008 — pusat penjualan AC, kompresor, refrigerant, spare part, chiller, dan sistem pendingin gedung terlengkap di Indonesia.',
       foundingDate: '2008',
-      email: 'juragankompresor@gmail.com',
+      email: 'kompresnusa@gmail.com',
       telephone: '+62-21-2268-2617',
       address: {
         '@type': 'PostalAddress',
@@ -68,7 +68,7 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'Juragan Kompresor',
+      name: 'KompresNusa',
       inLanguage: 'id-ID',
       publisher: { '@id': `${SITE_URL}/#organization` },
     },

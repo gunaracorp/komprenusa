@@ -43,7 +43,7 @@ export default async function AdminBackupsPage() {
           <span className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700"><Archive aria-hidden="true" className="size-4" /></span>
           <div>
             <h2 id="backup-history-title" className="font-semibold">Riwayat file backup</h2>
-            <p className="mt-1 text-sm text-muted-foreground">Lokasi Dropbox: <code className="rounded bg-muted px-1.5 py-0.5 text-xs">/Juragan-Kompresor-CMS-Backups</code></p>
+            <p className="mt-1 text-sm text-muted-foreground">Lokasi Dropbox: <code className="rounded bg-muted px-1.5 py-0.5 text-xs">/KompresNusa-Kompresor-CMS-Backups</code></p>
           </div>
         </div>
 

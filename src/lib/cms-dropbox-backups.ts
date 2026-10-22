@@ -30,7 +30,7 @@ export class CmsDropboxBackupError extends Error {
   }
 }
 
-const BACKUP_FOLDER = '/Juragan-Kompresor-CMS-Backups';
+const BACKUP_FOLDER = '/KompresNusa-Kompresor-CMS-Backups';
 const MAX_JSON_BYTES = 32 * 1024 * 1024;
 const DROPBOX_HASH_BLOCK_BYTES = 4 * 1024 * 1024;
 

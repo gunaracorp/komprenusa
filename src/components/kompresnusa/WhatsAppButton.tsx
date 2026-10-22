@@ -40,7 +40,7 @@ export function WhatsAppButton() {
               {t('wa.tooltip')}
             </p>
             <a
-              href="https://wa.me/6281350003423?text=Halo%20Juragan%20Kompresor%2C%20saya%20ingin%20bertanya."
+              href="https://wa.me/6281350003423?text=Halo%20KompresNusa%20Kompresor%2C%20saya%20ingin%20bertanya."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-2 text-[11px] font-semibold text-emerald-700 hover:text-emerald-800"
@@ -51,7 +51,7 @@ export function WhatsAppButton() {
         )}
       </AnimatePresence>
       <motion.a
-        href="https://wa.me/6281350003423?text=Halo%20Juragan%20Kompresor%2C%20saya%20ingin%20bertanya."
+        href="https://wa.me/6281350003423?text=Halo%20KompresNusa%20Kompresor%2C%20saya%20ingin%20bertanya."
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1 }}

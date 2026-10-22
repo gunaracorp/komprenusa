@@ -8,6 +8,8 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+
+## [2.0.3] - 2026-10-22 — Garuda
 ### Fixed
 - **Tagline merek kembali tampil di header semua ukuran layar** (regresi v2.0.2 yang menyembunyikannya di bawah 1280px): tagline "Compressor & Cooling Parts Center" kini tampil responsif mulai viewport ≥360px — HP (8px/tracking rapat), tablet & laptop 1024–1279px (8px), ≥1280px (9px/tracking lebar penuh) — sehingga identitas "ini website apa" selalu terlihat tanpa mengulang bug overflow nav/aksi; wordmark satu kata KOMPRESA, topbar, nav, CTA, dan elemen header lain tidak diubah
 
@@ -101,7 +103,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/prabudanling/bmp/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/prabudanling/bmp/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/prabudanling/bmp/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/prabudanling/bmp/compare/v1.4.0...v2.0.0

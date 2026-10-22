@@ -246,3 +246,32 @@ Changelog Digest:
 - Changed: redesign header penuh (topbar dua zona, nav pil terpusat, CTA emas, sheet mobile diperkaya, nav SPA) + kunci i18n nav.insights
 - Fixed: nav terpotong 1024px & keranjang terpotong mobile; wordmark "KOMPRES A" -> "KOMPRESA"
 - Removed: ikon mail & info kontak dobel di topbar
+
+---
+Task ID: 10
+Version: v2.0.3 (Garuda)
+Level: patch
+Agent: Z.ai Code (main orchestrator)
+Task: Koreksi arah revisi header (user: "jangan dihilangkan tagline dan brandingnya munculkan di header … aku revisi itu saja yang lain jangan") — kembalikan tagline yang disembunyikan v2.0.2, TANPA mengubah elemen header lain.
+
+Work Log:
+- AUDIT KONTEKS: git log menunjukkan Task 9 (v2.0.2) sudah rilis sebelumnya (redesign penuh); user mengklarifikasi maksud revisinya HANYA wordmark KOMPRES+A terpisah — tagline/branding justru harus TETAP tampil (v2.0.2 salah membaca niat dengan menyembunyikan tagline <1280px).
+- BASELINE agent-browser 3 viewport: 1440 (tagline ada), 1024 (tagline HILANG), 390 (tagline HILANG) — regresi identitas merek terkonfirmasi.
+- BrandLogo.tsx: tagline kembali SELALU tampil mulai ≥360px (`hidden min-[360px]:flex`) dengan tangga responsif — HP 8px/tracking-[0.06em] (tanpa dash), sm 9px/0.14em, lg 8px/0.1em (rentang laptop sempit), xl 9px/0.2em (gaya asli penuh); guard min-[360px] mencegah overflow di perangkat ultra-sempit (320px). Wordmark satu kata KOMPRES+A emas, emblem, komentar JSDoc diperbarui.
+- Header.tsx: SATU-satunya sentuhan tambahan — padding pil nav `px-3` → `px-2.5 xl:px-3` (kompensasi 20px agar tagline tidak menabrak CTA di 1024–1279px; terverifikasi tabrakan "Kontak"×CTA di baseline 1024 setelah tagline kembali).
+- VERIFIKASI 9 viewport + interaksi: 360/375/390/640/768/1024/1152/1280/1440 — tagline tampil rapi di SEMUA viewport, nol tabrakan, nol terpotong; scrolled state (header kompak + tagline tetap terlihat), sheet mobile (header teal + tagline dark), footer (lockup lengkap). errors = kosong; dev.log semua 200.
+- BUKTI A/B (git stash): scrollWidth 542/390 IDENTIK sebelum & sesudah perubahan → overflow-x halaman adalah pre-existing dari dekorasi (blob blur hero + marquee logo), BUKAN efek tagline; tidak disentuh sesuai arahan "yang lain jangan".
+- Rilis resmi: CHANGELOG [Unreleased] (Fixed ×1) → commit 0c985cb → bun run release:patch → v2.0.3 (Garuda) — changelog tersegel, package.json/VERSION/src/version.ts sinkron, commit release + tag annotated terpasang.
+
+Stage Summary:
+- Identitas merek kembali utuh di semua layar: emblem + KOMPRESA (satu kata, A emas) + tagline "COMPRESSOR & COOLING PARTS CENTER" — 360px hingga 1440px+, termasuk scrolled state, sheet mobile, dan footer.
+- Prinsip dijaga: HANYA tagline yang dikembalikan + 1 kompensasi padding nav; topbar/nav/CTA/keranjang/search/sheet dari v2.0.2 tidak disentuh sama sekali.
+- Keputusan teknis: guard `min-[360px]` (perangkat <360px sangat jarang; mencegah overflow mutlak); tangga tracking 0.06em→0.1em→0.14em→0.2em menjaga lockup tetap ringkas tanpa mengulang bug overflow v2.0.1/v2.0.2.
+- Artefak: BrandLogo.tsx (tagline responsif), Header.tsx (1 baris padding), CHANGELOG [2.0.3], tag v2.0.3, commit 0c985cb + release commit.
+- Pre-existing tercatat (bukan scope): overflow-x halaman 542/390 dari blob dekoratif & marquee logo (A/B proof), tidak diubah sesuai arahan owner.
+
+Changelog Digest:
+- Added: -
+- Changed: -
+- Fixed: tagline merek kembali tampil responsif di header semua ukuran layar (regresi v2.0.2)
+- Removed: -

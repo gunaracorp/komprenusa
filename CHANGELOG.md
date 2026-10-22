@@ -8,6 +8,8 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+
+## [2.0.2] - 2026-10-22 — Garuda
 ### Fixed
 - **Header meluber di laptop & mobile**: nav ("Katalog kompresor"/"Insight HVAC") terpotong di viewport 1024px dan tombol keranjang terpotong di tepi kanan mobile (390px) — nav dipusatkan dengan sistem breakpoint (`xlOnly` untuk item sekunder), tagline lockup logo kini hanya tampil ≥1280px sehingga nav/aksi tidak pernah tumpang-tindih; wordmark tetap tampil di semua layar (keputusan v1.2.0 dijaga)
 - **Wordmark terbaca "KOMPRES A"**: gap antar-kata 0.22em peninggalan era dua kata "JURAGAN KOMPRESOR" dihapus — KOMPRESA kini terbaca satu kata utuh dengan "A" gradasi emas
@@ -97,7 +99,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.1...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/prabudanling/bmp/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/prabudanling/bmp/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/prabudanling/bmp/compare/v1.4.0...v2.0.0
 [1.4.0]: https://github.com/prabudanling/bmp/compare/v1.3.2...v1.4.0

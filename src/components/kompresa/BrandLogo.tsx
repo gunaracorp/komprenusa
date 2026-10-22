@@ -84,9 +84,11 @@ type BrandLogoProps = {
 };
 
 /**
- * BrandLogo — lockup merek lengkap: emblem + wordmark dua-warna.
- * "KOMPRES" solid (slate-900 / putih) + "NUSA" gradasi emas premium,
- * disertai tagline resmi "Compressor & Cooling Parts Center".
+ * BrandLogo — lockup merek lengkap: emblem + wordmark dua-warna + tagline.
+ * Wordmark SATU KATA: "KOMPRES" solid (slate-900 / putih) + "A" gradasi emas
+ * premium (gap antar-kata dihapus sejak v2.0.2 — brand terbaca "KOMPRESA",
+ * bukan "KOMPRES A"), disertai tagline resmi "Compressor & Cooling Parts Center"
+ * yang tampil responsif di semua ukuran layar ≥360px (v2.0.3).
  */
 export function BrandLogo({ dark = false, className = '', size = 44, uid = 'ka' }: BrandLogoProps) {
   return (
@@ -130,18 +132,20 @@ export function BrandLogo({ dark = false, className = '', size = 44, uid = 'ka' 
             A
           </span>
         </div>
-        {/* Tagline hanya tampil mulai xl (≥1280px) — di bawahnya lockup logo dibuat
-            ringkas agar nav & aksi header tidak pernah tumpang-tindih
-            (bug overflow v2.0.1 di viewport 1024px). Wordmark TETAP tampil di semua layar. */}
-        <div className="mt-1 hidden xl:flex items-center gap-1.5">
+        {/* Tagline SELALU tampil mulai viewport ≥360px (v2.0.3 — arahan owner:
+            "jangan dihilangkan tagline dan brandingnya … biar jelas ini itu website apa").
+            Ukuran & tracking responsif agar lockup tetap ringkas sehingga nav & aksi
+            header tidak kembali meluber (bug overflow v2.0.1 @1024px / v2.0.2 @<1280px).
+            Wordmark TETAP tampil di semua layar, emblem tidak diubah. */}
+        <div className="mt-1 hidden min-[360px]:flex items-center gap-1.5 min-w-0">
           <span
-            className={`h-[2px] w-4 rounded-full bg-gradient-to-r ${
+            className={`hidden sm:block h-[2px] w-4 shrink-0 rounded-full bg-gradient-to-r ${
               dark ? 'from-amber-300 to-amber-300/0' : 'from-amber-400 to-amber-400/0'
             }`}
             aria-hidden="true"
           />
           <span
-            className={`text-[9px] font-bold tracking-[0.2em] uppercase ${
+            className={`text-[8px] font-bold uppercase tracking-[0.06em] sm:text-[9px] sm:tracking-[0.14em] lg:text-[8px] lg:tracking-[0.1em] xl:text-[9px] xl:tracking-[0.2em] whitespace-nowrap ${
               dark ? 'text-teal-200/90' : 'text-teal-700/90'
             }`}
           >

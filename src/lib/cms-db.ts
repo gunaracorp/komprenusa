@@ -709,7 +709,7 @@ export async function getCatalogPageData() {
 
 export async function getAdminSettings() {
   const [siteTitle, siteDescription] = await Promise.all([getCmsSetting('site_title'), getCmsSetting('site_description')]);
-  return { siteTitle: siteTitle ?? 'Kompresa', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.' };
+  return { siteTitle: siteTitle ?? 'Jual Kompresor AC & Spare Part Pendingin | KOMPRESA', siteDescription: siteDescription ?? 'Distributor HVAC resmi sejak 2008 di Kawasan MM2100 Bekasi.' };
 }
 
 export async function getArticleTotalCount() {

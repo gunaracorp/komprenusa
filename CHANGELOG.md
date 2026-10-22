@@ -9,6 +9,11 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-10-22 — Garuda
+### Added
+- **README tier-max + banner merek**: dokumentasi lengkap proyek (kilas singkat, evolusi merek BMP→Juragan Kompresor→KOMPRESA, arsitektur Mermaid, peta kode & route, quickstart + gotcha PGlite, sistem desain & pola anti-hydration, pipeline logo 5 sumber, SEO 5 lapis, versioning & codename, riwayat rilis, keamanan, roadmap) + `docs/assets/banner.svg` (banner identitas 1200×340, replika geometri emblem resmi)
+- Temuan audit README: nama file ZIP perpustakaan logo masih memakai nama era sebelumnya — dicatat sebagai pengecualian terdokumentasi + item roadmap
+
 ## [2.0.0] - 2026-10-22 — Garuda
 ### Changed
 - **REBRAND TOTAL v2 — KOMPRESNUSA → KOMPRESA**: identitas resmi baru "KOMPRESA — THE COMPRESSOR & COOLING PARTS CENTER", deskripsi "Pusat Kompresor AC dan Spare Part Pendingin Indonesia"
@@ -86,7 +91,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/prabudanling/bmp/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/prabudanling/bmp/compare/v1.4.0...v2.0.0
 [1.4.0]: https://github.com/prabudanling/bmp/compare/v1.3.2...v1.4.0
 [1.3.2]: https://github.com/prabudanling/bmp/compare/v1.3.1...v1.3.2

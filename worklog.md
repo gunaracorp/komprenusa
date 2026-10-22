@@ -188,3 +188,32 @@ Work Log:
 Stage Summary:
 - KOMPRESA hidup penuh: identitas, wordmark, tagline, SEO, JSON-LD, DB — nol jejak merek lama di antarmuka aktif.
 - Pengecualian terdokumentasi: (1) domain kanonis juragankompresor.com menunggu domain resmi pemilik; (2) watermark internal jk-product-catalog-v1 (kunci teknis DB, bukan teks publik); (3) badge "JK" tertanam di 500 gambar produk (butuh regenerasi sharp ~512 file); (4) CHANGELOG/worklog historis dipertahankan sebagai riwayat.
+
+---
+Task ID: 8
+Version: v2.0.1 (Garuda)
+Level: patch
+Agent: Z.ai Code (main orchestrator)
+Task: Update worklog + buat README terbaik yang pernah ada (permintaan user: "readme full design god mode tier max") — dokumentasi penuh proyek + banner merek.
+
+Work Log:
+- Inventarisasi data faktual proyek sebelum menulis: package.json (kompresa 2.0.0), VERSION, CHANGELOG (8 rilis tersegel), docs/VERSIONING.md, worklog Task 1-7, BrandLogo.tsx (geometri emblem resmi), src/app + src/components + scripts (struktur nyata), i18n.ts (184 kunci dwibahasa dihitung via grep), public/logos (42 PNG + manifest.json + ZIP terhitung langsung), stores (ka-lang + migrasi jk-lang; kompresa-cart), db.ts (Prisma Client di atas PGlite).
+- Buat docs/assets/banner.svg (1200x340): replika PERSIS geometri LogoMark resmi (gradien emblem #042f2e→#0f766e→#14b8a6, cincin emas r206 sw8, salju 6 lengan via <use> rotate, hub emas r36+r15) + wordmark KOMPRES (putih) + A (gradasi emas) + tagline EN/ID resmi + 5 chip (v2.0.0 · GARUDA, NEXT.JS 16, REACT 19, TAILWIND 4, SEJAK 2008) + grid teal halus + salju dekoratif + bar gradien emas→teal.
+- Tulis README.md (~470 baris, Bahasa Indonesia) dengan 16 seksi ber-anchor eksplisit: banner + 10 badge shields.io (for-the-badge) + quick links; Kilas Singkat (3-baris quickstart); Evolusi Merek (mermaid timeline BMP→Juragan Kompresor→KOMPRESNUSA→KOMPRESA + tabel era/artefak); Fitur Unggulan (9 fitur); Proyek dalam Angka (8 statistik + data resmi 2008/7.439/38); Arsitektur Sistem (mermaid flowchart klien-server-data); Peta Kode (tree + tabel 9 route); Menjalankan Proyek (4 langkah + env + gotcha PGlite 2 titik: folder runtime + node-vs-bun); Perintah CLI (12); Admin CMS (6 modul); Sistem Desain (palet + aturan wordmark + pola anti-hydration uid statis); i18n (184 kunci + migrasi otomatis); Perpustakaan Logo (pipeline 5 sumber + keputusan 13 exclude + artefak); SEO 5 Lapis; Versioning & Codename (mermaid alur rilis + rantai single-source-of-truth + pool MINOR 24/MAJOR 6); Riwayat Rilis (9 baris + link compare GitHub); Keamanan & Pengecualian (5 pengecualian terdokumentasi); Roadmap (7 item); Kontribusi (tabel conventional commits); Lisensi proprietary.
+- Jujur-akurat: SEMUA angka diverifikasi langsung dari file (bukan karangan); kredensial TIDAK ditulis di README (hanya referensi .env); domain kanonis juragankompresor.com dijelaskan sebagai pengecualian SEO.
+- TEMUAN AUDIT BARU (dilaporkan apa adanya): nama file public/logos/juragan-kompresor-logo-library.zip masih memakai nama era sebelumnya — lolos dari audit v2.0.0 (fokus audit saat itu pada kode/DB/teks, bukan nama aset). Dicatat sebagai Pengecualian #5 di README + item roadmap; TIDAK di-rename sekarang demi kompatibilitas tautan galeri (keputusan konservatif, butuh keputusan owner).
+- Siklus rilis resmi: isi CHANGELOG [Unreleased] (Added x2) → commit docs 32b1fe9 → bun run release:patch → v2.0.1 (Garuda) — changelog tersegel, package.json 2.0.1, VERSION, src/version.ts regen, commit 4f7d440 + tag annotated v2.0.1.
+- Verifikasi: lint, dev.log (route 200), tag v2.0.1 terpasang, rantai 4 file versi tersinkron.
+
+Stage Summary:
+- README.md god-mode hidup di root repositori: 16 seksi, 2 diagram Mermaid + 1 timeline, 10 badge, tabel-tabel data terverifikasi 100% faktual — siap memukau siapa pun yang membuka repo prabudanling/bmp.
+- Banner docs/assets/banner.svg merek KOMPRESA konsisten piksel-demi-piksel dengan LogoMark situs.
+- v2.0.1 (Garuda) rilis via alur resmi — sistem versioning kembali terbukti disiplin (9 tag total).
+- Temuan baru terdokumentasi: ZIP nama era lama (Pengecualian #5, roadmap).
+- Keputusan: README memakai Bahasa Indonesia penuh (sesuai audiens proyek) dengan istilah teknis Inggris standar; badge versi README menyertakan v2.0.1 agar konsisten dengan tag.
+
+Changelog Digest:
+- Added: README tier-max (16 seksi) + banner merek docs/assets/banner.svg + temuan audit ZIP terdokumentasi
+- Changed: -
+- Fixed: -
+- Removed: -

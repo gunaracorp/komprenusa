@@ -165,3 +165,26 @@ Changelog Digest:
 - Changed: -
 - Fixed: statistik WhyChooseUs (18+/7.439+/38)
 - Removed: -
+
+---
+Task ID: 7
+Version: v2.0.0 (Garuda)
+Level: major
+Agent: Z.ai Code (main orchestrator)
+Task: Rebrand total KOMPRESNUSA → KOMPRESA (user pivot saat proses) + zero-leftover audit + SEO foundation.
+
+Work Log:
+- Audit awal: 99 titik "juragan" di src/ + aset publik + prisma seed + scripts + docs; DB 125 baris.
+- Rebrand case-aware 2 gelombang (KompresNusa lalu pivot KOMPRESA): 47+47 file; proteksi domain kanonis www.juragankompresor.com (10 titik — DIPERTAHANKAN sesuai aturan keamanan SEO, dicatat sebagai pengecualian teknis).
+- Folder src/components/juragankompresor → kompresnusa → kompresa (git mv + import).
+- BrandLogo: wordmark dua-warna KOMPRES (solid) + A (gradasi emas), tagline resmi "Compressor & Cooling Parts Center"; uid default jk→kn→ka; id SVG ka-bg/ka-glow/ka-spoke (anti-hydration uid statis dipertahankan).
+- Storage: jk-lang→kn-lang→ka-lang (dengan migrasi onRehydrateStorage), juragan-cart→kompresa-cart.
+- Email admin → admin@kompresa.com (.env + auth.ts + auth-actions.ts fallback).
+- DB PGlite via node: products.description 106, products.brand 12, testimonials.content 7 → Kompresa (kasus campuran "Juragan kompresor" tertangani terpisah); site_settings ternyata kosong (fallback kode yang aktif).
+- SEO: layout title template "%s | KOMPRESA", description positioning resmi; fallback title homepage + cms-db.ts (2 titik) → "Jual Kompresor AC & Spare Part Pendingin | KOMPRESA"; JSON-LD Organization (PT Kompresa~Kompresa) + WebSite (KOMPRESA~Kompresa); sitemap/robots/canonical utuh dengan domain kanonis.
+- VERIFIKASI: audit rg final = NOL sisa (di luar domain kanonis + CHANGELOG/worklog historis yang sengaja dipertahankan sebagai riwayat); lint 0 error; dev.log 200; title & JSON-LD terverifikasi via curl; screenshot desktop+mobile; nol console error.
+- Rilis: commit rebrand + release:major → v2.0.0 (Garuda), tag terpasang.
+
+Stage Summary:
+- KOMPRESA hidup penuh: identitas, wordmark, tagline, SEO, JSON-LD, DB — nol jejak merek lama di antarmuka aktif.
+- Pengecualian terdokumentasi: (1) domain kanonis juragankompresor.com menunggu domain resmi pemilik; (2) watermark internal jk-product-catalog-v1 (kunci teknis DB, bukan teks publik); (3) badge "JK" tertanam di 500 gambar produk (butuh regenerasi sharp ~512 file); (4) CHANGELOG/worklog historis dipertahankan sebagai riwayat.

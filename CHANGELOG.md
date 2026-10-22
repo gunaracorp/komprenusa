@@ -8,6 +8,8 @@ tanggal memakai zona **Asia/Bangkok (UTC+7)**.
 Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 
 ## [Unreleased]
+
+## [2.0.0] - 2026-10-22 — Garuda
 ### Changed
 - **REBRAND TOTAL v2 — KOMPRESNUSA → KOMPRESA**: identitas resmi baru "KOMPRESA — THE COMPRESSOR & COOLING PARTS CENTER", deskripsi "Pusat Kompresor AC dan Spare Part Pendingin Indonesia"
 - 47 file kode/publik + database PGlite (125 baris: 106 deskripsi produk, 12 brand, 7 testimoni) dimigrasi case-aware; domain kanonis www.juragankompresor.com DIPERTAHANKAN (aturan keamanan SEO — pengecualian terdokumentasi)
@@ -16,8 +18,6 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - SEO: title homepage "Jual Kompresor AC & Spare Part Pendingin | KOMPRESA", description sesuai positioning, JSON-LD WebSite name KOMPRESA + alternateName Kompresa, Organization/Kompresa konsisten
 ### Security
 - Kredensial admin diperbarui (lihat .env) — email lama dinonaktifkan
-
-
 
 ## [1.4.0] - 2026-10-22 — Aurora
 ### Added
@@ -86,7 +86,8 @@ Kebijakan lengkap: [`docs/VERSIONING.md`](docs/VERSIONING.md).
 - Situs dwi-bahasa Indonesia/English (zustand persist)
 - Keranjang belanja + drawer + toast, CMS admin (620 produk terkelola)
 
-[Unreleased]: https://github.com/prabudanling/bmp/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/prabudanling/bmp/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/prabudanling/bmp/compare/v1.4.0...v2.0.0
 [1.4.0]: https://github.com/prabudanling/bmp/compare/v1.3.2...v1.4.0
 [1.3.2]: https://github.com/prabudanling/bmp/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/prabudanling/bmp/compare/v1.3.0...v1.3.1
